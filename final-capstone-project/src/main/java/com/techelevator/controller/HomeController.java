@@ -20,6 +20,7 @@ public class HomeController {
 	
 	@RequestMapping("/landing")
 	public String goToLandingPage(HttpServletRequest request) {
+		// Get and display the first example of the database on the landing page
 	return "landing";
 	}
 }
