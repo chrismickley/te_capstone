@@ -29,7 +29,6 @@ public class JDBCCodeSnippetDAO implements CodeSnippetDAO {
 			CodeSnippet theSnippet = mapRowToSnippet(results);
 			snippets.add(theSnippet);
 		}
-		System.out.println(snippets);
 		return snippets;
 	}
 
