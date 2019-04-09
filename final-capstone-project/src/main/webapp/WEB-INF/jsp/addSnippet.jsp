@@ -15,10 +15,13 @@
 <form action="submitCode" method="POST">
 <ul>
 <li><label for="codeName">Name of Code Snippet:</label><input type="text" name="codeName" /></li>
-<li><label for="codeSnippet">Enter code snippet below:</label><input type="text" name="codeDetails" /></li>
+<li><label for="tag">Enter Key Words:</label><input type="text" name="tag" /></li>
+<li><label for="codeSnippet">Enter code snippet below:</label><input type="text" name="codeSnippet" /></li>
 <li><label for="codeDescription">Enter a description for the supplied code:</label><input type="text" name="codeDescription" /></li>
 <li><label for="codeLanguage">Enter the code language:</label><input type="text" name="codeLanguage" /></li>
-<li>
+<li><label for="publicView">Make Public? </label><input type="checkbox" name="publicView" value = "true" /></li>
+
+<br>
 <li><label for="submitForm">Submit </label>
  <input type="submit" value="next" /></li>
  </ul>
