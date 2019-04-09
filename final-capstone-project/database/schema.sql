@@ -6,9 +6,11 @@ BEGIN;
 
 -- CREATE statements go here
 DROP TABLE IF EXISTS app_user;
-DROP TABLE IF EXISTS example;
+DROP TABLE IF EXISTS code;
+DROP TABLE IF EXISTS tag;
 
-CREATE TABLE app_user (
+CREATE TABLE app_user
+(
   id SERIAL PRIMARY KEY,
   user_name varchar(32) NOT NULL UNIQUE,
   password varchar(32) NOT NULL,
@@ -16,15 +18,30 @@ CREATE TABLE app_user (
   salt varchar(255) NOT NULL
 );
 
-create table example
+create table code
 (
-        example_id serial,
-        example_name varchar(200),
-        example_snippet varchar(2000),
-        example_description varchar(1000),
-        example_language varchar (50),
+        code_id serial PRIMARY KEY,
+        code_name varchar(200),
+        code_snippet varchar(2000),
+        code_description varchar(1000),
+        code_language varchar (50),
         public_view boolean,
         approved boolean
+);
+
+CREATE TABLE tag
+(
+        code_snippet_tag_id SERIAL PRIMARY KEY, 
+        code_snippet_tag  VARCHAR(20)
+);
+
+CREATE TABLE code_tag
+(
+        code_id INT,
+        code_snippet_tag_id INT,
+        
+        CONSTRAINT fk_code_id FOREIGN KEY (code_id) REFERENCES code(code_id),
+        CONSTRAINT fk_tag_id FOREIGN KEY (code_snippet_tag_id) REFERENCES tag(code_snippet_tag_id)
 );
 
 COMMIT;
