@@ -5,8 +5,8 @@
 
 
 <c:import url="/WEB-INF/jsp/common/header.jsp" />
-<c:url value="/landing" var="landingPage" />
-<form:form action="${registrationUrl}" method="POST" modelAttribute="registration">
+<c:url value="/addSnippet" var="landingPage" />
+<form:form action="${landingPage}" method="POST" modelAttribute="registration">
 <title>Code Submission Page</title>
 
 

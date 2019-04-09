@@ -16,14 +16,13 @@ public class CodeController {
 @Autowired
 CodeSnippetDAO codeSnippetDao;
 
-	@RequestMapping(path="/submitCode", method=RequestMethod.GET)
+	@RequestMapping(path="/addSnippet", method=RequestMethod.GET)
 	public String displayCodeSubmissionForm(HttpServletRequest request) {
-		return "submitCode";
-		
+		return "addSnippet";
 	}
 	
-	@RequestMapping(path="/submitCode", method=RequestMethod.POST)
-	public String submitCodeSubmissionForm(HttpServletRequest request) {
+	@RequestMapping(path="/addSnippet", method=RequestMethod.POST)
+	public String submitAddSnippetForm(HttpServletRequest request) {
 		String name = request.getParameter("codeName");
 		String description = request.getParameter("codeDescription");
 		String code = request.getParameter("codeSnippet");	
