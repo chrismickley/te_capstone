@@ -30,7 +30,7 @@ public class JDBCCodeSnippetDAOTest extends DAOIntegrationTest {
 			
 			jdbcTemplate.execute(
 					"INSERT INTO example(name, description, code, language, publicView, approved) VALUES ('TEST Name','This is a test description','for(i=0; i<20; i++)', 'java', 'true', 'false')");
-			SqlRowSet result = jdbcTemplate.queryForRowSet("SELECT * FROM example WHERE id=1");
+			SqlRowSet result = jdbcTemplate.queryForRowSet("SELECT * FROM example WHERE id=100");
 			result.next();
 			assertEquals(result.getString("name"), "TEST Name");
 		}
