@@ -45,4 +45,10 @@ public class JDBCCodeSnippetDAO implements CodeSnippetDAO {
 		return theCodeSnippet;
 	}
 
+	@Override
+	public void addCodeSnippet(CodeSnippet codeSnippet) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }
