@@ -20,7 +20,7 @@ public class HomeController {
 	
 	@RequestMapping("/landing")
 	public String goToLandingPage(HttpServletRequest request) {
-		// Get and display the first example of the database on the landing page
+		// Go to landing page, landing page will provide a button to search, button to add snippet, button to (admin) edit snippets, and a language dropdown.
 	return "landing";
 	}
 }

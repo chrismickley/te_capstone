@@ -1,7 +1,8 @@
 package com.techelevator.model;
 
+import java.util.List;
+
 public interface CodeSnippetDAO {
 	
-	public CodeSnippet getCodeSnippetById(int id);
-
+	public List<CodeSnippet> getAllCodeSnippets();
 }
