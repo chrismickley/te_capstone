@@ -23,7 +23,7 @@ public class JDBCCodeSnippetDAO implements CodeSnippetDAO {
 	@Override
 	public List<CodeSnippet> getAllCodeSnippets() {
 		List<CodeSnippet> snippets = new ArrayList<>();
-		String sqlGetCodeSnippet = "SELECT * FROM example";
+		String sqlGetCodeSnippet = "SELECT * FROM code";
 		SqlRowSet results = jdbcTemplate.queryForRowSet(sqlGetCodeSnippet);
 		while (results.next()) {
 			CodeSnippet theSnippet = mapRowToSnippet(results);
@@ -32,16 +32,22 @@ public class JDBCCodeSnippetDAO implements CodeSnippetDAO {
 		return snippets;
 	}
 
+	@Override
+	public void addCodeSnippet(CodeSnippet codeSnippet) {
+		String sqlInsertCode = "INSERT INTO reviews(code_name, code_snippet, code_description, code_language, public_view, approved) VALUES (?,?,?,?,?,?)";
+		jdbcTemplate.update(sqlInsertCode, codeSnippet.getName(), codeSnippet.getCode(), codeSnippet.getDescription(), codeSnippet.getLanguage(), codeSnippet.isPublicView(), codeSnippet.isApproved());
+	}
+
 	private CodeSnippet mapRowToSnippet(SqlRowSet results) {
 		CodeSnippet theCodeSnippet;
 		theCodeSnippet = new CodeSnippet();
-		theCodeSnippet.setName(results.getString("example_name"));
-		theCodeSnippet.setDescription(results.getString("example_description"));
-		theCodeSnippet.setCode(results.getString("example_snippet"));
-		theCodeSnippet.setLanguage(results.getString("example_language"));
+		theCodeSnippet.setName(results.getString("code_name"));
+		theCodeSnippet.setDescription(results.getString("code_description"));
+		theCodeSnippet.setCode(results.getString("code_snippet"));
+		theCodeSnippet.setLanguage(results.getString("code_language"));
 		theCodeSnippet.setPublicView(results.getBoolean("public_view"));
 		theCodeSnippet.setApproved(results.getBoolean("approved"));
-		theCodeSnippet.setId(results.getInt("example_id"));
+		theCodeSnippet.setId(results.getInt("code_id"));
 		return theCodeSnippet;
 	}
 
