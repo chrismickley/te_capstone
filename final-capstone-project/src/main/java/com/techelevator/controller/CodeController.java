@@ -21,6 +21,7 @@ CodeSnippetDAO codeSnippetDao;
 		return "addSnippet";
 	}
 	
+	// Add/implement the "addTag" method below.
 	@RequestMapping(path="/addSnippet", method=RequestMethod.POST)
 	public String submitAddSnippetForm(HttpServletRequest request) {
 		String name = request.getParameter("codeName");
