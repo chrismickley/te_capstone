@@ -32,6 +32,12 @@ public class JDBCCodeSnippetDAO implements CodeSnippetDAO {
 		return snippets;
 	}
 
+	@Override
+	public void addCodeSnippet(CodeSnippet codeSnippet) {
+		String sqlInsertCode = "INSERT INTO reviews(code_name, code_snippet, code_description, code_language, public_view, approved) VALUES (?,?,?,?,?,?)";
+		jdbcTemplate.update(sqlInsertCode, codeSnippet.getName(), codeSnippet.getCode(), codeSnippet.getDescription(), codeSnippet.getLanguage(), codeSnippet.isPublicView(), codeSnippet.isApproved());
+	}
+
 	private CodeSnippet mapRowToSnippet(SqlRowSet results) {
 		CodeSnippet theCodeSnippet;
 		theCodeSnippet = new CodeSnippet();
