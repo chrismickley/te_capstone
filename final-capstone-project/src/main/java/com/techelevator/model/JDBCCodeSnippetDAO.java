@@ -14,6 +14,8 @@ import org.springframework.jdbc.support.rowset.SqlRowSet;
 public class JDBCCodeSnippetDAO implements CodeSnippetDAO {
 
 	private JdbcTemplate jdbcTemplate;
+	
+	private TagDAO tagDAO;
 
 	@Autowired
 	public JDBCCodeSnippetDAO(DataSource dataSource) {

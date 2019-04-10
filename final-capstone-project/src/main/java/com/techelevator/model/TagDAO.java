@@ -4,7 +4,7 @@ import java.util.List;
 
 public interface TagDAO {
 	
-	public void addTag(Tag tag);
+	public void addTag(String tag);
 	public Tag getTagById();
 	public int getIdByTag(String tag);
 	public List<String> getAllTags();

@@ -16,6 +16,7 @@ public class TagController {
 	@RequestMapping("/getTheTagId")
 	public String getTheTagId(HttpServletRequest request) {
 		request.setAttribute("tagIdFromController", tagDAO.getIdByTag("Devo"));
+		tagDAO.addTag("Orange");
 		return "tagIdPage";
 	}
 }

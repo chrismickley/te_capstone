@@ -11,8 +11,8 @@ import org.springframework.jdbc.support.rowset.SqlRowSet;
 import org.springframework.stereotype.Component;
 
 @Component
-public class JDBCTagDAO implements TagDAO{
-	
+public class JDBCTagDAO implements TagDAO {
+
 	private JdbcTemplate jdbcTemplate;
 
 	@Autowired
@@ -20,11 +20,18 @@ public class JDBCTagDAO implements TagDAO{
 		this.jdbcTemplate = new JdbcTemplate(dataSource);
 	}
 
-	// Adds a tag to the database.
+	// Adds a tag--if it does not exist--to the database.
 	@Override
-	public void addTag(Tag tag) {
+	public void addTag(String tag) {
+		if (!tagExists(tag)) {
+			String sqlInsertTag = "INSERT INTO tag(code_snippet_tag) VALUES (?)";
+			jdbcTemplate.update(sqlInsertTag, tag);
+			System.out.println("Tag has been added");
+		} else {
+			System.out.println("Tag already exists");
+		}
 	}
-	
+
 	// Returns "true" if tag already exists in database.
 	@Override
 	public boolean tagExists(String tag) {
@@ -34,13 +41,13 @@ public class JDBCTagDAO implements TagDAO{
 		}
 		return false;
 	}
-	
+
 	// Returns a list of tags which exist in database.
 	@Override
 	public List<String> getAllTags() {
-		List<String> allTags =  new ArrayList<>();
+		List<String> allTags = new ArrayList<>();
 		String sqlGetAllTags = "SELECT code_snippet_tag FROM tag";
-		SqlRowSet results = jdbcTemplate.queryForRowSet(sqlGetAllTags);		
+		SqlRowSet results = jdbcTemplate.queryForRowSet(sqlGetAllTags);
 		while (results.next()) {
 			allTags.add(results.getString("code_snippet_tag"));
 		}
@@ -58,7 +65,7 @@ public class JDBCTagDAO implements TagDAO{
 		}
 		return id;
 	}
-	
+
 	@Override
 	public Tag getTagById() {
 		return null;
