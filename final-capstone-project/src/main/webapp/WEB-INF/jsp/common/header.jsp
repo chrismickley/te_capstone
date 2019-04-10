@@ -18,6 +18,7 @@
 			<li><a href="home">Home Page</a></li>
 			<li><a href="register">Registration Page</a></li>
 			<li><a href="landing">Landing Page</a></li>
+			<li><a href="addSnippet">Add Snippet</a></li>
 			<li><a href="getTheTagId">id</a></li> <!-- Need to remove this line after code works -->
 		</ul>
 

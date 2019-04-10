@@ -6,18 +6,18 @@ body {
 }
 
 header {
-	background-color: #0099CC;
+	background-color:  #17202a;
 	color: white;
 	padding: 10px 10px;
-	border-radius: 7px;
+
 }
 
 nav {
-	background-color: #8DC63F;
-	margin-bottom: 20px;
+	background-color:  #ccd1d1;
+	margin-bottom: 30px;
 	padding: 5px;
-	height: 50px;
-	border-radius: 7px;
+	height: 20px;
+
 }
 
 nav ul {
@@ -28,8 +28,8 @@ nav li {
 	list-style-type: none;
 	color: white;
 	margin-left: 25px;
-	margin-bottom: 10px;
-	font-size: 1.3em;
+	margin-bottom: 30px;
+	font-size: .8em;
 	float: left;
 }
 
@@ -49,4 +49,15 @@ section {
 	min-height: 450px;
 	background-color: #FFF;
 	border-radius: 7px;
+}
+
+#tableheaders {
+    text-align: left;
+    font-weight: bold;
+}
+#tabledata {
+    text-align: left;
+}
+#tableproperties {
+    width: 90%;
 }
