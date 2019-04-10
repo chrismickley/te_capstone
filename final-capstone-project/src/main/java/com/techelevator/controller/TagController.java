@@ -17,9 +17,12 @@ public class TagController {
 
 	@RequestMapping("/getTheTagId")
 	public String getTheTagId(HttpServletRequest request) {
-		System.out.println("Change to the tag id");
-		// Need to create method to put actual tag ids in place of "Tag ID for provided tag"
-		request.setAttribute("tagIdFromController", "resultant tag id"); // tagDAO.getIdByTag()
+		System.out.println("method getTheTagId, called in controller, is started");
+		System.out.println("Tag ID is: " + tagDAO.getIdByTag());
+
+		request.setAttribute("tagIdFromController", "Pseudo return of getIdByTag"); // tagDAO.getIdByTag()
+		
+		System.out.println("method getTheTagId, called in controller, is ending");
 		return "tagIdPage";
 	}
 

@@ -5,7 +5,7 @@ import java.util.List;
 public interface TagDAO {
 	
 	public void addTag(Tag tag);
-	public Tag getTagById(int tagId);
+	public Tag getTagById();
 	public int getIdByTag();
 	
 }

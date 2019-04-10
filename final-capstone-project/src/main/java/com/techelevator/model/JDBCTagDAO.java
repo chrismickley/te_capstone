@@ -19,29 +19,34 @@ public class JDBCTagDAO implements TagDAO{
 	}
 
 	@Override
-	public Tag getTagById(int tagId) {
-				
-		return null;
-	}
-
-	@Override
 	public int getIdByTag() {
-//		// Need a handle here in case user puts in non-existent tag
-//		String sqlGetTag = "SELECT code_snippet_tag_id FROM tag WHERE code_snippet_tag = 'Devo'";
-//		SqlRowSet results = jdbcTemplate.queryForRowSet(sqlGetTag);
+		
+		// Need a handle here in case user puts in non-existent tag
+		int id;
+		// The below SQL statement is working as expected
+		String sqlGetTagId = "SELECT code_snippet_tag_id FROM tag WHERE code_snippet_tag = 'Devo'";
+		// The below query result is causing null pointer exception.
+//		SqlRowSet results = jdbcTemplate.queryForRowSet(sqlGetTagId);
 //		while (results.next()) {
-//			Tag theTag = mapRowToTag(results);
-//			tags.add(theTag);
+//			Tag theTagId = mapRowToTagId(results);
+//			tagIds.add(theTagId);
 //		}
-//		System.out.println ("method in JDBC");
-		return 5;
+		id = 5;
+		System.out.println ("getIdByTag method in JDBC is completing");
+		return id;
 	}
 	
-	private Tag mapRowToTag(SqlRowSet results) {
+	private Tag mapRowToTagId(SqlRowSet results) {
 		Tag theTag;
 		theTag = new Tag();
 		theTag.setTagId(results.getInt("code_snippet_tag_id"));
 		return theTag;
+	}
+
+	@Override
+	public Tag getTagById() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }
