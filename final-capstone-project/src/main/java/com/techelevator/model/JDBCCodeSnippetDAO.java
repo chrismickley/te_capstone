@@ -41,6 +41,7 @@ public class JDBCCodeSnippetDAO implements CodeSnippetDAO {
 		String sqlInsertTag = "INSERT INTO tag(code_snippet_tag) VALUES (?)";
 		jdbcTemplate.update(sqlInsertCode, codeSnippet.getName(), codeSnippet.getCode(), codeSnippet.getDescription(), codeSnippet.getLanguage(), codeSnippet.isPublicView(), codeSnippet.isApproved());
 		jdbcTemplate.update(sqlInsertTag, tag.getTag());
+		// Need to return the snippet id?
 	}
 
 	private CodeSnippet mapRowToSnippet(SqlRowSet results) {
@@ -54,6 +55,12 @@ public class JDBCCodeSnippetDAO implements CodeSnippetDAO {
 		theCodeSnippet.setApproved(results.getBoolean("approved"));
 		theCodeSnippet.setId(results.getInt("code_id"));
 		return theCodeSnippet;
+	}
+
+	@Override
+	public int getIdBySnippetName() {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 
 
