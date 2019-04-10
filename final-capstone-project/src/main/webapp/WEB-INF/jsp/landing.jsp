@@ -15,6 +15,7 @@
 			<td><c:out value="${ snippet.name }"></c:out></td>
 			<td><c:out value="${ snippet.code }"></c:out></td>
 			<td><c:out value="${ snippet.description }"></c:out></td>
+			<td><c:out value="${ snippet.id }"></c:out></td>
 			</tr>
 		</c:forEach>
 	</table>

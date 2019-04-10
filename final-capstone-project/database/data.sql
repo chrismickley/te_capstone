@@ -15,4 +15,6 @@ INSERT INTO code_tag (code_id, code_snippet_tag_id) VALUES ('1', '1');
 INSERT INTO code_tag (code_id, code_snippet_tag_id) VALUES ('1', '2');
 INSERT INTO code_tag (code_id, code_snippet_tag_id) VALUES ('2', '2');
 
+INSERT INTO tag (code_snippet_tag) VALUES ('Devo');
+
 COMMIT;
