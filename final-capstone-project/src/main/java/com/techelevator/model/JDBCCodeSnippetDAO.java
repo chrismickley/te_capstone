@@ -14,6 +14,8 @@ import org.springframework.jdbc.support.rowset.SqlRowSet;
 public class JDBCCodeSnippetDAO implements CodeSnippetDAO {
 
 	private JdbcTemplate jdbcTemplate;
+	
+	private TagDAO tagDAO;
 
 	@Autowired
 	public JDBCCodeSnippetDAO(DataSource dataSource) {
@@ -32,21 +34,14 @@ public class JDBCCodeSnippetDAO implements CodeSnippetDAO {
 		return snippets;
 	}
 	
-	
-	
-	
-	
-	
-	
-	
-	
-
+	// Adds a codesnippet and the associated tag to the database.
 	@Override
 	public void addCodeSnippet(CodeSnippet codeSnippet, Tag tag) {
 		String sqlInsertCode = "INSERT INTO code(code_name, code_snippet, code_description, code_language, public_view, approved) VALUES (?,?,?,?,?,?)";
 		String sqlInsertTag = "INSERT INTO tag(code_snippet_tag) VALUES (?)";
 		jdbcTemplate.update(sqlInsertCode, codeSnippet.getName(), codeSnippet.getCode(), codeSnippet.getDescription(), codeSnippet.getLanguage(), codeSnippet.isPublicView(), codeSnippet.isApproved());
 		jdbcTemplate.update(sqlInsertTag, tag.getTag());
+		// Need to return the snippet id?
 	}
 
 	private CodeSnippet mapRowToSnippet(SqlRowSet results) {
@@ -60,6 +55,12 @@ public class JDBCCodeSnippetDAO implements CodeSnippetDAO {
 		theCodeSnippet.setApproved(results.getBoolean("approved"));
 		theCodeSnippet.setId(results.getInt("code_id"));
 		return theCodeSnippet;
+	}
+
+	@Override
+	public int getIdBySnippetName() {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 
 
