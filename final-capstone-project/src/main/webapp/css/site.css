@@ -66,6 +66,23 @@ section {
 #tableproperties {
     width: 90%;
 }
+#inputlabel {
+    list-style-type: none;
+    text-align: right;
+}
+
 #inputbox {
+    list-style-type: none;
+    text-align: left;
+
+}
+#inputbutton {
+    grid-column: span 2;
+
+}
+.addSnippet-form-items {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    column-gap: 0px;
 
 }
