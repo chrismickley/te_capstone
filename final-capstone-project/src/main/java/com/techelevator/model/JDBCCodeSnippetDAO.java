@@ -32,15 +32,7 @@ public class JDBCCodeSnippetDAO implements CodeSnippetDAO {
 		return snippets;
 	}
 	
-	
-	
-	
-	
-	
-	
-	
-	
-
+	// Adds a codesnippet and the associated tag to the database.
 	@Override
 	public void addCodeSnippet(CodeSnippet codeSnippet, Tag tag) {
 		String sqlInsertCode = "INSERT INTO code(code_name, code_snippet, code_description, code_language, public_view, approved) VALUES (?,?,?,?,?,?)";
