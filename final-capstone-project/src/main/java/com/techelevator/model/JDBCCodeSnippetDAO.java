@@ -25,6 +25,7 @@ public class JDBCCodeSnippetDAO implements CodeSnippetDAO {
 		this.jdbcTemplate = new JdbcTemplate(dataSource);
 	}
 	
+	// Returns list of CodeSnippet associated with a given tag.
 	public List<CodeSnippet> getAllCodeSnippetsByTag(String tag) {
 		List<CodeSnippet> snippetsByTag = new ArrayList<>();
 		String sqlGetAllCodeSnippetsByTag = "SELECT * " + 
