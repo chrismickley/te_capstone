@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import com.techelevator.model.CodeSnippet;
 import com.techelevator.model.CodeSnippetDAO;
 import com.techelevator.model.Tag;
-import com.techelevator.model.TagDAO;
 
 @Controller
 public class CodeController {
