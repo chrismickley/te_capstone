@@ -48,4 +48,13 @@ public class CodeController {
 		return "redirect:landing";
 
 	}
+	
+	@RequestMapping("/searchForTag")
+	public String goToLandingPage(HttpServletRequest request) {
+		String searchTerm = request.getParameter("searchTerm");
+//		request.setAttribute("snippets", codeSnippetDao.getAllCodeSnippets());
+		request.setAttribute("snippets", codeSnippetDao.getAllCodeSnippetsByTag(searchTerm));
+		
+	return "landing";
+	}
 }

@@ -94,3 +94,11 @@ section {
     column-gap: 0px;
 
 }
+
+#searchlabel{
+	list-style-type: none;	
+}
+
+#searchbox {
+	list-style-type: none;
+}

@@ -22,7 +22,7 @@ create table code
 (
         code_id serial PRIMARY KEY,
         code_name varchar(200),
-        code_snippet varchar(2000),
+        code_snippet varchar(5000),
         code_description varchar(1000),
         code_language varchar (50),
         public_view boolean,

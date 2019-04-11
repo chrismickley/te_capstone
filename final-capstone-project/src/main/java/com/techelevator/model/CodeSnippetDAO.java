@@ -8,4 +8,5 @@ public interface CodeSnippetDAO {
 	public void addCodeSnippet(CodeSnippet codeSnippet, Tag tag);
 	public int getSnippetIdBySnippetName(String name);
 	public List<CodeSnippet> getAllCodeSnippetsByTag(String tag);
+	
 }
