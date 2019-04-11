@@ -27,10 +27,10 @@ public class JDBCCodeSnippetDAO implements CodeSnippetDAO {
 	
 	public List<CodeSnippet> getAllCodeSnippetsByTag(String tag) {
 		List<CodeSnippet> snippetsByTag = new ArrayList<>();
-		String sqlGetAllCodeSnippetsByTag = "SELECT *" + 
-				"FROM code" + 
-				"JOIN code_tag ON code.code_id = code_tag.code_id" + 
-				"JOIN tag ON code_tag.code_snippet_tag_id = tag.code_snippet_tag_id" + 
+		String sqlGetAllCodeSnippetsByTag = "SELECT * " + 
+				"FROM code " + 
+				"JOIN code_tag ON code.code_id = code_tag.code_id " + 
+				"JOIN tag ON code_tag.code_snippet_tag_id = tag.code_snippet_tag_id " + 
 				"WHERE tag.code_snippet_tag = ?";
 		SqlRowSet results = jdbcTemplate.queryForRowSet(sqlGetAllCodeSnippetsByTag, tag);
 		while (results.next()) {
