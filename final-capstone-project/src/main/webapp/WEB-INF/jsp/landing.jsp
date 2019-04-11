@@ -24,6 +24,7 @@ Select a Search Filter: <select name="searchOption">
 		<th id="tableheaders">Code</th>
 		<th id="tableheaders">Description</th>
 		<th id="tableheaders">Language</th>
+		<th id="tableheaders">Attribution</th>
 		<th id="tableheaders">Public View</th>
 	</tr>
 	<c:forEach var="snippet" items="${ snippets }">
@@ -44,6 +45,7 @@ Select a Search Filter: <select name="searchOption">
 			<td id="tabledata"><c:out value="${ snippet.code }"></c:out></td>
 			<td id="tabledata"><c:out value="${ snippet.description }"></c:out></td>
 			<td id="tabledata"><c:out value="${ snippet.language }"></c:out></td>
+			<td id="tabledata"><c:out value="${ snippet.attribution }"></c:out></td>
 
 
 			<td id="tabledata"><c:out value="${pubs}"></c:out></td>

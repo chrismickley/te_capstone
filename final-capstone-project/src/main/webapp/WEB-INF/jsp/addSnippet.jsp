@@ -66,9 +66,26 @@
 
 
 
-
+<div>
+<ul>
+<li id="inputlabel"><label for="codeLanguage">Select language:</label></li> 
+</ul>
+</div>
 
 <div>
+<ul>
+<li id= "inputbox">
+<select name = "codeLanguage">
+<c:forEach
+items = "${languageList}" var = "language"> 
+<option value = "${language}"> <c:out value = "${language}"/></option>
+</c:forEach>
+</select>
+</li>
+</ul>
+</div>
+
+<!-- <div>
 <ul>
 <li id="inputlabel"><label for="codeLanguage">Enter the code language:</label></li>
 </ul>
@@ -78,7 +95,7 @@
 <li id="inputbox"><input type="text" name="codeLanguage" size="50" id="inputbox"/>
 </li>
 </ul>
-</div>
+</div> -->
 
 <div>
 <ul>
@@ -99,7 +116,7 @@
 </div>
 <div>
 <ul>
-<li id="inputbox"><input type="text" name="codeLanguage" size="50" id="inputbox"/>
+<li id="inputbox"><input type="text" name="attribution" size="50" id="inputbox"/>
 </li>
 </ul>
 </div>

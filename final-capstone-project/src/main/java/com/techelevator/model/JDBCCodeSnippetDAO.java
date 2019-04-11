@@ -114,6 +114,7 @@ public class JDBCCodeSnippetDAO implements CodeSnippetDAO {
 		theCodeSnippet.setPublicView(results.getBoolean("public_view"));
 		theCodeSnippet.setApproved(results.getBoolean("approved"));
 		theCodeSnippet.setId(results.getInt("code_id"));
+		theCodeSnippet.setAttribution(results.getString("attribution"));
 		return theCodeSnippet;
 	}
 
@@ -200,10 +201,10 @@ public class JDBCCodeSnippetDAO implements CodeSnippetDAO {
 	public int addSnippet(CodeSnippet codeSnippet) {
 		int id = 0;
 		if (!snippetExists(codeSnippet.getName())) {
-			String sqlInsertCode = "INSERT INTO code(code_name, code_snippet, code_description, code_language, public_view, approved) VALUES (?,?,?,?,?,?)";
+			String sqlInsertCode = "INSERT INTO code(code_name, code_snippet, code_description, code_language, public_view, approved, attribution) VALUES (?,?,?,?,?,?,?)";
 			jdbcTemplate.update(sqlInsertCode, codeSnippet.getName(), codeSnippet.getCode(),
 					codeSnippet.getDescription(), codeSnippet.getLanguage(), codeSnippet.isPublicView(),
-					codeSnippet.isApproved());
+					codeSnippet.isApproved(), codeSnippet.getAttribution());
 			id = getSnippetIdBySnippetName(codeSnippet.getName());
 //			System.out.println("Snippet added to database");
 		} else {

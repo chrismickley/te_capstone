@@ -9,7 +9,14 @@ public class CodeSnippet {
 	private boolean publicView;
 	private boolean approved;
 	private int id;
+	private String attribution;
 	
+	public String getAttribution() {
+		return attribution;
+	}
+	public void setAttribution(String attribute) {
+		this.attribution = attribute;
+	}
 	public String getName() {
 		return name;
 	}

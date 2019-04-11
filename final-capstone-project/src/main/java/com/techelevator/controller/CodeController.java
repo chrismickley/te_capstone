@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.techelevator.model.CodeSnippet;
 import com.techelevator.model.CodeSnippetDAO;
+import com.techelevator.model.LanguageDAO;
 import com.techelevator.model.Tag;
 
 @Controller
@@ -17,10 +18,14 @@ public class CodeController {
 
 	@Autowired
 	CodeSnippetDAO codeSnippetDao;
+	@Autowired
+	LanguageDAO languageDao;
 
 	@RequestMapping(path = "/addSnippet", method = RequestMethod.GET)
 	public String displayCodeSubmissionForm(HttpServletRequest request) {
-		return "addSnippet";
+		request.setAttribute("languageList", languageDao.getAllLanguages());
+	
+	return "addSnippet";
 	}
 
 	// Add/implement the "addTag" method below.
@@ -34,6 +39,7 @@ public class CodeController {
 		String language = request.getParameter("codeLanguage");
 		Boolean publicView = Boolean.parseBoolean(request.getParameter("publicView"));
 		Boolean approved = false;
+		String attribution = request.getParameter("attribution");
 		Tag tags = new Tag();
 
 		CodeSnippet codeSnippet = new CodeSnippet();
@@ -43,6 +49,7 @@ public class CodeController {
 		codeSnippet.setLanguage(language);
 		codeSnippet.setPublicView(publicView);
 		codeSnippet.setApproved(approved);
+		codeSnippet.setAttribution(attribution);
 		tags.setTag(tag);
 		codeSnippetDao.addCodeSnippet(codeSnippet, tags);
 
