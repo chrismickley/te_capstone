@@ -20,16 +20,19 @@ public class JDBCTagDAO implements TagDAO {
 		this.jdbcTemplate = new JdbcTemplate(dataSource);
 	}
 
-	// Adds a tag--if it does not exist--to the database.
+	// Adds a tag--if it does not exist--to the database. And return the id of the saved tag.
 	@Override
-	public void addTag(String tag) {
+	public int addTag(String tag) {
+		int returnId = 0;
 		if (!tagExists(tag)) {
 			String sqlInsertTag = "INSERT INTO tag(code_snippet_tag) VALUES (?)";
 			jdbcTemplate.update(sqlInsertTag, tag);
-			System.out.println("Tag has been added");
+			returnId = getIdByTag(tag);
+//			System.out.println("Tag has been added");
 		} else {
-			System.out.println("Tag already exists");
+//			System.out.println("Tag already exists");
 		}
+		return returnId;
 	}
 
 	// Returns "true" if tag already exists in database.
@@ -65,10 +68,4 @@ public class JDBCTagDAO implements TagDAO {
 		}
 		return id;
 	}
-
-	@Override
-	public Tag getTagById() {
-		return null;
-	}
-
 }

@@ -6,5 +6,6 @@ public interface CodeSnippetDAO {
 	
 	public List<CodeSnippet> getAllCodeSnippets();
 	public void addCodeSnippet(CodeSnippet codeSnippet, Tag tag);
-	public int getIdBySnippetName();
+	public int getSnippetIdBySnippetName(String name);
+	public List<CodeSnippet> getAllCodeSnippetsByTag(String tag);
 }
