@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.techelevator.model.CodeSnippet;
 import com.techelevator.model.CodeSnippetDAO;
@@ -49,22 +50,21 @@ public class CodeController {
 
 	}
 	
-	@RequestMapping("/searchForTag")
+	@RequestMapping("/searchFilter")
 	public String searchForTagAndGoToLandingPage(HttpServletRequest request) {
-		String searchTag = request.getParameter("searchTag");
-		String searchName = request.getParameter("searchName");
-		String searchLanguage = request.getParameter("searchLanguage");
+		String searchOption = request.getParameter("searchOption");
+		String searchParameter = request.getParameter("searchParameter");
 		
-		if (!searchTag.isEmpty()) {
-			request.setAttribute("snippets", codeSnippetDao.getAllCodeSnippetsByTag(searchTag));
+		if (searchOption.equals("searchTag")) {
+			request.setAttribute("snippets", codeSnippetDao.getAllCodeSnippetsByTag(searchParameter));
 		}
 		
-		if (!searchName.isEmpty()) {
-			request.setAttribute("snippets", codeSnippetDao.getAllCodeSnippetsByTag(searchName));
+		else if (searchOption.equals("searchName")) {
+			request.setAttribute("snippets", codeSnippetDao.getAllCodeSnippetsByName(searchParameter));
 		}
 		
-		if (!searchLanguage.isEmpty()) {
-			request.setAttribute("snippets", codeSnippetDao.getAllCodeSnippetsByTag(searchLanguage));
+		else if (searchOption.equals("searchLanguage")) {
+			request.setAttribute("snippets", codeSnippetDao.getAllCodeSnippetsByLanguage(searchParameter));
 		}
 		
 		

@@ -3,27 +3,18 @@
 
 <c:import url="/WEB-INF/jsp/common/header.jsp" />
 
-<c:url var="searchForTag" value="/searchForTag" />
-<form method="GET" action="${searchForTag}">
-	<input type="text" name="searchTag" placeholder="Enter search tag" />
-	<input type="text" name="searchTitle" placeholder="Enter search title" />
-	<input type="text" name="searchLanguage"
-		placeholder="Enter search language" /> <input type="submit"
+<c:url var="searchFilter" value="/searchFilter" />
+<form method="GET" action="${searchFilter}">
+Select a Search Filter: <select name="searchOption">
+		<option value="searchTag"> Tag </option>
+		<option value="searchName"> Title </option>
+		<option value="searchLanguage"> Language </option>
+	<input type="text" name="searchParameter" placeholder="Enter search filter" />
+	
+	
+		 <input type="submit"
 		value="Search" />
 </form>
-
-
-
-<form action="list" method="post">
-	Select a Category: <select name="category">
-		<c:forEach items="${listCategory}" var="category">
-			<option value="${category.id}">${category.name}</option>
-		</c:forEach>
-	</select> <br />
-	<br /> <input type="submit" value="Submit" />
-</form>
-
-
 
 
 <table id="tableproperties">
