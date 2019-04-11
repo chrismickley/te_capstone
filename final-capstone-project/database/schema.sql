@@ -8,6 +8,7 @@ BEGIN;
 DROP TABLE IF EXISTS app_user;
 DROP TABLE IF EXISTS code;
 DROP TABLE IF EXISTS tag;
+DROP TABLE IF EXISTS language;
 
 CREATE TABLE app_user
 (
@@ -16,6 +17,12 @@ CREATE TABLE app_user
   password varchar(32) NOT NULL,
   role varchar(32),
   salt varchar(255) NOT NULL
+);
+
+CREATE TABLE language
+(
+language_id SERIAL PRIMARY KEY,
+code_language varchar(50) NOT NULL
 );
 
 create table code
