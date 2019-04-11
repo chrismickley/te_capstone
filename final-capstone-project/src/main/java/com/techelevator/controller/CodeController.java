@@ -50,11 +50,26 @@ public class CodeController {
 	}
 	
 	@RequestMapping("/searchForTag")
-	public String goToLandingPage(HttpServletRequest request) {
-		String searchTerm = request.getParameter("searchTerm");
-//		request.setAttribute("snippets", codeSnippetDao.getAllCodeSnippets());
-		request.setAttribute("snippets", codeSnippetDao.getAllCodeSnippetsByTag(searchTerm));
+	public String searchForTagAndGoToLandingPage(HttpServletRequest request) {
+		String searchTag = request.getParameter("searchTag");
+		String searchName = request.getParameter("searchName");
+		String searchLanguage = request.getParameter("searchLanguage");
+		
+		if (!searchTag.isEmpty()) {
+			request.setAttribute("snippets", codeSnippetDao.getAllCodeSnippetsByTag(searchTag));
+		}
+		
+		if (!searchName.isEmpty()) {
+			request.setAttribute("snippets", codeSnippetDao.getAllCodeSnippetsByTag(searchName));
+		}
+		
+		if (!searchLanguage.isEmpty()) {
+			request.setAttribute("snippets", codeSnippetDao.getAllCodeSnippetsByTag(searchLanguage));
+		}
+		
 		
 	return "landing";
-	}
+	}	
+	
+	
 }

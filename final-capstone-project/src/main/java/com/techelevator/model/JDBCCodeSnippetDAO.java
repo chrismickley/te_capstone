@@ -14,31 +14,54 @@ import org.springframework.jdbc.support.rowset.SqlRowSet;
 public class JDBCCodeSnippetDAO implements CodeSnippetDAO {
 
 	private JdbcTemplate jdbcTemplate;
-	
+
 	public JDBCTagDAO jdbcTagDAO;
-	
+
 	public TagDAO tagDAO;
-	
+
 	// Database connection.
 	@Autowired
 	public JDBCCodeSnippetDAO(DataSource dataSource) {
 		this.jdbcTemplate = new JdbcTemplate(dataSource);
 	}
-	
+
 	// Returns list of CodeSnippet associated with a given tag.
 	public List<CodeSnippet> getAllCodeSnippetsByTag(String tag) {
 		List<CodeSnippet> snippetsByTag = new ArrayList<>();
-		String sqlGetAllCodeSnippetsByTag = "SELECT * " + 
-				"FROM code " + 
-				"JOIN code_tag ON code.code_id = code_tag.code_id " + 
-				"JOIN tag ON code_tag.code_snippet_tag_id = tag.code_snippet_tag_id " + 
-				"WHERE tag.code_snippet_tag = ?";
+		String sqlGetAllCodeSnippetsByTag = "SELECT * " + "FROM code "
+				+ "JOIN code_tag ON code.code_id = code_tag.code_id "
+				+ "JOIN tag ON code_tag.code_snippet_tag_id = tag.code_snippet_tag_id "
+				+ "WHERE tag.code_snippet_tag = ?";
 		SqlRowSet results = jdbcTemplate.queryForRowSet(sqlGetAllCodeSnippetsByTag, tag);
 		while (results.next()) {
 			CodeSnippet theSnippet = mapRowToSnippet(results);
 			snippetsByTag.add(theSnippet);
 		}
 		return snippetsByTag;
+	}
+
+	// Returns list of CodeSnippet associated with a given name.
+	public List<CodeSnippet> getAllCodeSnippetsByName(String name) {
+		List<CodeSnippet> snippetsByName = new ArrayList<>();
+		String sqlGetAllCodeSnippetsByName = "SELECT * FROM code WHERE code_name = ?";
+		SqlRowSet results = jdbcTemplate.queryForRowSet(sqlGetAllCodeSnippetsByName, name);
+		while (results.next()) {
+			CodeSnippet theSnippet = mapRowToSnippet(results);
+			snippetsByName.add(theSnippet);
+		}
+		return snippetsByName;
+	}
+
+	// Returns list of CodeSnippet associated with a given language.
+	public List<CodeSnippet> getAllCodeSnippetsByLanguage(String language) {
+		List<CodeSnippet> snippetsByLanguage = new ArrayList<>();
+		String sqlGetAllCodeSnippetsByLanguage = "SELECT * FROM code WHERE code_language = ?";
+		SqlRowSet results = jdbcTemplate.queryForRowSet(sqlGetAllCodeSnippetsByLanguage, language);
+		while (results.next()) {
+			CodeSnippet theSnippet = mapRowToSnippet(results);
+			snippetsByLanguage.add(theSnippet);
+		}
+		return snippetsByLanguage;
 	}
 
 	// Returns a list of objects of all the code snippets.
@@ -65,22 +88,22 @@ public class JDBCCodeSnippetDAO implements CodeSnippetDAO {
 		}
 		return snippets;
 	}
-	
+
 	// Adds a code snippet and the associated tag to the database.
 	// Snippet is not added if the snippet name already exists.
 	// Adds the code and tag ids to the connector table.
 	@Override
 	public void addCodeSnippet(CodeSnippet codeSnippet, Tag tag) {
-		
-		addTag(tag.getTag());		// Add the tag--provided by the user--to the database.
-		getTagIdByTag(tag.getTag());	// Get the ID of the tag we just added. Need to add this ID to code_tag table.
-		
-		addSnippet(codeSnippet);					// Add the code snippet to the database.
-		getSnippetIdBySnippetName(codeSnippet.getName());	// Get the ID of the code snippet just added.
-		
-		addIdsToSnippetTagConnector(getSnippetIdBySnippetName(codeSnippet.getName()),getTagIdByTag(tag.getTag()));
+
+		addTag(tag.getTag()); // Add the tag--provided by the user--to the database.
+		getTagIdByTag(tag.getTag()); // Get the ID of the tag we just added. Need to add this ID to code_tag table.
+
+		addSnippet(codeSnippet); // Add the code snippet to the database.
+		getSnippetIdBySnippetName(codeSnippet.getName()); // Get the ID of the code snippet just added.
+
+		addIdsToSnippetTagConnector(getSnippetIdBySnippetName(codeSnippet.getName()), getTagIdByTag(tag.getTag()));
 	}
-	
+
 	private CodeSnippet mapRowToSnippet(SqlRowSet results) {
 		CodeSnippet theCodeSnippet;
 		theCodeSnippet = new CodeSnippet();
@@ -133,7 +156,7 @@ public class JDBCCodeSnippetDAO implements CodeSnippetDAO {
 		}
 		return false;
 	}
-	
+
 	// Returns the integer id of provided tag.
 	public int getTagIdByTag(String tag) {
 		int id = 0;
@@ -151,13 +174,14 @@ public class JDBCCodeSnippetDAO implements CodeSnippetDAO {
 		int id = 0;
 		String sqlIdBySnippetName = "SELECT code_id FROM code WHERE code_name = ?";
 		SqlRowSet results = jdbcTemplate.queryForRowSet(sqlIdBySnippetName, name);
-		while(results.next()) {
+		while (results.next()) {
 			id = results.getInt("code_id");
 		}
 		return id;
 	}
 
-	// Add tag to database if not already present in database. If tag present, do nothing.
+	// Add tag to database if not already present in database. If tag present, do
+	// nothing.
 	public int addTag(String tag) {
 		int id = 0;
 		if (!tagExists(tag)) {
@@ -171,12 +195,15 @@ public class JDBCCodeSnippetDAO implements CodeSnippetDAO {
 		return id;
 	}
 
-	// Add snippet of code to database if the code snippet name does not already exist in database. Else, do nothing.
+	// Add snippet of code to database if the code snippet name does not already
+	// exist in database. Else, do nothing.
 	public int addSnippet(CodeSnippet codeSnippet) {
 		int id = 0;
 		if (!snippetExists(codeSnippet.getName())) {
 			String sqlInsertCode = "INSERT INTO code(code_name, code_snippet, code_description, code_language, public_view, approved) VALUES (?,?,?,?,?,?)";
-			jdbcTemplate.update(sqlInsertCode, codeSnippet.getName(), codeSnippet.getCode(), codeSnippet.getDescription(), codeSnippet.getLanguage(), codeSnippet.isPublicView(), codeSnippet.isApproved());
+			jdbcTemplate.update(sqlInsertCode, codeSnippet.getName(), codeSnippet.getCode(),
+					codeSnippet.getDescription(), codeSnippet.getLanguage(), codeSnippet.isPublicView(),
+					codeSnippet.isApproved());
 			id = getSnippetIdBySnippetName(codeSnippet.getName());
 //			System.out.println("Snippet added to database");
 		} else {
@@ -184,7 +211,7 @@ public class JDBCCodeSnippetDAO implements CodeSnippetDAO {
 		}
 		return id;
 	}
-	
+
 	// Adds the snippet id and the tag id to the connector database.
 	public void addIdsToSnippetTagConnector(int snippetId, int tagId) {
 		String sqlInsertSnippetTagId = "INSERT INTO code_tag (code_id, code_snippet_tag_id) VALUES (?, ?)";
