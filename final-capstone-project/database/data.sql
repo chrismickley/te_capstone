@@ -17,4 +17,21 @@ INSERT INTO code_tag (code_id, code_snippet_tag_id) VALUES ('2', '2');
 
 INSERT INTO tag (code_snippet_tag) VALUES ('Devo');
 
+INSERT INTO language (code_language) VALUES ('BASIC');
+INSERT INTO language (code_language) VALUES ('Visual Basic');
+INSERT INTO language (code_language) VALUES ('Java');
+INSERT INTO language (code_language) VALUES ('Fortran');
+INSERT INTO language (code_language) VALUES ('ASP');
+INSERT INTO language (code_language) VALUES ('C');
+INSERT INTO language (code_language) VALUES ('C--');
+INSERT INTO language (code_language) VALUES ('C++');
+INSERT INTO language (code_language) VALUES ('C#');
+INSERT INTO language (code_language) VALUES ('COBOL');
+INSERT INTO language (code_language) VALUES ('Groovy');
+INSERT INTO language (code_language) VALUES ('JavaScript');
+INSERT INTO language (code_language) VALUES ('Python');
+INSERT INTO language (code_language) VALUES ('RPG');
+INSERT INTO language (code_language) VALUES ('Ruby');
+INSERT INTO language (code_language) VALUES ('SQL');
+
 COMMIT;
