@@ -33,7 +33,8 @@ create table code
         code_description varchar(1000),
         code_language varchar (50),
         public_view boolean,
-        approved boolean
+        approved boolean,
+        attribution varchar(250)
 );
 
 CREATE TABLE tag
