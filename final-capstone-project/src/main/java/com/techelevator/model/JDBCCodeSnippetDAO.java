@@ -43,8 +43,8 @@ public class JDBCCodeSnippetDAO implements CodeSnippetDAO {
 	// Returns list of CodeSnippet associated with a given name.
 	public List<CodeSnippet> getAllCodeSnippetsByName(String name) {
 		List<CodeSnippet> snippetsByName = new ArrayList<>();
-		String sqlGetAllCodeSnippetsByName = "SELECT * FROM code WHERE code_name = ?";
-		SqlRowSet results = jdbcTemplate.queryForRowSet(sqlGetAllCodeSnippetsByName, name);
+		String sqlGetAllCodeSnippetsByName = "SELECT * FROM code WHERE UPPER(code_name) LIKE ?";
+		SqlRowSet results = jdbcTemplate.queryForRowSet(sqlGetAllCodeSnippetsByName, "%" + name.toUpperCase() + "%");
 		while (results.next()) {
 			CodeSnippet theSnippet = mapRowToSnippet(results);
 			snippetsByName.add(theSnippet);
