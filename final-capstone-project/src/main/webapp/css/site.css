@@ -16,6 +16,10 @@ header {
     font-family: 'Ubuntu', sans-serif;
 }
 
+header li {
+    float: right;
+}
+
 nav {
 	background-color:   #616a6b;
 	margin-bottom: 30px;
@@ -35,11 +39,12 @@ nav li {
 	margin-left: 25px;
 	margin-bottom: 30px;
 	font-size: 1.3em;
-	float: left;
+    float: left;
+
 }
 
 nav li a {
-	color: white;
+	color: whitesmoke;
 	font-weight: bold;
 	text-decoration: none;
 }
@@ -58,6 +63,17 @@ section {
    background: -webkit-linear-gradient(to right,  #e4f5fc, #2ab0ed);
    background: -moz-linear-gradient(to right,  #e4f5fc, #2ab0ed);
    background: linear-gradient(to right,  #e4f5fc, #2ab0ed);
+}
+.nav-flex-container {
+    display: flex;
+    flex-direction: row;
+    color: hotpink;
+    text-decoration: none;
+	margin-left: 25px;
+	margin-bottom: 30px;
+    font-size: 1.3em;
+    justify-content: space-between;
+
 }
 #submitCode {
     list-style-type: none;
