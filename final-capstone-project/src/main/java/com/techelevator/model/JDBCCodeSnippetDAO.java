@@ -91,7 +91,7 @@ public class JDBCCodeSnippetDAO implements CodeSnippetDAO {
 
 	// Adds a code snippet and the associated tag to the database.
 	// Snippet is not added if the snippet name already exists.
-	// Adds the code and tag ids to the connector table.
+	// Adds the code and tag ids to the code-tag connector table.
 	@Override
 	public void addCodeSnippet(CodeSnippet codeSnippet, Tag tag) {
 

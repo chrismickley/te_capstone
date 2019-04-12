@@ -70,8 +70,6 @@
 				</ul>
 			</div>
 
-
-
 			<div>
 				<ul>
 					<li id="inputlabel"><label for="codeLanguage">Select
@@ -89,18 +87,6 @@
 					</select></li>
 				</ul>
 			</div>
-
-			<!-- <div>
-<ul>
-<li id="inputlabel"><label for="codeLanguage">Enter the code language:</label></li>
-</ul>
-</div>
-<div>
-<ul>
-<li id="inputbox"><input type="text" name="codeLanguage" size="50" id="inputbox"/>
-</li>
-</ul>
-</div> -->
 
 			<div>
 				<ul>
@@ -131,66 +117,6 @@
 			<div id="inputbutton">
 				<label for="submitForm"></label> <input type="submit" value="Submit" />
 			</div>
-			<!-- <table>
-<tr>
-<td id="tabledata">
-<label for="codeName">Name of Code Snippet:</label>
-</td>
-<td>
-<input type="text" name="codeName" id="inputbox" />
-</td>
-</tr>
-<tr>
-<td id="tabledata">
-<label for="tag">Enter Key Words:</label>
-</td>
-<td>
-<input type="text" name="tag" id="inputbox"/>
-</td>
-</tr>
-
-<tr>
-<td id="tabledata">
-<label for="codeSnippet">Enter code snippet below:</label>
-</td>
-<td>
-<textarea rows="10" cols="30" name="codeSnippet" id="inputbox">
-</textarea>
-</td>
-</tr>
-
-<tr>
-<td id="tabledata">
-<label for="codeDescription">Enter a description for the supplied code:</label>
-</td>
-<td id="tabledata">
-<textarea rows="10" cols="50" name="codeDescription" id="inputbox" placeholder="Please enter a description here"></textarea>
-</td>
-</tr>
-<tr>
-<td id="tabledata">
-<label for="codeLanguage">Enter the code language:</label>
-</td>
-<td>
-<input type="text" name="codeLanguage" size="50" id="inputbox"/>
-</td></tr>
-
-<tr>
-<td id="tabledata">
-<label for="publicView">Make Public? </label>
-</td>
-<td>
-<input type="checkbox" name="publicView" value = "true" />
-</td>
-</tr>
-<tr>
-<td>
-<label for="submitForm"></label>
- <input type="submit" value="Submit" />
- </td>
- </tr>
-</table> -->
-
 
 		</form>
 	</div>
