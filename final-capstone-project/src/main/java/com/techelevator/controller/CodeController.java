@@ -28,7 +28,6 @@ public class CodeController {
 	return "addSnippet";
 	}
 
-	// Add/implement the "addTag" method below.
 	@RequestMapping(path = "/addSnippet", method = RequestMethod.POST)
 	public String submitAddSnippetForm(HttpServletRequest request) {
 
@@ -42,6 +41,7 @@ public class CodeController {
 		String attribution = request.getParameter("attribution");
 		Tag tags = new Tag();
 
+		// Setting values of the bean
 		CodeSnippet codeSnippet = new CodeSnippet();
 		codeSnippet.setName(name);
 		codeSnippet.setDescription(description);
@@ -77,6 +77,24 @@ public class CodeController {
 		
 	return "landing";
 	}	
-	
+
+	@RequestMapping("/detail")
+	public String goToDetailPage(HttpServletRequest request) {
+		request.setAttribute("snippets", codeSnippetDao.getCodeSnippetById(2));
+		return "detail";
+	}
+
+	@RequestMapping("/editSnippet")
+	public String goToEditSnippetPage(HttpServletRequest request) {
+		request.setAttribute("snippets", codeSnippetDao.getCodeSnippetById(2));
+		return "editSnippet";
+	}
+
+	@RequestMapping("/searchOneById")
+	public String SearchSnippetByIdAndDisplayDetail(HttpServletRequest request) {
+		String searchId = request.getParameter("searchId");
+		request.setAttribute("snippets", codeSnippetDao.getCodeSnippetById(Integer.parseInt(searchId)));
+		return "detail";
+	}
 	
 }
