@@ -10,5 +10,6 @@ public interface CodeSnippetDAO {
 	public List<CodeSnippet> getAllCodeSnippetsByTag(String tag);
 	public List<CodeSnippet> getAllCodeSnippetsByName(String name);
 	public List<CodeSnippet> getAllCodeSnippetsByLanguage(String language);
-	
+	public List<CodeSnippet> getCodeSnippetById(int id);
+	public List<CodeSnippet> fuzzySearchAllParameters(String searchTerm);
 }

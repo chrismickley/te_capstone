@@ -11,6 +11,7 @@
 
 	<title>Code Submission Page</title>
 
+<p>Edit Snippet Page</p>
 
 	<div class="addSnippet-form-items">
 		<form action="submitCode" method="POST">
@@ -40,7 +41,7 @@
 				<ul>
 					<li id="inputbox"><textarea rows="10" cols="50"
 							name="codeDescription" id="inputbox"
-							placeholder="Please enter a description here"></textarea></li>
+							placeholder="Please enter a description here">${landingPage}</textarea></li>
 				</ul>
 			</div>
 
