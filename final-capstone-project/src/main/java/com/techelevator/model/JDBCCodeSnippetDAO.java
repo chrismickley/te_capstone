@@ -32,7 +32,7 @@ public class JDBCCodeSnippetDAO implements CodeSnippetDAO {
 				+ "JOIN code_tag ON code.code_id = code_tag.code_id "
 				+ "JOIN tag ON code_tag.code_snippet_tag_id = tag.code_snippet_tag_id "
 				+ "WHERE tag.code_snippet_tag = ?";
-		SqlRowSet results = jdbcTemplate.queryForRowSet(sqlGetAllCodeSnippetsByTag, tag);
+		SqlRowSet results = jdbcTemplate.queryForRowSet(sqlGetAllCodeSnippetsByTag, tag.toUpperCase());
 		while (results.next()) {
 			CodeSnippet theSnippet = mapRowToSnippet(results);
 			snippetsByTag.add(theSnippet);
@@ -95,13 +95,13 @@ public class JDBCCodeSnippetDAO implements CodeSnippetDAO {
 	@Override
 	public void addCodeSnippet(CodeSnippet codeSnippet, Tag tag) {
 
-		addTag(tag.getTag()); // Add the tag--provided by the user--to the database.
-		getTagIdByTag(tag.getTag()); // Get the ID of the tag we just added. Need to add this ID to code_tag table.
+		addTag(tag.getTag().toUpperCase()); // Add the tag--provided by the user--to the database.
+		getTagIdByTag(tag.getTag().toUpperCase()); // Get the ID of the tag we just added. Need to add this ID to code_tag table.
 
 		addSnippet(codeSnippet); // Add the code snippet to the database.
 		getSnippetIdBySnippetName(codeSnippet.getName()); // Get the ID of the code snippet just added.
 
-		addIdsToSnippetTagConnector(getSnippetIdBySnippetName(codeSnippet.getName()), getTagIdByTag(tag.getTag()));
+		addIdsToSnippetTagConnector(getSnippetIdBySnippetName(codeSnippet.getName()), getTagIdByTag(tag.getTag().toUpperCase()));
 	}
 
 	private CodeSnippet mapRowToSnippet(SqlRowSet results) {
