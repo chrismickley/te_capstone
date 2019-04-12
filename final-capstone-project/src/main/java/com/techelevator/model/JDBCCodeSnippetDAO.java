@@ -26,6 +26,7 @@ public class JDBCCodeSnippetDAO implements CodeSnippetDAO {
 	}
 
 	// Returns list of CodeSnippet associated with a given tag.
+	@Override
 	public List<CodeSnippet> getAllCodeSnippetsByTag(String tag) {
 		List<CodeSnippet> snippetsByTag = new ArrayList<>();
 		String sqlGetAllCodeSnippetsByTag = "SELECT * " + "FROM code "
@@ -39,8 +40,16 @@ public class JDBCCodeSnippetDAO implements CodeSnippetDAO {
 		}
 		return snippetsByTag;
 	}
+	
+	public List<CodeSnippet> fuzzySearchAllParameters(String searchTerm) {
+		List<CodeSnippet> snippetsBySearch = new ArrayList<>();
+		
+		return snippetsBySearch;
+	}
+
 
 	// Returns list of CodeSnippet associated with a given name.
+	@Override
 	public List<CodeSnippet> getAllCodeSnippetsByName(String name) {
 		List<CodeSnippet> snippetsByName = new ArrayList<>();
 		String sqlGetAllCodeSnippetsByName = "SELECT * FROM code WHERE UPPER(code_name) LIKE ?";
@@ -53,6 +62,7 @@ public class JDBCCodeSnippetDAO implements CodeSnippetDAO {
 	}
 
 	// Returns list of CodeSnippet associated with a given language.
+	@Override
 	public List<CodeSnippet> getAllCodeSnippetsByLanguage(String language) {
 		List<CodeSnippet> snippetsByLanguage = new ArrayList<>();
 		String sqlGetAllCodeSnippetsByLanguage = "SELECT * FROM code WHERE code_language = ?";
@@ -62,6 +72,19 @@ public class JDBCCodeSnippetDAO implements CodeSnippetDAO {
 			snippetsByLanguage.add(theSnippet);
 		}
 		return snippetsByLanguage;
+	}
+
+	// Returns list of CodeSnippet associated with a given language.
+	@Override
+	public List<CodeSnippet> getCodeSnippetById(int id) {
+		List<CodeSnippet> snippetById = new ArrayList<>();
+		String sqlGetCodeSnippetById = "SELECT * FROM code WHERE code_id = ?";
+		SqlRowSet results = jdbcTemplate.queryForRowSet(sqlGetCodeSnippetById, id);
+		while (results.next()) {
+			CodeSnippet theSnippet = mapRowToSnippet(results);
+			snippetById.add(theSnippet);
+		}
+		return snippetById;
 	}
 
 	// Returns a list of objects of all the code snippets.
@@ -77,17 +100,17 @@ public class JDBCCodeSnippetDAO implements CodeSnippetDAO {
 		return snippets;
 	}
 
-	// Returns a list of objects of all the code snippets.
-	public List<CodeSnippet> getCodeSnippetsByTag(String tag) {
-		List<CodeSnippet> snippets = new ArrayList<>();
-		String sqlGetCodeSnippetByTag = "SELECT * FROM code WHERE code_id = ?";
-		SqlRowSet results = jdbcTemplate.queryForRowSet(sqlGetCodeSnippetByTag, 11);
-		while (results.next()) {
-			CodeSnippet theSnippet = mapRowToSnippet(results);
-			snippets.add(theSnippet);
-		}
-		return snippets;
-	}
+//	// Returns a list of objects of all the code snippets.
+//	public List<CodeSnippet> getCodeSnippetsByTag(String tag) {
+//		List<CodeSnippet> snippets = new ArrayList<>();
+//		String sqlGetCodeSnippetByTag = "SELECT * FROM code WHERE code_id = ?";
+//		SqlRowSet results = jdbcTemplate.queryForRowSet(sqlGetCodeSnippetByTag, 11);
+//		while (results.next()) {
+//			CodeSnippet theSnippet = mapRowToSnippet(results);
+//			snippets.add(theSnippet);
+//		}
+//		return snippets;
+//	}
 
 	// Adds a code snippet and the associated tag to the database.
 	// Snippet is not added if the snippet name already exists.

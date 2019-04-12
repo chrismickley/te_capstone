@@ -80,12 +80,21 @@ public class CodeController {
 
 	@RequestMapping("/detail")
 	public String goToDetailPage(HttpServletRequest request) {
+		request.setAttribute("snippets", codeSnippetDao.getCodeSnippetById(2));
 		return "detail";
 	}
 
 	@RequestMapping("/editSnippet")
 	public String goToEditSnippetPage(HttpServletRequest request) {
+		request.setAttribute("snippets", codeSnippetDao.getCodeSnippetById(2));
 		return "editSnippet";
+	}
+
+	@RequestMapping("/searchOneById")
+	public String SearchSnippetByIdAndDisplayDetail(HttpServletRequest request) {
+		String searchId = request.getParameter("searchId");
+		request.setAttribute("snippets", codeSnippetDao.getCodeSnippetById(Integer.parseInt(searchId)));
+		return "detail";
 	}
 	
 }
