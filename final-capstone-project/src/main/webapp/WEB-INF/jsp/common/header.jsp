@@ -16,60 +16,105 @@
 </head>
 <body>
 
-<div class="headerimage">
-	<header>
-	<div>
-		<h1 id="headerTitle">Code Catalog</h1>
+	<div class="headerimage">
+		<header>
+			<div>
+				<h1 id="headerTitle">Code Catalog</h1>
 
+			</div>
+
+
+
+		</header>
 	</div>
-	<div>
-		<ul>
-		
-			<li id="userwelcome">Welcome <c:out value="${currentUser.userName}" /></li>
-		
-		</ul>
-		</div>
-
-	</header>
-</div>				
 
 	<nav>
 
 		<div class="nav-flex-container">
 			<div>
-				<li><a href="home">Home</a></li>
+				<li><a href="landing">Home</a></li>
 			</div>
-			<div>
+			<!-- 			<div>
 				<li><a href="landing">Code Samples</a></li>
-			</div>
+			</div> -->
 			<div>
 				<li><a href="detail">Detail Page</a></li>
 			</div>
-			<div>
-				<li><a href="addSnippet">Add Snippet</a></li>
-			</div>
-			<div>
-				<li><a href="editSnippet">Edit Snippet</a></li>
-			</div>
-			<div>
-				<li><a href="register">Register</a></li>
-			</div>
-			<div>
-				<a href="login">Login</a>
-			</div>
 
-			<div>
 
+			<c:if test="${currentUser.userName != null}">
+				<div>
+					<li><a href="addSnippet">Add Code Snippet</a></li>
+				</div>
+				<div>
+					<li><a href="editSnippet">Edit Code Snippet</a></li>
+				</div>
+			</c:if>
+			</div>
+</nav>
+			<div id="userfunctions">
+				<c:if test="${currentUser.userName == null}">
+					<li><a href="register">Register</a></li>
+			
+			
+
+				<li><a href="login">Login</a></li>
+
+			</c:if>
+		
+
+		<c:if test="${currentUser.userName != null}">
+			
+					<li id="welcome">Welcome ${currentUser.userName}</li>
+			
+		</c:if>
+
+
+		
+			<c:if test="${currentUser.userName != null}">
 				<c:url var="formAction" value="/logout" />
 				<form method="POST" action="${formAction}">
 					<input type="hidden" name="destination"
 						value="${param.destination}" />
 					<button type="Logout">Logout</button>
 				</form>
-			</div>
+			</c:if>
 		</div>
+		
 
-	</nav>
+
+	
+
+
+
+
+
+
+
+	<%-- 	<div class="nav-flex-container">
+<div>
+<li><a href="home">Home</a></li>
+</div>
+<div>
+<li><a href="landing">Code Samples</a></li>
+</div>
+<div>
+<li><a href="detail">Detail Page</a></li>
+</div>
+<div>
+
+        <c:if test="${currentUser.userName != null}">
+        <li> <a href="addSnippet">Add Snippet</a></li>
+        <li> <a href="editSnippet">Edit Snippet</a></li>
+            <c:set var="addSnippet" value="Add Snippet" />
+            <c:set var="editSnippet" value="Edit Snippet" />
+        </c:if>
+    
+        
+            <li><a href="register">Register</a></li>
+        </div>
+</div> --%>
+
 
 	<section>
 		<div id="pageContent">
