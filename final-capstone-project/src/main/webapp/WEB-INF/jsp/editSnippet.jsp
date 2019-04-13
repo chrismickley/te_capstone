@@ -12,7 +12,7 @@
 
 	<title>Code Submission Page</title>
 
-<p>Edit Snippet Page</p>
+	<p>Edit Snippet Page</p>
 
 	<div class="addSnippet-form-items">
 		<form action="submitCode" method="POST">
@@ -25,10 +25,11 @@
 							Snippet:</label></li>
 				</ul>
 			</div>
+
 			<div>
 				<ul>
-					<li id="inputbox"><input type="text" name="codeName"
-						id="inputbox" /></li>
+					<li id="inputbox"><textarea rows="1" cols="25"
+							name="codeName" id="inputbox">${ snippet.name }</textarea></li>
 				</ul>
 			</div>
 
@@ -38,11 +39,12 @@
 							a code snippet description:</label>
 				</ul>
 			</div>
+
 			<div>
 				<ul>
-					<li id="inputbox"><textarea rows="10" cols="50"
+					<li id="inputbox"><textarea rows="3" cols="50"
 							name="codeDescription" id="inputbox"
-							placeholder="Please enter a description here">${landingPage}</textarea></li>
+							placeholder="Please enter a description here">${ snippet.description }</textarea></li>
 				</ul>
 			</div>
 
@@ -52,13 +54,19 @@
 							code snippet:</label></li>
 				</ul>
 			</div>
+			
 			<div>
 				<ul>
-					<li id="inputbox"><textarea rows="10" cols="30"
-							name="codeSnippet" id="inputbox">
-</textarea></li>
+					<li id="inputbox"><textarea rows="1" cols="25"
+							name="codeName" id="inputbox">${ snippet.code }</textarea></li>
 				</ul>
 			</div>
+<!-- 			<div>
+				<ul>
+					<li id="inputbox"><textarea rows="10" cols="30"
+							name="codeSnippet" id="inputbox"></textarea></li>
+				</ul>
+			</div> -->
 
 			<div>
 				<ul>
@@ -117,7 +125,8 @@
 			</div>
 
 			<div id="inputbutton">
-				<label for="submitForm"></label> <input type="submit" value="Submit" />
+				<label for="submitForm"></label> <input type="submit"
+					value="Submit Edited Snippet" />
 			</div>
 
 		</form>

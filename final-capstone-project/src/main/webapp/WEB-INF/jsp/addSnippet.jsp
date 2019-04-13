@@ -19,7 +19,7 @@
 
 			<div>
 				<ul>
-					<li id="inputlabel"><label for="codeName">Name of Code
+					<li id="inputlabel"><label for="codeName">Title of Code
 							Snippet:</label></li>
 				</ul>
 			</div>

@@ -33,6 +33,7 @@ public class JDBCCodeSnippetDAO implements CodeSnippetDAO {
 				+ "JOIN code_tag ON code.code_id = code_tag.code_id "
 				+ "JOIN tag ON code_tag.code_snippet_tag_id = tag.code_snippet_tag_id "
 				+ "WHERE tag.code_snippet_tag = ?";
+		// @TODO Code breaks as soon as "%" are added to tag.toUpperCase(). So the exact tag word (ignoring case) has to be provided.
 		SqlRowSet results = jdbcTemplate.queryForRowSet(sqlGetAllCodeSnippetsByTag, tag.toUpperCase());
 		while (results.next()) {
 			CodeSnippet theSnippet = mapRowToSnippet(results);

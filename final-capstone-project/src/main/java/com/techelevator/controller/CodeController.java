@@ -82,7 +82,7 @@ public class CodeController {
 		tags.setTag(tag);
 		codeSnippetDao.addCodeSnippet(codeSnippet, tags);
 
-		return "redirect:landing";
+		return "redirect:detail";
 	}
 	
 	// Searches database and returns a List of CodeSnippet to display on landing (code samples) page.
@@ -120,7 +120,7 @@ public class CodeController {
 	// Currently hard-coded. Needs to be changed to use the actual provided id. getCodeSnippetById needs to be changed to return only one snippet.
 	@RequestMapping("/editSnippet")
 	public String goToEditSnippetPage(HttpServletRequest request) {
-		request.setAttribute("snippets", codeSnippetDao.getCodeSnippetById(2));
+		request.setAttribute("snippet", codeSnippetDao.getCodeSnippetById(2));
 		return "editSnippet";
 	}
 
@@ -128,7 +128,7 @@ public class CodeController {
 	@RequestMapping("/searchOneById")
 	public String SearchSnippetByIdAndDisplayDetail(HttpServletRequest request) {
 		String searchId = request.getParameter("searchId");
-		request.setAttribute("snippets", codeSnippetDao.getCodeSnippetById(Integer.parseInt(searchId)));
+		request.setAttribute("snippet", codeSnippetDao.getCodeSnippetById(Integer.parseInt(searchId)));
 		return "detail";
 	}
 	

@@ -16,15 +16,15 @@
 		value="Search" />
 </form>
 
-<c:url var="searchById" value="/searchOneById" />
-<form action="${ searchById }" method="GET">
+<c:url var="urlSearchById" value="/searchOneById" />
+<form action="${ urlSearchById }" method="GET">
 	<input type="text" name="searchId" placeholder="Enter Snippet ID" /> <input
 		type="submit" value="Search By ID" />
 </form>
 
 <table id="tableproperties">
 	<tr>
-		<th id="tableheaders">Name of Snippet</th>
+		<th id="tableheaders">Title of Snippet</th>
 		<td id="tabledata"><c:out value="${ snippet.name }"></c:out></td>
 	</tr>
 	<tr>
