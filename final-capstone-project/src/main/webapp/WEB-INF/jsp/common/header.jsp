@@ -20,6 +20,7 @@
 	<header>
 	<div>
 		<h1 id="headerTitle">Code Catalog</h1>
+<<<<<<< HEAD
 	</div>
 	<div>
 		<ul>
@@ -28,6 +29,16 @@
 		
 		</ul>
 		</div>
+=======
+		<div>
+
+			<li>Jackass currently logged in: <c:out
+					value="${currentUser.userName}" /></li>
+
+		</div>
+
+
+>>>>>>> f890416f62f0b16b6b0797f45b371531776cb0db
 	</header>
 </div>				
 
@@ -41,13 +52,19 @@
 				<li><a href="landing">Code Samples</a></li>
 			</div>
 			<div>
+				<li><a href="detail">Detail Page</a></li>
+			</div>
+			<div>
 				<li><a href="addSnippet">Add Snippet</a></li>
+			</div>
+			<div>
+				<li><a href="editSnippet">Edit Snippet</a></li>
 			</div>
 			<div>
 				<li><a href="register">Register</a></li>
 			</div>
 			<div>
-				<a href="login" >Login</a>
+				<a href="login">Login</a>
 			</div>
 
 			<div>

@@ -33,6 +33,7 @@ public class JDBCCodeSnippetDAO implements CodeSnippetDAO {
 				+ "JOIN code_tag ON code.code_id = code_tag.code_id "
 				+ "JOIN tag ON code_tag.code_snippet_tag_id = tag.code_snippet_tag_id "
 				+ "WHERE tag.code_snippet_tag = ?";
+		// @TODO Code breaks as soon as "%" are added to tag.toUpperCase(). So the exact tag word (ignoring case) has to be provided.
 		SqlRowSet results = jdbcTemplate.queryForRowSet(sqlGetAllCodeSnippetsByTag, tag.toUpperCase());
 		while (results.next()) {
 			CodeSnippet theSnippet = mapRowToSnippet(results);
@@ -41,6 +42,7 @@ public class JDBCCodeSnippetDAO implements CodeSnippetDAO {
 		return snippetsByTag;
 	}
 	
+	// Returns a list of CodeSnippet where their name, code snippet, or tag matches search word.
 	public List<CodeSnippet> fuzzySearchAllParameters(String searchTerm) {
 		List<CodeSnippet> snippetsBySearch = new ArrayList<>();
 		
@@ -75,8 +77,21 @@ public class JDBCCodeSnippetDAO implements CodeSnippetDAO {
 	}
 
 	// Returns list of CodeSnippet associated with a given language.
+	// Needs to be changed so returns only one Snippet.
 	@Override
-	public List<CodeSnippet> getCodeSnippetById(int id) {
+	public CodeSnippet getCodeSnippetById(int id) {
+		CodeSnippet snippetById = new CodeSnippet();
+		String sqlGetCodeSnippetById = "SELECT * FROM code WHERE code_id = ?";
+		SqlRowSet results = jdbcTemplate.queryForRowSet(sqlGetCodeSnippetById, id);
+		while (results.next()) {
+			snippetById = mapRowToSnippet(results);
+		}
+		return snippetById;
+	}
+
+	// Returns list of CodeSnippet associated with a given language.
+	@Override
+	public List<CodeSnippet> getCodeSnippetListById(int id) {
 		List<CodeSnippet> snippetById = new ArrayList<>();
 		String sqlGetCodeSnippetById = "SELECT * FROM code WHERE code_id = ?";
 		SqlRowSet results = jdbcTemplate.queryForRowSet(sqlGetCodeSnippetById, id);

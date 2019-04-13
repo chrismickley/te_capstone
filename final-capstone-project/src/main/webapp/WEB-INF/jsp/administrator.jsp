@@ -20,7 +20,7 @@ Select a Search Filter: <select name="searchOption">
 <table id="tableproperties">
 
 	<tr>
-		<th id="tableheaders">Title of Snippet</th>
+		<th id="tableheaders">Name of Snippet</th>
 		<th id="tableheaders">Code</th>
 		<th id="tableheaders">Description</th>
 		<th id="tableheaders">Language</th>
@@ -33,10 +33,10 @@ Select a Search Filter: <select name="searchOption">
 		<c:choose>
 
 			<c:when test="${ snippet.publicView != true}">
-				<c:set var="publicViewToggle" value="private" />
+				<c:set var="pubs" value="private" />
 			</c:when>
 			<c:when test="${ snippet.publicView == true }">
-				<c:set var="publicViewToggle" value="public" />
+				<c:set var="pubs" value="public" />
 			</c:when>
 
 		</c:choose>
@@ -48,7 +48,7 @@ Select a Search Filter: <select name="searchOption">
 			<td id="tabledata"><c:out value="${ snippet.attribution }"></c:out></td>
 
 
-			<td id="tabledata"><c:out value="${publicViewToggle}"></c:out></td>
+			<td id="tabledata"><c:out value="${pubs}"></c:out></td>
 		</tr>
 	</c:forEach>
 </table>
