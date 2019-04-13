@@ -20,7 +20,7 @@
 	<header>
 	<div>
 		<h1 id="headerTitle">Code Catalog</h1>
-<<<<<<< HEAD
+
 	</div>
 	<div>
 		<ul>
@@ -29,16 +29,7 @@
 		
 		</ul>
 		</div>
-=======
-		<div>
 
-			<li>Jackass currently logged in: <c:out
-					value="${currentUser.userName}" /></li>
-
-		</div>
-
-
->>>>>>> f890416f62f0b16b6b0797f45b371531776cb0db
 	</header>
 </div>				
 
