@@ -18,11 +18,8 @@ INSERT INTO tag (code_snippet_tag_id, code_snippet_tag) VALUES ('5', 'WHILE');
 SELECT setval(pg_get_serial_sequence('tag', 'code_snippet_tag_id'), 6);
 
 INSERT INTO code_tag (code_id, code_snippet_tag_id) VALUES ('1', '1');
-INSERT INTO code_tag (code_id, code_snippet_tag_id) VALUES ('1', '2');
-INSERT INTO code_tag (code_id, code_snippet_tag_id) VALUES ('1', '3');
-INSERT INTO code_tag (code_id, code_snippet_tag_id) VALUES ('2', '1');
-INSERT INTO code_tag (code_id, code_snippet_tag_id) VALUES ('2', '4');
 INSERT INTO code_tag (code_id, code_snippet_tag_id) VALUES ('2', '5');
+
 
 INSERT INTO language (code_language) VALUES ('BASIC');
 INSERT INTO language (code_language) VALUES ('Visual Basic');

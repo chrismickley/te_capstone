@@ -24,7 +24,6 @@ public class CodeController {
 	@RequestMapping(path = "/addSnippet", method = RequestMethod.GET)
 	public String displayCodeSubmissionForm(HttpServletRequest request) {
 		request.setAttribute("languageList", languageDao.getAllLanguages());
-	
 	return "addSnippet";
 	}
 
@@ -66,8 +65,11 @@ public class CodeController {
 		String code = request.getParameter("codeSnippet");
 		String language = request.getParameter("codeLanguage");
 		Boolean publicView = Boolean.parseBoolean(request.getParameter("publicView"));
-		Boolean approved = false;
 		String attribution = request.getParameter("attribution");
+		Boolean approved = false;
+		String id = request.getParameter("snippetId");
+		
+		// Need a new tag object to store the tag provided by the user.
 		Tag tags = new Tag();
 
 		// Setting values of the bean
@@ -79,10 +81,14 @@ public class CodeController {
 		codeSnippet.setPublicView(publicView);
 		codeSnippet.setApproved(approved);
 		codeSnippet.setAttribution(attribution);
+//		codeSnippet.setId(Integer.parseInt(id));
+		
+		// Store the tag provided by user.
 		tags.setTag(tag);
-		codeSnippetDao.addCodeSnippet(codeSnippet, tags);
+		
+		codeSnippetDao.updateSnippet(codeSnippet);
 
-		return "redirect:detail";
+		return "detail";
 	}
 	
 	// Searches database and returns a List of CodeSnippet to display on landing (code samples) page.
@@ -112,7 +118,6 @@ public class CodeController {
 	// Only needed for troubleshooting.
 	@RequestMapping("/detail")
 	public String goToDetailPage(HttpServletRequest request) {
-		request.setAttribute("snippet", codeSnippetDao.getCodeSnippetById(1));
 		return "detail";
 	}
 
@@ -120,11 +125,11 @@ public class CodeController {
 	// Currently hard-coded. Needs to be changed to use the actual provided id. getCodeSnippetById needs to be changed to return only one snippet.
 	@RequestMapping("/editSnippet")
 	public String goToEditSnippetPage(HttpServletRequest request) {
-		request.setAttribute("snippet", codeSnippetDao.getCodeSnippetById(2));
+		request.setAttribute("languageList", languageDao.getAllLanguages());
 		return "editSnippet";
 	}
 
-	// 
+	// Take user input of code snippet id and return the associated code snippet to the detail page.
 	@RequestMapping("/searchOneById")
 	public String searchSnippetByIdAndDisplayDetail(HttpServletRequest request) {
 		String searchId = request.getParameter("searchId");
@@ -132,11 +137,13 @@ public class CodeController {
 		return "detail";
 	}
 
-	// 
+	// Gets the searchId provided by user. Gets the code snippet by ID. Gets code snippet tag by ID. Returns the snippet and tag to jsp.
 	@RequestMapping("/searchByIdGoToEditPage")
 	public String searchSnippetByIdAndGoToEditPage(HttpServletRequest request) {
 		String searchId = request.getParameter("searchId");
 		request.setAttribute("snippet", codeSnippetDao.getCodeSnippetById(Integer.parseInt(searchId)));
+		request.setAttribute("tag", codeSnippetDao.getCodeSnippetTagByCodeSnippetId(Integer.parseInt(searchId)));
+		request.setAttribute("languageList", languageDao.getAllLanguages());
 		return "editSnippet";
 	}
 	
