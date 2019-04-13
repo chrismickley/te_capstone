@@ -115,18 +115,6 @@ public class JDBCCodeSnippetDAO implements CodeSnippetDAO {
 		return snippets;
 	}
 
-//	// Returns a list of objects of all the code snippets.
-//	public List<CodeSnippet> getCodeSnippetsByTag(String tag) {
-//		List<CodeSnippet> snippets = new ArrayList<>();
-//		String sqlGetCodeSnippetByTag = "SELECT * FROM code WHERE code_id = ?";
-//		SqlRowSet results = jdbcTemplate.queryForRowSet(sqlGetCodeSnippetByTag, 11);
-//		while (results.next()) {
-//			CodeSnippet theSnippet = mapRowToSnippet(results);
-//			snippets.add(theSnippet);
-//		}
-//		return snippets;
-//	}
-
 	// Adds a code snippet and the associated tag to the database.
 	// Snippet is not added if the snippet name already exists.
 	// Adds the code and tag ids to the code-tag connector table.
@@ -136,7 +124,7 @@ public class JDBCCodeSnippetDAO implements CodeSnippetDAO {
 		addTag(tag.getTag().toUpperCase()); // Add the tag--provided by the user--to the database.
 		getTagIdByTag(tag.getTag().toUpperCase()); // Get the ID of the tag we just added. Need to add this ID to code_tag table.
 
-		addSnippet(codeSnippet); // Add the code snippet to the database.
+		addSnippetIfDoesntExist(codeSnippet); // Add the code snippet to the database.
 		getSnippetIdBySnippetName(codeSnippet.getName()); // Get the ID of the code snippet just added.
 
 		addIdsToSnippetTagConnector(getSnippetIdBySnippetName(codeSnippet.getName()), getTagIdByTag(tag.getTag().toUpperCase()));
@@ -236,7 +224,7 @@ public class JDBCCodeSnippetDAO implements CodeSnippetDAO {
 
 	// Add snippet of code to database if the code snippet name does not already
 	// exist in database. Else, do nothing.
-	public int addSnippet(CodeSnippet codeSnippet) {
+	public int addSnippetIfDoesntExist(CodeSnippet codeSnippet) {
 		int id = 0;
 		if (!snippetExists(codeSnippet.getName())) {
 			String sqlInsertCode = "INSERT INTO code(code_name, code_snippet, code_description, code_language, public_view, approved, attribution) VALUES (?,?,?,?,?,?,?)";

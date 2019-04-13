@@ -126,10 +126,18 @@ public class CodeController {
 
 	// 
 	@RequestMapping("/searchOneById")
-	public String SearchSnippetByIdAndDisplayDetail(HttpServletRequest request) {
+	public String searchSnippetByIdAndDisplayDetail(HttpServletRequest request) {
 		String searchId = request.getParameter("searchId");
 		request.setAttribute("snippet", codeSnippetDao.getCodeSnippetById(Integer.parseInt(searchId)));
 		return "detail";
+	}
+
+	// 
+	@RequestMapping("/searchByIdGoToEditPage")
+	public String searchSnippetByIdAndGoToEditPage(HttpServletRequest request) {
+		String searchId = request.getParameter("searchId");
+		request.setAttribute("snippet", codeSnippetDao.getCodeSnippetById(Integer.parseInt(searchId)));
+		return "editSnippet";
 	}
 	
 }

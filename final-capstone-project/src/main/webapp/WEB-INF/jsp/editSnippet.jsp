@@ -6,6 +6,12 @@
 <link rel="stylesheet" href="css/site.css" />
 <c:import url="/WEB-INF/jsp/common/header.jsp" />
 
+<c:url var="urlSearchById" value="/searchByIdGoToEditPage" />
+<form action="${ urlSearchById }" method="GET">
+	<input type="text" name="searchId" placeholder="Enter Snippet ID" /> <input
+		type="submit" value="Search By ID" />
+</form>
+
 <c:url value="/submitEditedSnippet" var="urlSubmitChanges" />
 <form:form action="${urlSubmitChanges}" method="POST"
 	modelAttribute="registration">
