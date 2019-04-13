@@ -16,17 +16,22 @@
 </head>
 <body>
 
-	<header class="headerimage">
+<div class="headerimage">
+	<header>
+	<div>
 		<h1 id="headerTitle">Code Catalog</h1>
-		<div>
 
-			<li>Jackass currently logged in: <c:out
-					value="${currentUser.userName}" /></li>
-
+	</div>
+	<div>
+		<ul>
+		
+			<li id="userwelcome">Welcome <c:out value="${currentUser.userName}" /></li>
+		
+		</ul>
 		</div>
 
-
 	</header>
+</div>				
 
 	<nav>
 

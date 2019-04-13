@@ -10,7 +10,7 @@ body {
 header {
 	background-color:  #17202a;
 	color: white;
-    padding: 10px 10px;
+    padding: 1% 1%;
     padding-left: 35px;
     background-image: url('../img/IMG_1933.jpg');
     font-family: 'Ubuntu', sans-serif;
@@ -22,9 +22,9 @@ header li {
 
 nav {
 	background-color:   #616a6b;
-	margin-bottom: 30px;
-	padding: 10px;
-	height: 50px;
+	margin-bottom: 1%;
+	padding: 1%;
+	height: 5%;
 
 }
 
@@ -64,10 +64,21 @@ section {
    background: -moz-linear-gradient(to right,  #e4f5fc, #2ab0ed);
    background: linear-gradient(to right,  #e4f5fc, #2ab0ed);
 }
+
+.headerimage {
+    display: grid;
+    grid-column: 4fr 1fr;
+}
+
+#userwelcome {
+    list-style-type: none;
+    text-align: center;
+}
+
 .nav-flex-container {
     display: flex;
     flex-direction: row;
-    color: hotpink;
+    color: white;
     text-decoration: none;
 	margin-left: 25px;
 	margin-bottom: 30px;
