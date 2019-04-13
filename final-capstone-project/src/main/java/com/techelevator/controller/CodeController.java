@@ -85,6 +85,7 @@ public class CodeController {
 		return "redirect:landing";
 	}
 	
+	// Searches database and returns a List of CodeSnippet to display on landing (code samples) page.
 	@RequestMapping("/searchFilter")
 	public String searchForTagAndGoToLandingPage(HttpServletRequest request) {
 		String searchOption = request.getParameter("searchOption");
@@ -106,20 +107,24 @@ public class CodeController {
 	return "landing";
 	}	
 
+	// Gets a single CodeSnippet and returns it to the detail page.
+	// Currently gets a List of CodeSnippet. Needs getCodeSnippetById to be changed to provide on snippet.
+	// Only needed for troubleshooting.
 	@RequestMapping("/detail")
 	public String goToDetailPage(HttpServletRequest request) {
-		request.setAttribute("snippets", codeSnippetDao.getCodeSnippetById(2));
+		request.setAttribute("snippet", codeSnippetDao.getCodeSnippetById(1));
 		return "detail";
 	}
 
 	// Sends user to editSnippet page and pre-populates the text fields with existing data from database.
-	// Currently hard-coded. Needs to be changed to use the actual provided id.
+	// Currently hard-coded. Needs to be changed to use the actual provided id. getCodeSnippetById needs to be changed to return only one snippet.
 	@RequestMapping("/editSnippet")
 	public String goToEditSnippetPage(HttpServletRequest request) {
 		request.setAttribute("snippets", codeSnippetDao.getCodeSnippetById(2));
 		return "editSnippet";
 	}
 
+	// 
 	@RequestMapping("/searchOneById")
 	public String SearchSnippetByIdAndDisplayDetail(HttpServletRequest request) {
 		String searchId = request.getParameter("searchId");

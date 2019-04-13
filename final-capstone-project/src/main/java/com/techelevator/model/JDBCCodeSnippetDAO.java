@@ -76,8 +76,21 @@ public class JDBCCodeSnippetDAO implements CodeSnippetDAO {
 	}
 
 	// Returns list of CodeSnippet associated with a given language.
+	// Needs to be changed so returns only one Snippet.
 	@Override
-	public List<CodeSnippet> getCodeSnippetById(int id) {
+	public CodeSnippet getCodeSnippetById(int id) {
+		CodeSnippet snippetById = new CodeSnippet();
+		String sqlGetCodeSnippetById = "SELECT * FROM code WHERE code_id = ?";
+		SqlRowSet results = jdbcTemplate.queryForRowSet(sqlGetCodeSnippetById, id);
+		while (results.next()) {
+			snippetById = mapRowToSnippet(results);
+		}
+		return snippetById;
+	}
+
+	// Returns list of CodeSnippet associated with a given language.
+	@Override
+	public List<CodeSnippet> getCodeSnippetListById(int id) {
 		List<CodeSnippet> snippetById = new ArrayList<>();
 		String sqlGetCodeSnippetById = "SELECT * FROM code WHERE code_id = ?";
 		SqlRowSet results = jdbcTemplate.queryForRowSet(sqlGetCodeSnippetById, id);

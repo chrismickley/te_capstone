@@ -18,12 +18,13 @@
 
 	<header class="headerimage">
 		<h1 id="headerTitle">Code Catalog</h1>
-					<div>
-				
-					<li>Jackass currently logged in: <c:out value="${currentUser.userName}" /></li>
-			
-					</div>
-		
+		<div>
+
+			<li>Jackass currently logged in: <c:out
+					value="${currentUser.userName}" /></li>
+
+		</div>
+
 
 	</header>
 
@@ -37,13 +38,19 @@
 				<li><a href="landing">Code Samples</a></li>
 			</div>
 			<div>
+				<li><a href="detail">Detail Page</a></li>
+			</div>
+			<div>
 				<li><a href="addSnippet">Add Snippet</a></li>
+			</div>
+			<div>
+				<li><a href="editSnippet">Edit Snippet</a></li>
 			</div>
 			<div>
 				<li><a href="register">Register</a></li>
 			</div>
 			<div>
-				<a href="login" >Login</a>
+				<a href="login">Login</a>
 			</div>
 
 			<div>
