@@ -54,7 +54,35 @@ public class CodeController {
 		codeSnippetDao.addCodeSnippet(codeSnippet, tags);
 
 		return "redirect:landing";
+	}
 
+	// Accepts the fields from the edited form and updates the database.
+	@RequestMapping(path = "/submitEditedSnippet", method = RequestMethod.POST)
+	public String submitEditedSnippetForm(HttpServletRequest request) {
+
+		String tag = request.getParameter("tag");
+		String name = request.getParameter("codeName");
+		String description = request.getParameter("codeDescription");
+		String code = request.getParameter("codeSnippet");
+		String language = request.getParameter("codeLanguage");
+		Boolean publicView = Boolean.parseBoolean(request.getParameter("publicView"));
+		Boolean approved = false;
+		String attribution = request.getParameter("attribution");
+		Tag tags = new Tag();
+
+		// Setting values of the bean
+		CodeSnippet codeSnippet = new CodeSnippet();
+		codeSnippet.setName(name);
+		codeSnippet.setDescription(description);
+		codeSnippet.setCode(code);
+		codeSnippet.setLanguage(language);
+		codeSnippet.setPublicView(publicView);
+		codeSnippet.setApproved(approved);
+		codeSnippet.setAttribution(attribution);
+		tags.setTag(tag);
+		codeSnippetDao.addCodeSnippet(codeSnippet, tags);
+
+		return "redirect:landing";
 	}
 	
 	@RequestMapping("/searchFilter")
@@ -84,6 +112,8 @@ public class CodeController {
 		return "detail";
 	}
 
+	// Sends user to editSnippet page and pre-populates the text fields with existing data from database.
+	// Currently hard-coded. Needs to be changed to use the actual provided id.
 	@RequestMapping("/editSnippet")
 	public String goToEditSnippetPage(HttpServletRequest request) {
 		request.setAttribute("snippets", codeSnippetDao.getCodeSnippetById(2));

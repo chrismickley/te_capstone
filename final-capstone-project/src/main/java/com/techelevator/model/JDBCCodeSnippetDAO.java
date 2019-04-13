@@ -41,6 +41,7 @@ public class JDBCCodeSnippetDAO implements CodeSnippetDAO {
 		return snippetsByTag;
 	}
 	
+	// Returns a list of CodeSnippet where their name, code snippet, or tag matches search word.
 	public List<CodeSnippet> fuzzySearchAllParameters(String searchTerm) {
 		List<CodeSnippet> snippetsBySearch = new ArrayList<>();
 		

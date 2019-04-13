@@ -5,8 +5,9 @@
 
 <link rel="stylesheet" href="css/site.css" />
 <c:import url="/WEB-INF/jsp/common/header.jsp" />
-<c:url value="/addSnippet" var="landingPage" />
-<form:form action="${landingPage}" method="POST"
+
+<c:url value="/submitEditedSnippet" var="urlSubmitChanges" />
+<form:form action="${urlSubmitChanges}" method="POST"
 	modelAttribute="registration">
 
 	<title>Code Submission Page</title>
