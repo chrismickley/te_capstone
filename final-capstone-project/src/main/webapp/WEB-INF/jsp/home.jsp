@@ -1,7 +1,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 <%-- %-- <c:import url="/WEB-INF/jsp/common/header.jsp" /> --%> 
-<link rel="stylesheet" href="css/siteToo.css" />
+<!-- <link rel="stylesheet" href="css/siteToo.css" /> -->
 
 
 </head>

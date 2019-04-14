@@ -16,7 +16,7 @@
 </head>
 <body>
 
-	<div class="headerimage">
+	<div class="titleBar">
 		<header>
 			<div>
 				<h1 id="headerTitle">Code Catalog</h1>
@@ -28,44 +28,49 @@
 		</header>
 	</div>
 
-	<nav>
+	
 
-		<div class="nav-flex-container">
-			<div>
-				<li><a href="landing">Home</a></li>
-			</div>
+		
+	<nav>
+	<div class = "navBar">
+
+		
+				<a id= "testing" href="landing">Home</a>
+			
 			<!-- 			<div>
 				<li><a href="landing">Code Samples</a></li>
 			</div> -->
-			<div>
-				<li><a href="detail">Detail Page</a></li>
-			</div>
+			
+				<a id= "testing" href="detail">Detail Page</a>
+			
 
 
 			<c:if test="${currentUser.userName != null}">
-				<div>
-					<li><a href="addSnippet">Add Code Snippet</a></li>
-				</div>
-				<div>
-					<li><a href="editSnippet">Edit Code Snippet</a></li>
-				</div>
+					<a id= "testing" href="addSnippet">Add Code Snippet</a>
+					</c:if>
+					<c:if test="${currentUser.userName != null}">
+				
+					<a id= "testing" href="editSnippet">Edit Code Snippet</a>
+				
 			</c:if>
-			</div>
-</nav>
-			<div id="userfunctions">
+			
+		
+			
+		
+			
 				<c:if test="${currentUser.userName == null}">
-					<li><a href="register">Register</a></li>
+					<a id= "testing2" href="register">Register</a>
 			
 			
 
-				<li><a href="login">Login</a></li>
+				<a id= "testing2"href="login">Login</a>
 
 			</c:if>
 		
 
 		<c:if test="${currentUser.userName != null}">
 			
-					<li id="welcome">Welcome ${currentUser.userName}</li>
+				<span id="welcome">Welcome, ${currentUser.userName}</span>
 			
 		</c:if>
 
@@ -73,47 +78,16 @@
 		
 			<c:if test="${currentUser.userName != null}">
 				<c:url var="formAction" value="/logout" />
-				<form method="POST" action="${formAction}">
+				<span><form method="POST" action="${formAction}">
 					<input type="hidden" name="destination"
 						value="${param.destination}" />
-					<button type="Logout">Logout</button>
-				</form>
+					<button class ="logoutButton" type="Logout">Logout</button> 
+				</form></span>
 			</c:if>
-		</div>
 		
+</div>	
+</nav>	
 
-
-	
-
-
-
-
-
-
-
-	<%-- 	<div class="nav-flex-container">
-<div>
-<li><a href="home">Home</a></li>
-</div>
-<div>
-<li><a href="landing">Code Samples</a></li>
-</div>
-<div>
-<li><a href="detail">Detail Page</a></li>
-</div>
-<div>
-
-        <c:if test="${currentUser.userName != null}">
-        <li> <a href="addSnippet">Add Snippet</a></li>
-        <li> <a href="editSnippet">Edit Snippet</a></li>
-            <c:set var="addSnippet" value="Add Snippet" />
-            <c:set var="editSnippet" value="Edit Snippet" />
-        </c:if>
-    
-        
-            <li><a href="register">Register</a></li>
-        </div>
-</div> --%>
 
 
 	<section>
