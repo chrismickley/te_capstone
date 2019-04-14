@@ -47,7 +47,8 @@
 	
 	<tr>
 		<th id="tableheaders">Snippet ID</th>
-		<td id="tabledata"><c:out value="${ snippet.id }"></c:out></td>
+<%-- 		<td id="tabledata"><c:out value="${ snippet.id }"></c:out></td>
+ --%>		<td id="tabledata"><c:out value="${ snippet.id }"></c:out></td>
 	</tr>
 
 	<c:choose>

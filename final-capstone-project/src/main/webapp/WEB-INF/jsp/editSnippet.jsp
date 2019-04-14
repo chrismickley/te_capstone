@@ -34,7 +34,7 @@
 
 			<div>
 				<ul>
-					<li id="inputbox"><textarea rows="1" cols="25" name="codeName"
+					<li id="inputbox"><textarea rows="1" cols="25" name="name"
 							id="inputbox">${ snippet.name }</textarea></li>
 				</ul>
 			</div>
@@ -49,7 +49,7 @@
 			<div>
 				<ul>
 					<li id="inputbox"><textarea rows="3" cols="50"
-							name="codeDescription" id="inputbox"
+							name="description" id="inputbox"
 							placeholder="Please enter a description here">${ snippet.description }</textarea></li>
 				</ul>
 			</div>
@@ -64,7 +64,7 @@
 			<div>
 				<ul>
 					<li id="inputbox"><textarea rows="8" cols="35"
-							name="codeSnippet" id="inputbox">${ snippet.code }</textarea></li>
+							name="code" id="inputbox">${ snippet.code }</textarea></li>
 				</ul>
 			</div>
 
@@ -98,7 +98,7 @@
 
 			<div>
 				<ul>
-					<li id="inputbox"><select name="codeLanguage">
+					<li id="inputbox"><select name="language">
 							<!-- Need to create method to return language to jsp -->
 							<c:forEach items="${languageList}" var="language">
 								<option value="${language}">
@@ -139,7 +139,7 @@
 			</div>
 			
 			<ul>
-				<li><textarea rows="1" cols="3" name="snippetId">${ snippet.id }</textarea></li>
+				<li><textarea rows="1" cols="3" name="id">${ snippet.id }</textarea></li>
 			</ul>
 
 			<div id="inputbutton">
