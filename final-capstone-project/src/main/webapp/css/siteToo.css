@@ -1,0 +1,108 @@
+.titleBar {
+background-color: #17202a;
+color: white;
+padding: 1% 1%;
+padding-left: 35px;
+background-image: url('../img/IMG_1933.jpg');
+font-family: 'Ubuntu', sans-serif;
+}
+
+.navBar {
+/* display: grid;
+ grid-template-columns: 4fr 0fr;  
+grid-template-areas: "leftNav rightNav"; */
+background-color: pink;
+margin-bottom: 0%;
+padding: 1.5%;
+height: 0%;
+text-decoration: none;
+}
+
+/* .leftNav {
+grid-area: rightNav;
+font-size: 1.3em;
+padding-left: 1%; 
+float: left; 
+color: red;
+font-weight: bold;
+text-decoration: none;
+
+}
+
+#rightNav {
+grid-area: leftNav;
+font-size: 1.3em;
+float: right;
+color: red;
+font-weight: bold;
+text-decoration: none;
+
+} */
+
+/* nav  {
+color: whitesmoke;
+font-weight: bold;
+text-decoration: none;
+padding-right: 2%;
+}  */
+
+nav span {
+float: right;
+margin-right: 2%;  
+margin-top: 0%;
+color: blue;
+}
+
+#testing { 
+color: whitesmoke;
+font-weight: bold;
+text-decoration: none;
+padding-right: 1%;
+padding-left: 1%;
+
+} 
+
+#testing:hover {opacity: 5;
+background-color: blue;
+}
+
+#testing2 { 
+float: right;
+color: whitesmoke;
+font-weight: bold;
+text-decoration: none;
+padding-right: 1%;
+padding-left: 1%;
+}
+
+#testing2:hover {opacity: 5;
+background-color: blue;
+}
+
+#welcome {
+	margin: 0px;
+float: right;
+color: black;
+/* font-weight: bold; */
+text-decoration: none;
+/* padding-right: 2%; */
+}
+
+.logoutButton {
+	background-color: #f4511e;
+  border: none;
+  color: white;
+/*   padding: 16px 32px; */
+  text-align: center;
+  font-size: 16px;
+/*   margin: 4px 2px; */
+  opacity: 0.6;
+  transition: 0.3s;
+  text-decoration: none;
+  cursor: pointer;
+    border-radius: 15px;
+	
+	
+}
+
+.logoutButton:hover {opacity: 5;}
