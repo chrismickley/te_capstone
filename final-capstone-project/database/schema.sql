@@ -45,6 +45,7 @@ CREATE TABLE tag
 
 CREATE TABLE code_tag
 (
+        code_tag_id SERIAL PRIMARY KEY,
         code_id INT,
         code_snippet_tag_id INT,
         

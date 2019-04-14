@@ -8,4 +8,5 @@ public interface TagDAO {
 	public int getIdByTag(String tag);
 	public List<String> getAllTags();
 	public boolean tagExists(String tag);
+	public int updateTag(Tag tag);
 }

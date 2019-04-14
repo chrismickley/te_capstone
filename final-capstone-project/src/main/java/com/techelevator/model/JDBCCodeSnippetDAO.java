@@ -15,7 +15,7 @@ public class JDBCCodeSnippetDAO implements CodeSnippetDAO {
 
 	private JdbcTemplate jdbcTemplate;
 
-	public JDBCTagDAO jdbcTagDAO;
+//	public JDBCTagDAO jdbcTagDAO;
 
 	public TagDAO tagDAO;
 
@@ -133,7 +133,7 @@ public class JDBCCodeSnippetDAO implements CodeSnippetDAO {
 	@Override
 	public void addCodeSnippet(CodeSnippet codeSnippet, Tag tag) {
 
-		addTag(tag.getTag().toUpperCase()); // Add the tag--provided by the user--to the database.
+		tagDAO.addTag(tag.getTag().toUpperCase()); // Add the tag--provided by the user--to the database.
 		getTagIdByTag(tag.getTag().toUpperCase()); // Get the ID of the tag we just added. Need to add this ID to
 													// code_tag table.
 
@@ -221,21 +221,8 @@ public class JDBCCodeSnippetDAO implements CodeSnippetDAO {
 		return id;
 	}
 
-	// Add tag to database if not already present in database. If tag present, do
-	// nothing.
-	public int addTag(String tag) {
-		int id = 0;
-		if (!tagExists(tag)) {
-			String sqlInsertTag = "INSERT INTO tag(code_snippet_tag) VALUES (?)";
-			jdbcTemplate.update(sqlInsertTag, tag);
-			id = getTagIdByTag(tag);
-		} else {
-		}
-		return id;
-	}
-
 	// Add snippet of code to database if the code snippet name does not already
-	// exist in database. Else, do nothing.
+	// TODO exist in database. Else, do nothing.
 	public int addSnippetIfDoesntExist(CodeSnippet codeSnippet) {
 		int id = 0;
 		if (!snippetExists(codeSnippet.getName())) {
@@ -260,8 +247,8 @@ public class JDBCCodeSnippetDAO implements CodeSnippetDAO {
 
 	// Adds the snippet id and the tag id to the connector database.
 	public void addIdsToSnippetTagConnector(int snippetId, int tagId) {
-		String sqlInsertSnippetTagId = "INSERT INTO code_tag (code_id, code_snippet_tag_id) VALUES (?, ?)";
-		jdbcTemplate.update(sqlInsertSnippetTagId, snippetId, tagId);
+		String sqlInsertSnippetTagId = "UPDATE code_tag SET code_id = ?, code_snippet_tag_id = ? WHERE code_snippet_tag_id = ?";
+		jdbcTemplate.update(sqlInsertSnippetTagId, snippetId, tagId, tagId);
 	}
 
 }

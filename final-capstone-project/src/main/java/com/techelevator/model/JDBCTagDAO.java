@@ -68,4 +68,10 @@ public class JDBCTagDAO implements TagDAO {
 		}
 		return id;
 	}
+
+	@Override
+	public int updateTag(Tag tag) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
 }

@@ -15,4 +15,6 @@ public interface CodeSnippetDAO {
 	public List<CodeSnippet> getCodeSnippetListById(int id);
 	public int updateSnippet(CodeSnippet codeSnippet);
 	public String getCodeSnippetTagByCodeSnippetId(int id);
+	public int getTagIdByTag(String tag);
+	public void addIdsToSnippetTagConnector(int snippetId, int tagId);
 }

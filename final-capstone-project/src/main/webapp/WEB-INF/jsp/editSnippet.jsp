@@ -27,7 +27,7 @@
 
 			<div>
 				<ul>
-					<li id="inputlabel"><label for="codeName">Name of Code
+					<li id="inputlabel"><label for="codeName">Title of Code
 							Snippet:</label></li>
 				</ul>
 			</div>
@@ -77,7 +77,7 @@
 			<div>
 				<ul>
 					<li id="inputbox"><textarea rows="1" cols="25" name="tag"
-							id="inputbox">${ tag }</textarea></li>
+							id="inputbox">${ tag.tag }</textarea></li>
 				</ul>
 			</div>
 
@@ -110,6 +110,21 @@
 
 			<div>
 				<ul>
+					<li id="inputlabel"><label for="publicView">Attribution
+					</label></li>
+				</ul>
+			</div>
+
+			<div>
+				<ul>
+					<li id="inputbox"><textarea rows="1" cols="50"
+							name="attribution" id="inputbox">${ snippet.attribution }</textarea></li>
+					<!-- Maybe make separate attribution (name of source) and reference link -->
+				</ul>
+			</div>
+
+			<div>
+				<ul>
 					<li id="inputlabel"><label for="publicView">Make
 							Public? </label></li>
 				</ul>
@@ -125,36 +140,6 @@
 
 			<div>
 				<ul>
-					<li id="inputlabel"><label for="publicView">Attribution
-					</label></li>
-				</ul>
-			</div>
-
-			<div>
-				<ul>
-					<li id="inputbox"><textarea rows="1" cols="50"
-							name="attribution" id="inputbox">${ snippet.attribution }</textarea></li>
-					<!-- Maybe make separate attribution (name of source) and reference link -->
-				</ul>
-			</div>
-<%-- 
-			<div>
-				<ul>
-					<li id="inputlabel"><label for="tag">Snippet Tag
-					</label></li>
-				</ul>
-			</div>
-
-			<div>
-				<ul>
-					<li id="inputbox"><textarea rows="1" cols="25"
-							name="tag" id="inputbox">${ tag.tag }</textarea></li>
-					<!-- Maybe make separate attribution (name of source) and reference link -->
-				</ul>
-			</div>
- --%>
-			<div>
-				<ul>
 					<li id="inputlabel"><label for="publicView">Snippet ID:
 					</label></li>
 				</ul>
@@ -162,7 +147,8 @@
 
 			<div>
 				<ul>
-					<li id="inputbox">${ snippet.id }</li>
+					<li id="inputbox"><textarea rows="1" cols="25" name="id"
+							id="inputbox">${ snippet.id }</textarea></li>
 				</ul>
 			</div>
 

@@ -16,6 +16,7 @@ import com.techelevator.model.CodeSnippet;
 import com.techelevator.model.CodeSnippetDAO;
 import com.techelevator.model.LanguageDAO;
 import com.techelevator.model.Tag;
+import com.techelevator.model.TagDAO;
 
 @Controller
 @SessionAttributes("currentId") // Create session to keep track of which snippet is being view
@@ -25,6 +26,8 @@ public class CodeController {
 	CodeSnippetDAO codeSnippetDao;
 	@Autowired
 	LanguageDAO languageDao;
+	@Autowired
+	TagDAO tagDao;
 
 	@RequestMapping(path = "/addSnippet", method = RequestMethod.GET)
 	public String displayCodeSubmissionForm(HttpServletRequest request) {
@@ -60,8 +63,7 @@ public class CodeController {
 		return "redirect:landing";
 	}
 
-	// Searches database and returns a List of CodeSnippet to display on landing
-	// (code samples) page.
+	// Searches database and returns a List of CodeSnippet to display on landing.jsp
 	@RequestMapping("/searchFilter")
 	public String searchForTagAndGoToLandingPage(HttpServletRequest request) {
 		String searchOption = request.getParameter("searchOption");
@@ -82,19 +84,13 @@ public class CodeController {
 		return "landing";
 	}
 
-	// Gets a single CodeSnippet and returns it to the detail page.
-	// Currently gets a List of CodeSnippet. Needs getCodeSnippetById to be changed
-	// to provide on snippet.
-	// Only needed for troubleshooting.
+	// Only needed for troubleshooting. Navigates to a blank detail.jsp
 	@RequestMapping("/detail")
 	public String goToDetailPage(HttpServletRequest request) {
 		return "detail";
 	}
 
-	// Sends user to editSnippet page and pre-populates the text fields with
-	// existing data from database.
-	// Currently hard-coded. Needs to be changed to use the actual provided id.
-	// getCodeSnippetById needs to be changed to return only one snippet.
+	// Navigates to the editSnippet.jsp
 	@RequestMapping("/editSnippet")
 	public String goToEditSnippetPage(HttpServletRequest request) {
 		request.setAttribute("languageList", languageDao.getAllLanguages());
@@ -109,50 +105,74 @@ public class CodeController {
 	// Take user input of code snippet id and return the associated code snippet to
 	// the detail page.
 	@RequestMapping("/searchOneById")
-	public String searchSnippetByIdAndDisplayDetail(
-			HttpServletRequest request,
-			ModelMap model,
-			HttpSession session) {
-		String theCurrentIdString = request.getParameter("searchId"); // How to get searchId through the model?
-		
+	public String searchSnippetByIdAndDisplayDetail(HttpServletRequest request, ModelMap model, HttpSession session) {
+		String theCurrentIdString = request.getParameter("searchId");
+
 		int theCurrentIdInt = Integer.parseInt(theCurrentIdString);
 		model.put("snippet", codeSnippetDao.getCodeSnippetById(theCurrentIdInt));
-		model.put("currentId", theCurrentIdInt); // Will need to invalidate the session when done. "currentId" is in the session attributes.
+		model.put("currentId", theCurrentIdInt);
 		return "detail";
 	}
 
 	// Will go to edit page.
-	// Gets the searchId provided by user. Gets the code snippet by ID. Gets code
-	// snippet tag by ID. Returns the snippet and tag to jsp.
+	// Gets the searchId provided by user and navigates back to editSnippet.jsp
+	// TODO throws error if nothing input into search box.
 	@RequestMapping("/searchByIdGoToEditPage")
-	public String searchSnippetByIdAndGoToEditPage(
-			HttpServletRequest request,
+	public String searchSnippetByIdAndGoToEditPage(HttpServletRequest request, @ModelAttribute("tag") Tag tag,
 			ModelMap model) {
-		String searchId = request.getParameter("searchId");
-		
-		model.put("currentId", Integer.parseInt(request.getParameter("searchId")));
-		
-		request.setAttribute("snippet", codeSnippetDao.getCodeSnippetById(Integer.parseInt(searchId)));
-		request.setAttribute("tag", codeSnippetDao.getCodeSnippetTagByCodeSnippetId(Integer.parseInt(searchId)));
+
+		String searchIdString = request.getParameter("searchId");
+		int searchIdInt = 0;
+
+		if (isNumeric(searchIdString)) {
+			searchIdInt = Integer.parseInt(request.getParameter("searchId"));
+		}
+
+		model.put("currentId", searchIdInt);
+
+		request.setAttribute("snippet", codeSnippetDao.getCodeSnippetById(searchIdInt));
+
+		String codeSnippetTagByCodeSnippetId = codeSnippetDao.getCodeSnippetTagByCodeSnippetId(searchIdInt);
+		request.setAttribute("tag", codeSnippetTagByCodeSnippetId);
+
+		model.addAttribute("tag", tag);
+		tag.setTag(codeSnippetTagByCodeSnippetId);
+
 		request.setAttribute("languageList", languageDao.getAllLanguages());
 		return "editSnippet";
 	}
 
+	public static boolean isNumeric(String strNum) {
+		try {
+			Integer.parseInt(strNum);
+		} catch (NumberFormatException | NullPointerException nfe) {
+			return false;
+		}
+		return true;
+	}
+
 	// *******************************************************
-	// * Submit the changes made to the snippet   
+	// * Submit the changes made to the snippet
 	// *******************************************************
 
 	// Accepts the fields from the edited form and updates the database.
 	@RequestMapping(path = "/submitEditedSnippet", method = RequestMethod.POST)
-	public String submitEditedSnippetForm(
-			@ModelAttribute("snippet") CodeSnippet codeSnippet,
-			@ModelAttribute("tag") Tag tag,
-			ModelMap model) {
+	public String submitEditedSnippetForm(@ModelAttribute("snippet") CodeSnippet codeSnippet,
+			@ModelAttribute("tag") Tag tag, ModelMap model) {
 
-		// ***** Need to implement tag preservation. *****
+		// ***** TODO Need to implement tag update and preservation. *****
+		// ***** Adding tag to db but causing collision when trying to add to code_tag
+		// table. *****
+		model.addAttribute("tag", tag);
+		tagDao.addTag(tag.getTag().toUpperCase());
 
-		codeSnippetDao.updateSnippet(codeSnippet);
 		model.addAttribute("snippet", codeSnippet);
+		codeSnippetDao.updateSnippet(codeSnippet);
+
+		int theTagId = codeSnippetDao.getTagIdByTag(tag.getTag());
+		codeSnippetDao.addIdsToSnippetTagConnector(codeSnippet.getId(), theTagId); // TODO causes a foreign key
+																					// constraint error.
+
 		return "detail";
 	}
 

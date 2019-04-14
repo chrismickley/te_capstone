@@ -27,14 +27,21 @@
 		<th id="tableheaders">Title of Snippet</th>
 		<td id="tabledata"><c:out value="${ snippet.name }"></c:out></td>
 	</tr>
-	<tr>
-		<th id="tableheaders">Code</th>
-		<td id="tabledata"><c:out value="${ snippet.code }"></c:out></td>
-	</tr>
+	
 	<tr>
 		<th id="tableheaders">Description</th>
 		<td id="tabledata"><c:out value="${ snippet.description }"></c:out></td>
 	</tr>
+	<tr>
+		<th id="tableheaders">Code</th>
+		<td id="tabledata"><c:out value="${ snippet.code }"></c:out></td>
+	</tr>
+	
+	<tr>
+		<th id="tableheaders">Key word</th>
+		<td id="tabledata"><c:out value="${ tag.tag }"></c:out></td>
+	</tr>
+	
 	<tr>
 		<th id="tableheaders">Language</th>
 		<td id="tabledata"><c:out value="${ snippet.language }"></c:out></td>
