@@ -133,7 +133,7 @@ public class JDBCCodeSnippetDAO implements CodeSnippetDAO {
 	@Override
 	public void addCodeSnippet(CodeSnippet codeSnippet, Tag tag) {
 
-		tagDAO.addTag(tag.getTag().toUpperCase()); // Add the tag--provided by the user--to the database.
+		addTag(tag.getTag().toUpperCase()); // Add the tag--provided by the user--to the database.
 		getTagIdByTag(tag.getTag().toUpperCase()); // Get the ID of the tag we just added. Need to add this ID to
 													// code_tag table.
 
@@ -142,6 +142,33 @@ public class JDBCCodeSnippetDAO implements CodeSnippetDAO {
 
 		addIdsToSnippetTagConnector(getSnippetIdBySnippetName(codeSnippet.getName()),
 				getTagIdByTag(tag.getTag().toUpperCase()));
+	}
+
+	// Adds a tag--if it does not exist--to the database. And return the id of the saved tag.
+	@Override
+	public int addTag(String tag) {
+		int returnId = 0;
+		if (!tagExists(tag)) {
+			String sqlInsertTag = "INSERT INTO tag(code_snippet_tag) VALUES (?)";
+			jdbcTemplate.update(sqlInsertTag, tag);
+			returnId = getIdByTag(tag);
+//			System.out.println("Tag has been added");
+		} else {
+//			System.out.println("Tag already exists");
+		}
+		return returnId;
+	}
+
+	// Returns the id of a tag (assuming tag exists in database).
+	@Override
+	public int getIdByTag(String tag) {
+		int id = 0;
+		String sqlGetTagId = "SELECT code_snippet_tag_id FROM tag WHERE code_snippet_tag = ?";
+		SqlRowSet results = jdbcTemplate.queryForRowSet(sqlGetTagId, tag);
+		while (results.next()) {
+			id = results.getInt("code_snippet_tag_id");
+		}
+		return id;
 	}
 
 	private CodeSnippet mapRowToSnippet(SqlRowSet results) {

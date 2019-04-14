@@ -25,7 +25,7 @@ public class HomeController {
 	
 	@RequestMapping({"/","/home"})
 	public String goToHomePage(HttpServletRequest request) {
-		return "home";
+		return "landing";
 	}
 
 	@RequestMapping("/landing")
