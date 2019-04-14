@@ -3,7 +3,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 
-<link rel="stylesheet" href="css/site.css" />
+<!-- <link rel="stylesheet" href="css/site.css" /> -->
 <c:import url="/WEB-INF/jsp/common/header.jsp" />
 
 <c:url var="urlSearchById" value="/searchByIdGoToEditPage" />
