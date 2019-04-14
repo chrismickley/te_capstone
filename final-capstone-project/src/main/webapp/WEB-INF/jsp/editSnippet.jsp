@@ -63,8 +63,8 @@
 
 			<div>
 				<ul>
-					<li id="inputbox"><textarea rows="8" cols="35"
-							name="code" id="inputbox">${ snippet.code }</textarea></li>
+					<li id="inputbox"><textarea rows="8" cols="35" name="code"
+							id="inputbox">${ snippet.code }</textarea></li>
 				</ul>
 			</div>
 
@@ -137,10 +137,34 @@
 					<!-- Maybe make separate attribution (name of source) and reference link -->
 				</ul>
 			</div>
-			
-			<ul>
-				<li><textarea rows="1" cols="3" name="id">${ snippet.id }</textarea></li>
-			</ul>
+<%-- 
+			<div>
+				<ul>
+					<li id="inputlabel"><label for="tag">Snippet Tag
+					</label></li>
+				</ul>
+			</div>
+
+			<div>
+				<ul>
+					<li id="inputbox"><textarea rows="1" cols="25"
+							name="tag" id="inputbox">${ tag.tag }</textarea></li>
+					<!-- Maybe make separate attribution (name of source) and reference link -->
+				</ul>
+			</div>
+ --%>
+			<div>
+				<ul>
+					<li id="inputlabel"><label for="publicView">Snippet ID:
+					</label></li>
+				</ul>
+			</div>
+
+			<div>
+				<ul>
+					<li id="inputbox">${ snippet.id }</li>
+				</ul>
+			</div>
 
 			<div id="inputbutton">
 				<label for="submitForm"></label> <input type="submit"

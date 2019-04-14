@@ -76,14 +76,14 @@ public class JDBCCodeSnippetDAO implements CodeSnippetDAO {
 		}
 		return snippetsByLanguage;
 	}
-	
+
 	@Override
 	public String getCodeSnippetTagByCodeSnippetId(int id) {
 		String codeSnippetTag = null;
 		String sqlGetCodeSnippet = "SELECT code_snippet_tag FROM tag JOIN code_tag ON tag.code_snippet_tag_id = code_tag.code_snippet_tag_id JOIN code ON code_tag.code_id = code.code_id WHERE code.code_id = ?";
 		SqlRowSet results = jdbcTemplate.queryForRowSet(sqlGetCodeSnippet, id);
 		while (results.next()) {
-		codeSnippetTag = results.getString("code_snippet_tag");
+			codeSnippetTag = results.getString("code_snippet_tag");
 		}
 		return codeSnippetTag;
 	}
@@ -229,9 +229,7 @@ public class JDBCCodeSnippetDAO implements CodeSnippetDAO {
 			String sqlInsertTag = "INSERT INTO tag(code_snippet_tag) VALUES (?)";
 			jdbcTemplate.update(sqlInsertTag, tag);
 			id = getTagIdByTag(tag);
-//			System.out.println("Tag has been added");
 		} else {
-//			System.out.println("Tag already exists");
 		}
 		return id;
 	}
@@ -246,31 +244,17 @@ public class JDBCCodeSnippetDAO implements CodeSnippetDAO {
 					codeSnippet.getDescription(), codeSnippet.getLanguage(), codeSnippet.isPublicView(),
 					codeSnippet.isApproved(), codeSnippet.getAttribution());
 			id = getSnippetIdBySnippetName(codeSnippet.getName());
-			System.out.println("Snippet added to database");
 		} else {
-			System.out.println("Snippet already exists");
 		}
 		return id;
 	}
 
-//	// Update snippet of code in the database and return the code_id.
-//	public int updateSnippet(CodeSnippet codeSnippet) {
-//		String sqlUpdateSnippet = "UPDATE code SET code_name = ?, code_snippet = ?, code_description = ?, code_language = ?, public_view = ?, approved = ?, attribution = ? WHERE code_id = ?";
-//		jdbcTemplate.update(sqlUpdateSnippet, codeSnippet.getName(), codeSnippet.getCode(), codeSnippet.getDescription(),
-//		codeSnippet.getLanguage(), codeSnippet.isPublicView(), codeSnippet.isApproved(),
-//		codeSnippet.getAttribution(), codeSnippet.getId());
-//		System.out.println("ID after snippet update" + codeSnippet.getId());
-//		return codeSnippet.getId();
-//	}
-
 	// Update snippet of code in the database and return the code_id.
 	public int updateSnippet(CodeSnippet codeSnippet) {
-		System.out.println("ID before snippet update" + codeSnippet.getId());
 		String sqlUpdateSnippet = "UPDATE code SET code_name = ?, code_snippet = ?, code_description = ?, code_language = ?, public_view = ?, approved = ?, attribution = ? WHERE code_id = ?";
-		jdbcTemplate.update(sqlUpdateSnippet, codeSnippet.getName(), codeSnippet.getCode(), codeSnippet.getDescription(),
-		codeSnippet.getLanguage(), codeSnippet.isPublicView(), codeSnippet.isApproved(),
-		codeSnippet.getAttribution(), codeSnippet.getId());
-		System.out.println("ID after snippet update " + codeSnippet.getId());
+		jdbcTemplate.update(sqlUpdateSnippet, codeSnippet.getName(), codeSnippet.getCode(),
+				codeSnippet.getDescription(), codeSnippet.getLanguage(), codeSnippet.isPublicView(),
+				codeSnippet.isApproved(), codeSnippet.getAttribution(), codeSnippet.getId());
 		return codeSnippet.getId();
 	}
 

@@ -109,8 +109,8 @@ public class CodeController {
 	// Take user input of code snippet id and return the associated code snippet to
 	// the detail page.
 	@RequestMapping("/searchOneById")
-	public String searchSnippetByIdAndDisplayDetail(HttpServletRequest request,
-//			@RequestParam String searchId,	// This is probably not needed when searchId is passed through "request" object.
+	public String searchSnippetByIdAndDisplayDetail(
+			HttpServletRequest request,
 			ModelMap model,
 			HttpSession session) {
 		String theCurrentIdString = request.getParameter("searchId"); // How to get searchId through the model?
@@ -121,21 +121,13 @@ public class CodeController {
 		return "detail";
 	}
 
-	// *******************************************************
-//	// Take user input of code snippet id and return the associated code snippet to the detail page.
-//	@RequestMapping("/searchOneById")
-//	public String searchSnippetByIdAndDisplayDetail(HttpServletRequest request) {
-//		String searchId = request.getParameter("searchId");
-//		request.setAttribute("snippet", codeSnippetDao.getCodeSnippetById(Integer.parseInt(searchId)));
-//		return "detail";
-//	}
-	// *******************************************************
-
-	// ***** Need to implement ModelMap in this method? Probably not. *****
+	// Will go to edit page.
 	// Gets the searchId provided by user. Gets the code snippet by ID. Gets code
 	// snippet tag by ID. Returns the snippet and tag to jsp.
 	@RequestMapping("/searchByIdGoToEditPage")
-	public String searchSnippetByIdAndGoToEditPage(HttpServletRequest request, ModelMap model) {
+	public String searchSnippetByIdAndGoToEditPage(
+			HttpServletRequest request,
+			ModelMap model) {
 		String searchId = request.getParameter("searchId");
 		
 		model.put("currentId", Integer.parseInt(request.getParameter("searchId")));
@@ -150,65 +142,14 @@ public class CodeController {
 	// * Submit the changes made to the snippet   
 	// *******************************************************
 
-//	// Accepts the fields from the edited form and updates the database.
-//	@RequestMapping(path = "/submitEditedSnippet", method = RequestMethod.POST)
-//	public String submitEditedSnippetForm(
-//			@RequestParam String snippetId,
-//			HttpServletRequest request,
-//			ModelMap model) {
-//		
-//		String tag = request.getParameter("tag");
-//		model.put("tag", tag);
-//		String name = request.getParameter("codeName");
-//		model.put("name", name);
-//		String description = request.getParameter("codeDescription");
-//		model.put("description", description);
-//		String code = request.getParameter("codeSnippet");
-//		model.put("code", code);
-//		String language = request.getParameter("codeLanguage");
-//		model.put("language", language);
-//		Boolean publicView = Boolean.parseBoolean(request.getParameter("publicView"));
-//		model.put("publicView", publicView);
-//		String attribution = request.getParameter("attribution");
-//		model.put("attribution", attribution);
-//		Boolean approved = false;
-//		model.put("approved", approved);
-////		String id = request.getParameter("snippetId");
-//		model.addAttribute("snippetId", snippetId);	// The snippet id is being preserved here and being displayed on the detail page when it loads.
-//
-//		// Need a new tag object to store the tag provided by the user.
-//		Tag tags = new Tag();
-//
-//		// Setting values of the bean
-//		CodeSnippet codeSnippet = new CodeSnippet();
-//		codeSnippet.setName(name);
-//		codeSnippet.setDescription(description);
-//		codeSnippet.setCode(code);
-//		codeSnippet.setLanguage(language);
-//		codeSnippet.setPublicView(publicView);
-//		codeSnippet.setApproved(approved);
-//		codeSnippet.setAttribution(attribution);
-////		codeSnippet.setId(Integer.parseInt(id));
-//
-//		// Store the tag provided by user.
-//		tags.setTag(tag);
-//
-//		codeSnippetDao.updateSnippet(codeSnippet);
-//
-//		return "detail";
-//	}
-
 	// Accepts the fields from the edited form and updates the database.
 	@RequestMapping(path = "/submitEditedSnippet", method = RequestMethod.POST)
 	public String submitEditedSnippetForm(
 			@ModelAttribute("snippet") CodeSnippet codeSnippet,
+			@ModelAttribute("tag") Tag tag,
 			ModelMap model) {
 
-//		// Need a new tag object to store the tag provided by the user.
-//		Tag tags = new Tag();
-//
-//		// Store the tag provided by user.
-//		tags.setTag(tag);
+		// ***** Need to implement tag preservation. *****
 
 		codeSnippetDao.updateSnippet(codeSnippet);
 		model.addAttribute("snippet", codeSnippet);

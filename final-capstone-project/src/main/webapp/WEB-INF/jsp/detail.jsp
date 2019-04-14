@@ -39,16 +39,15 @@
 		<th id="tableheaders">Language</th>
 		<td id="tabledata"><c:out value="${ snippet.language }"></c:out></td>
 	</tr>
-	
+
 	<tr>
 		<th id="tableheaders">Attribution</th>
 		<td id="tabledata"><c:out value="${ snippet.attribution }"></c:out></td>
 	</tr>
-	
+
 	<tr>
 		<th id="tableheaders">Snippet ID</th>
-<%-- 		<td id="tabledata"><c:out value="${ snippet.id }"></c:out></td>
- --%>		<td id="tabledata"><c:out value="${ snippet.id }"></c:out></td>
+		<td id="tabledata"><c:out value="${ snippet.id }"></c:out></td>
 	</tr>
 
 	<c:choose>
