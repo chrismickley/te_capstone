@@ -164,14 +164,9 @@ public class CodeController {
 		// ***** Adding tag to db but causing collision when trying to add to code_tag
 		// table. *****
 		model.addAttribute("tag", tag);
-		tagDao.addTag(tag.getTag().toUpperCase());
-
 		model.addAttribute("snippet", codeSnippet);
-		codeSnippetDao.updateSnippet(codeSnippet);
-
-		int theTagId = codeSnippetDao.getTagIdByTag(tag.getTag());
-		codeSnippetDao.addIdsToSnippetTagConnector(codeSnippet.getId(), theTagId); // TODO causes a foreign key
-																					// constraint error.
+		
+		codeSnippetDao.updateSnippet(codeSnippet, tag);
 
 		return "detail";
 	}

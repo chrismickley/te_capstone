@@ -5,15 +5,15 @@
 
 <c:url var="searchFilter" value="/searchFilter" />
 <form method="GET" action="${searchFilter}">
-Select a Search Filter: <select name="searchOption">
-		<option value="searchTag"> Tag </option>
-		<option value="searchName"> Title </option>
-		<option value="searchLanguage"> Language </option>
-	<input type="text" name="searchParameter" placeholder="Enter search filter" />
-	
-	
-		 <input type="submit"
-		value="Search" />
+	Select a Search Filter: <select name="searchOption">
+		<option value="searchTag">Tag</option>
+		<option value="searchName">Title</option>
+		<option value="searchLanguage">Language</option>
+		<input type="text" name="searchParameter"
+		placeholder="Enter search filter" />
+
+
+		<input type="submit" value="Search" />
 </form>
 
 
@@ -25,7 +25,8 @@ Select a Search Filter: <select name="searchOption">
 		<th id="tableheaders">Description</th>
 		<th id="tableheaders">Language</th>
 		<th id="tableheaders">Attribution</th>
-		<th id="tableheaders">Public View</th>
+<!-- 		<th id="tableheaders">Public View</th>
+ -->		<th id="tableheaders">Snippet Tag</th>
 	</tr>
 	<c:forEach var="snippet" items="${ snippets }">
 
@@ -46,9 +47,8 @@ Select a Search Filter: <select name="searchOption">
 			<td id="tabledata"><c:out value="${ snippet.description }"></c:out></td>
 			<td id="tabledata"><c:out value="${ snippet.language }"></c:out></td>
 			<td id="tabledata"><c:out value="${ snippet.attribution }"></c:out></td>
-
-
-			<td id="tabledata"><c:out value="${publicViewToggle}"></c:out></td>
+<%-- 			<td id="tabledata"><c:out value="${ publicViewToggle }"></c:out></td>
+ --%>			<td id="tabledata"><c:out value="*To add*"></c:out></td>
 		</tr>
 	</c:forEach>
 </table>

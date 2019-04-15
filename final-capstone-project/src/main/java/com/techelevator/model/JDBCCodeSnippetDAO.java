@@ -131,7 +131,7 @@ public class JDBCCodeSnippetDAO implements CodeSnippetDAO {
 	// Snippet is not added if the snippet name already exists.
 	// Adds the code and tag ids to the code-tag connector table.
 	@Override
-	public void addCodeSnippet(CodeSnippet codeSnippet, Tag tag) {
+	public int addCodeSnippet(CodeSnippet codeSnippet, Tag tag) {
 
 		addTag(tag.getTag().toUpperCase()); // Add the tag--provided by the user--to the database.
 		getTagIdByTag(tag.getTag().toUpperCase()); // Get the ID of the tag we just added. Need to add this ID to
@@ -142,6 +142,7 @@ public class JDBCCodeSnippetDAO implements CodeSnippetDAO {
 
 		addIdsToSnippetTagConnector(getSnippetIdBySnippetName(codeSnippet.getName()),
 				getTagIdByTag(tag.getTag().toUpperCase()));
+		return codeSnippet.getId();
 	}
 
 	// Adds a tag--if it does not exist--to the database. And return the id of the saved tag.
@@ -154,6 +155,7 @@ public class JDBCCodeSnippetDAO implements CodeSnippetDAO {
 			returnId = getIdByTag(tag);
 //			System.out.println("Tag has been added");
 		} else {
+			returnId = getIdByTag(tag);
 //			System.out.println("Tag already exists");
 		}
 		return returnId;
@@ -266,30 +268,62 @@ public class JDBCCodeSnippetDAO implements CodeSnippetDAO {
 	
 	
 	
-	public int updateSnippet(CodeSnippet codeSnippet) {
-		// Declare SQL statement "sqlUpdateSnippet".
-		// Run SQL statement.
-		return codeSnippet.getId();
+	public int updateSnippet(CodeSnippet codeSnippet, Tag tag) {
+		// Get id for existing snippet
+		int snippetId = codeSnippet.getId();
+		// Get id for existing tag
+		int tagId = getTagIdByTag(tag.getTag());
+//		// Get id for existing code_tag connector
+//		int connectorId = getTagPrimaryKeyIdBySnippetIdAndTagId(snippetId, tagId);
+		
+		// Remove entry from code_tag connector
+		deleteCodeTagConnectorBySnippetId(snippetId);
+		// Remove tag
+		deleteTagByTagId(tagId);
+		// Remove existing snippet
+		deleteSnippetBySnippetId(snippetId);
+		// Add modified snippet as a new one
+		snippetId = addCodeSnippet(codeSnippet, tag);
+		// TODO return the new snippetid to the calling method
+		return snippetId;
 	}
 	
+	public void deleteCodeTagConnectorBySnippetId(int snippetId) {
+		String sqlDdeleteCodeTagConnector = "DELETE FROM code_tag WHERE code_tag_id = ?";
+		jdbcTemplate.update(sqlDdeleteCodeTagConnector, snippetId);		
+	}
 	
+	public void deleteTagByTagId(int tagId) {
+		String sqlDeleteTag = "DELETE FROM tag WHERE code_snippet_tag_id = ?";
+		jdbcTemplate.update(sqlDeleteTag, tagId);		
+	}
 	
+	public void deleteSnippetBySnippetId(int snippetId) {
+		String sqlDeleteSnippet = "DELETE FROM code WHERE code_id = ?";
+		jdbcTemplate.update(sqlDeleteSnippet, snippetId);		
+	}
 	
-
-//	// Update snippet of code in the database and return the code_id.
-//	// TODO Need to update the code_tag table.
-//	public int updateSnippet(CodeSnippet codeSnippet) {
-//		String sqlUpdateSnippet = "UPDATE code SET code_name = ?, code_snippet = ?, code_description = ?, code_language = ?, public_view = ?, approved = ?, attribution = ? WHERE code_id = ?";
-//		jdbcTemplate.update(sqlUpdateSnippet, codeSnippet.getName(), codeSnippet.getCode(),
-//				codeSnippet.getDescription(), codeSnippet.getLanguage(), codeSnippet.isPublicView(),
-//				codeSnippet.isApproved(), codeSnippet.getAttribution(), codeSnippet.getId());
-//		return codeSnippet.getId();
-//	}
+	public void updateCodeTagTableByCodeTagId(int codeId, int tagId, int codeTagId) {
+		String sqlUpdateCodeTagTableByCodeTagId = "UPDATE code_tag SET code_id = ?, code_snippet_tag_id = ? WHERE code_tag_id = ?";
+		jdbcTemplate.update(sqlUpdateCodeTagTableByCodeTagId, codeId, tagId, codeTagId);
+	}
 
 	// Adds the snippet id and the tag id to the connector database.
 	public void addIdsToSnippetTagConnector(int snippetId, int tagId) {
 		String sqlInsertSnippetTagId = "INSERT INTO code_tag (code_id, code_snippet_tag_id) VALUES (?, ?)";
 		jdbcTemplate.update(sqlInsertSnippetTagId, snippetId, tagId);
+	}
+	
+	public int getTagPrimaryKeyIdBySnippetIdAndTagId(int snippetId, int tagId) {
+		String sqlGetTagPrimaryKeyIdByTag = "SELECT code_tag_id FROM code_tag WHERE code_id = ? AND code_snippet_tag_id = ?";
+		SqlRowSet results = jdbcTemplate.queryForRowSet(sqlGetTagPrimaryKeyIdByTag, snippetId, tagId);
+		
+		// TODO Error occuring here. Not getting resultsString.
+		int id = 0;
+		while (results.next()) {
+			id = results.getInt("code_tag_id");
+		}
+		return id;
 	}
 
 }
