@@ -160,14 +160,11 @@ public class CodeController {
 	public String submitEditedSnippetForm(@ModelAttribute("snippet") CodeSnippet codeSnippet,
 			@ModelAttribute("tag") Tag tag, ModelMap model) {
 
-		// ***** TODO Need to implement tag update and preservation. *****
-		// ***** Adding tag to db but causing collision when trying to add to code_tag
-		// table. *****
+		codeSnippet.setId(codeSnippetDao.updateSnippet(codeSnippet, tag));
+		
 		model.addAttribute("tag", tag);
 		model.addAttribute("snippet", codeSnippet);
 		
-		codeSnippetDao.updateSnippet(codeSnippet, tag);
-
 		return "detail";
 	}
 

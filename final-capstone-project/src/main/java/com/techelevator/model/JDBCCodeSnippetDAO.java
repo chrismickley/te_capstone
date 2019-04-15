@@ -142,7 +142,7 @@ public class JDBCCodeSnippetDAO implements CodeSnippetDAO {
 
 		addIdsToSnippetTagConnector(getSnippetIdBySnippetName(codeSnippet.getName()),
 				getTagIdByTag(tag.getTag().toUpperCase()));
-		return codeSnippet.getId();
+		return getSnippetIdBySnippetName(codeSnippet.getName());
 	}
 
 	// Adds a tag--if it does not exist--to the database. And return the id of the saved tag.
@@ -251,7 +251,6 @@ public class JDBCCodeSnippetDAO implements CodeSnippetDAO {
 	}
 
 	// Add snippet of code to database if the code snippet name does not already
-	// TODO exist in database. Else, do nothing.
 	public int addSnippetIfDoesntExist(CodeSnippet codeSnippet) {
 		int id = 0;
 		if (!snippetExists(codeSnippet.getName())) {
@@ -265,36 +264,32 @@ public class JDBCCodeSnippetDAO implements CodeSnippetDAO {
 		return id;
 	}
 	
-	
-	
-	
 	public int updateSnippet(CodeSnippet codeSnippet, Tag tag) {
 		// Get id for existing snippet
 		int snippetId = codeSnippet.getId();
-		// Get id for existing tag
-		int tagId = getTagIdByTag(tag.getTag());
-//		// Get id for existing code_tag connector
-//		int connectorId = getTagPrimaryKeyIdBySnippetIdAndTagId(snippetId, tagId);
+//		// Get id for existing tag
+//		int tagId = getTagIdByTag(tag.getTag());
 		
 		// Remove entry from code_tag connector
 		deleteCodeTagConnectorBySnippetId(snippetId);
-		// Remove tag
-		deleteTagByTagId(tagId);
+//		// Remove tag
+//		deleteTagByTagId(tagId);
 		// Remove existing snippet
 		deleteSnippetBySnippetId(snippetId);
 		// Add modified snippet as a new one
 		snippetId = addCodeSnippet(codeSnippet, tag);
-		// TODO return the new snippetid to the calling method
+		System.out.println(snippetId);
 		return snippetId;
 	}
 	
 	public void deleteCodeTagConnectorBySnippetId(int snippetId) {
-		String sqlDdeleteCodeTagConnector = "DELETE FROM code_tag WHERE code_tag_id = ?";
+		String sqlDdeleteCodeTagConnector = "DELETE FROM code_tag WHERE code_id = ?";
 		jdbcTemplate.update(sqlDdeleteCodeTagConnector, snippetId);		
 	}
 	
 	public void deleteTagByTagId(int tagId) {
 		String sqlDeleteTag = "DELETE FROM tag WHERE code_snippet_tag_id = ?";
+		// TODO Error occuring here.
 		jdbcTemplate.update(sqlDeleteTag, tagId);		
 	}
 	
@@ -318,7 +313,6 @@ public class JDBCCodeSnippetDAO implements CodeSnippetDAO {
 		String sqlGetTagPrimaryKeyIdByTag = "SELECT code_tag_id FROM code_tag WHERE code_id = ? AND code_snippet_tag_id = ?";
 		SqlRowSet results = jdbcTemplate.queryForRowSet(sqlGetTagPrimaryKeyIdByTag, snippetId, tagId);
 		
-		// TODO Error occuring here. Not getting resultsString.
 		int id = 0;
 		while (results.next()) {
 			id = results.getInt("code_tag_id");

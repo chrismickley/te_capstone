@@ -48,7 +48,7 @@
 			<td id="tabledata"><c:out value="${ snippet.language }"></c:out></td>
 			<td id="tabledata"><c:out value="${ snippet.attribution }"></c:out></td>
 <%-- 			<td id="tabledata"><c:out value="${ publicViewToggle }"></c:out></td>
- --%>			<td id="tabledata"><c:out value="*To add*"></c:out></td>
+ --%>			<td id="tabledata"><c:out value="${ snippet.id }"></c:out></td>
 		</tr>
 	</c:forEach>
 </table>
