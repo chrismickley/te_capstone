@@ -262,20 +262,34 @@ public class JDBCCodeSnippetDAO implements CodeSnippetDAO {
 		}
 		return id;
 	}
-
-	// Update snippet of code in the database and return the code_id.
+	
+	
+	
+	
 	public int updateSnippet(CodeSnippet codeSnippet) {
-		String sqlUpdateSnippet = "UPDATE code SET code_name = ?, code_snippet = ?, code_description = ?, code_language = ?, public_view = ?, approved = ?, attribution = ? WHERE code_id = ?";
-		jdbcTemplate.update(sqlUpdateSnippet, codeSnippet.getName(), codeSnippet.getCode(),
-				codeSnippet.getDescription(), codeSnippet.getLanguage(), codeSnippet.isPublicView(),
-				codeSnippet.isApproved(), codeSnippet.getAttribution(), codeSnippet.getId());
+		// Declare SQL statement "sqlUpdateSnippet".
+		// Run SQL statement.
 		return codeSnippet.getId();
 	}
+	
+	
+	
+	
+
+//	// Update snippet of code in the database and return the code_id.
+//	// TODO Need to update the code_tag table.
+//	public int updateSnippet(CodeSnippet codeSnippet) {
+//		String sqlUpdateSnippet = "UPDATE code SET code_name = ?, code_snippet = ?, code_description = ?, code_language = ?, public_view = ?, approved = ?, attribution = ? WHERE code_id = ?";
+//		jdbcTemplate.update(sqlUpdateSnippet, codeSnippet.getName(), codeSnippet.getCode(),
+//				codeSnippet.getDescription(), codeSnippet.getLanguage(), codeSnippet.isPublicView(),
+//				codeSnippet.isApproved(), codeSnippet.getAttribution(), codeSnippet.getId());
+//		return codeSnippet.getId();
+//	}
 
 	// Adds the snippet id and the tag id to the connector database.
 	public void addIdsToSnippetTagConnector(int snippetId, int tagId) {
-		String sqlInsertSnippetTagId = "UPDATE code_tag SET code_id = ?, code_snippet_tag_id = ? WHERE code_snippet_tag_id = ?";
-		jdbcTemplate.update(sqlInsertSnippetTagId, snippetId, tagId, tagId);
+		String sqlInsertSnippetTagId = "INSERT INTO code_tag (code_id, code_snippet_tag_id) VALUES (?, ?)";
+		jdbcTemplate.update(sqlInsertSnippetTagId, snippetId, tagId);
 	}
 
 }
