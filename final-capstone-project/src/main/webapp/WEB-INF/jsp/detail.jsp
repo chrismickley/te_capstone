@@ -1,6 +1,6 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
- 
+
  <c:import url="/WEB-INF/jsp/common/header.jsp" />
 
 <p>Detail Page</p>
@@ -21,7 +21,7 @@
 	<input type="text" name="searchId" placeholder="Enter Snippet ID" /> <input
 		type="submit" value="Search By ID" />
 </form>
-
+<script src="<c:url value="/js/markdown.js" />"> </script> 
 <table class="tableproperties">
 	<tr>
 		<th class="tableheaders">Title of Snippet</th>

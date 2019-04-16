@@ -103,8 +103,8 @@ width: 99%;
 background-color: #212121;
 /* font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS',
 sans-serif;*/
-font-family: 'Ubuntu', sans-serif;
-background-image: url('../img/IMG_1936.jpg');
+font-family: 'Ubuntu', sans-serif; background-image: url('../img/IMG_1936.jpg');
+background-blend-mode: lighten; 
 
 
 }
