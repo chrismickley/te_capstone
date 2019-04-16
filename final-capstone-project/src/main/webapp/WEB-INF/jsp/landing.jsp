@@ -1,6 +1,6 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
-
+<script src="https://cdn.jsdelivr.net/npm/showdown@1.9.0/dist/showdown.min.js"></script>
 <c:import url="/WEB-INF/jsp/common/header.jsp" />
 
 <c:url var="searchFilter" value="/searchFilter" />
@@ -16,7 +16,8 @@
 		<input type="submit" value="Search" />
 </form>
 
-
+<script src="<c:url value="/js/markdown.js" />"> </script>
+<ul class = "landing"></ul>
 <table id="tableproperties">
 
 	<tr>
@@ -41,10 +42,11 @@
 			</c:when>
 
 		</c:choose>
+		
 		<tr>
 			<td id="tabledata"><a href="http://localhost:8080/capstone/searchOneById?searchId=${ snippet.id }">${ snippet.id }</a></td>
 			<td id="tabledata"><c:out value="${ snippet.name }"></c:out></td>
-			<td id="tabledata"><c:out value="${ snippet.code }"></c:out></td>
+			<td id="tabledata2"><c:out value="```${ snippet.code }```"></c:out></td>
 			<td id="tabledata"><c:out value="${ snippet.description }"></c:out></td>
 			<td id="tabledata"><c:out value="${ snippet.language }"></c:out></td>
 			<td id="tabledata"><c:out value="${ snippet.attribution }"></c:out></td>
