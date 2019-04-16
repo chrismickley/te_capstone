@@ -27,57 +27,57 @@
 
 			<div>
 				<ul>
-					<li id="inputlabel"><label for="codeName">Title of
+					<li class="inputlabel"><label for="codeName">Title of
 							Code Snippet:</label></li>
 				</ul>
 			</div>
 
 			<div>
 				<ul>
-					<li id="inputbox"><textarea rows="1" cols="25" name="name"
-							id="inputbox">${ snippet.name }</textarea></li>
+					<li class="inputbox"><textarea rows="1" cols="25" name="name"
+							>${ snippet.name }</textarea></li>
 				</ul>
 			</div>
 
 			<div>
 				<ul>
-					<li id="inputlabel"><label for="codeDescription">Code
+					<li class="inputlabel"><label for="codeDescription">Code
 							Snippet Description:</label>
 				</ul>
 			</div>
 
 			<div>
 				<ul>
-					<li id="inputbox"><textarea rows="3" cols="50"
-							name="description" id="inputbox"
+					<li class="inputbox"><textarea rows="3" cols="50"
+							name="description" 
 							placeholder="Please enter a description here">${ snippet.description }</textarea></li>
 				</ul>
 			</div>
 
 			<div>
 				<ul>
-					<li id="inputlabel"><label for="codeSnippet">Code
+					<li class="inputlabel"><label for="codeSnippet">Code
 							Snippet:</label></li>
 				</ul>
 			</div>
 
 			<div>
 				<ul>
-					<li id="inputbox"><textarea rows="8" cols="35" name="code"
-							id="inputbox">${ snippet.code }</textarea></li>
+					<li class="inputbox"><textarea rows="8" cols="35" name="code"
+							>${ snippet.code }</textarea></li>
 				</ul>
 			</div>
 
 			<div>
 				<ul>
-					<li id="inputlabel"><label for="tag">Key Word:</label></li>
+					<li class="inputlabel"><label for="tag">Key Word:</label></li>
 				</ul>
 			</div>
 
 			<div>
 				<ul>
-					<li id="inputbox"><textarea rows="1" cols="25" name="tag"
-							id="inputbox">${ tag.tag }</textarea></li>
+					<li class="inputbox"><textarea rows="1" cols="25" name="tag"
+							>${ tag.tag }</textarea></li>
 				</ul>
 			</div>
 
@@ -91,14 +91,14 @@
 
 			<div>
 				<ul>
-					<li id="inputlabel"><label for="codeLanguage">Select
+					<li class="inputlabel"><label for="codeLanguage">Select
 							language:</label></li>
 				</ul>
 			</div>
 
 			<div>
 				<ul>
-					<li id="inputbox"><select name="language">
+					<li class="inputbox"><select name="language">
 							<!-- Need to create method to return language to jsp -->
 							<c:forEach items="${languageList}" var="language">
 								<option value="${language}">
@@ -110,22 +110,22 @@
 
 			<div>
 				<ul>
-					<li id="inputlabel"><label for="publicView">Attribution
+					<li class="inputlabel"><label for="publicView">Attribution
 					</label></li>
 				</ul>
 			</div>
 
 			<div>
 				<ul>
-					<li id="inputbox"><textarea rows="1" cols="50"
-							name="attribution" id="inputbox">${ snippet.attribution }</textarea></li>
+					<li class="inputbox"><textarea rows="1" cols="50"
+							name="attribution" >${ snippet.attribution }</textarea></li>
 					<!-- Maybe make separate attribution (name of source) and reference link -->
 				</ul>
 			</div>
 
 			<div>
 				<ul>
-					<li id="inputlabel"><label for="publicView">Make
+					<li class="inputlabel"><label for="publicView">Make
 							Public? </label></li>
 				</ul>
 			</div>
@@ -133,28 +133,28 @@
 			<div>
 				<ul>
 					<!-- Need to create method to check box as needed -->
-					<li id="inputbox"><input type="checkbox" name="publicView"
+					<li class="inputbox"><input type="checkbox" name="publicView"
 						value="true" /></li>
 				</ul>
 			</div>
 
 			<div>
 				<ul>
-					<li id="inputlabel"><label for="publicView">Snippet
+					<li class="inputlabel"><label for="publicView">Snippet
 							ID: </label></li>
 				</ul>
 			</div>
 
 			<div>
 				<ul>
-					<li id="inputbox">
-						<a id="inputbox">${ snippet.id }</a>
+					<li class="inputbox">
+						<a class="inputbox">${ snippet.id }</a>
 						<input type="hidden" name = "id" value = "${ snippet.id }">
 					</li>
 				</ul>
 			</div>
 
-			<div id="inputbutton">
+			<div class="inputbutton">
 				<label for="submitForm"></label> <input type="submit"
 					value="Submit Edited Snippet" />
 			</div>

@@ -19,67 +19,67 @@
 
 			<div>
 				<ul>
-					<li id="inputlabel"><label for="codeName">Title of Code
+					<li class="inputlabel"><label for="codeName">Title of Code
 							Snippet:</label></li>
 				</ul>
 			</div>
 			<div>
 				<ul>
-					<li id="inputbox"><input type="text" name="codeName"
-						id="inputbox" /></li>
+					<li class="inputbox"><input type="text" name="codeName"
+						/></li>
 				</ul>
 			</div>
 
 			<div>
 				<ul>
-					<li id="inputlabel"><label for="codeDescription">Enter
+					<li class="inputlabel"><label for="codeDescription">Enter
 							a code snippet description:</label>
 				</ul>
 			</div>
 			<div>
 				<ul>
-					<li id="inputbox"><textarea rows="10" cols="50"
-							name="codeDescription" id="inputbox"
+					<li class="inputbox"><textarea rows="10" cols="50"
+							name="codeDescription"
 							placeholder="Please enter a description here"></textarea></li>
 				</ul>
 			</div>
 
 			<div>
 				<ul>
-					<li id="inputlabel"><label for="codeSnippet">Enter
+					<li class="inputlabel"><label for="codeSnippet">Enter
 							code snippet:</label></li>
 				</ul>
 			</div>
 			<div>
 				<ul>
-					<li id="inputbox"><textarea rows="10" cols="30"
-							name="codeSnippet" id="inputbox">
+					<li class="inputbox"><textarea rows="10" cols="30"
+							name="codeSnippet">
 </textarea></li>
 				</ul>
 			</div>
 
 			<div>
 				<ul>
-					<li id="inputlabel"><label for="tag">Enter Key Word:</label></li>
+					<li class="inputlabel"><label for="tag">Enter Key Word:</label></li>
 				</ul>
 			</div>
 			<div>
 				<ul>
-					<li id="inputbox"><input type="text" name="tag" id="inputbox" />
+					<li class="inputbox"><input type="text" name="tag" />
 					</li>
 				</ul>
 			</div>
 
 			<div>
 				<ul>
-					<li id="inputlabel"><label for="codeLanguage">Select
+					<li class="inputlabel"><label for="codeLanguage">Select
 							language:</label></li>
 				</ul>
 			</div>
 
 			<div>
 				<ul>
-					<li id="inputbox"><select name="codeLanguage">
+					<li class="inputbox"><select name="codeLanguage">
 							<c:forEach items="${languageList}" var="language">
 								<option value="${language}">
 									<c:out value="${language}" /></option>
@@ -90,31 +90,31 @@
 
 			<div>
 				<ul>
-					<li id="inputlabel"><label for="publicView">Make
+					<li class="inputlabel"><label for="publicView">Make
 							Public? </label></li>
 				</ul>
 			</div>
 			<div>
 				<ul>
-					<li id="inputbox"><input type="checkbox" name="publicView"
+					<li class="inputbox"><input type="checkbox" name="publicView"
 						value="true" /></li>
 				</ul>
 			</div>
 
 			<div>
 				<ul>
-					<li id="inputlabel"><label for="publicView">Attribution
+					<li class="inputlabel"><label for="publicView">Attribution
 					</label></li>
 				</ul>
 			</div>
 			<div>
 				<ul>
-					<li id="inputbox"><input type="text" name="attribution"
-						size="50" id="inputbox" /></li>
+					<li class="inputbox"><input type="text" name="attribution"
+						size="50" /></li>
 				</ul>
 			</div>
 
-			<div id="inputbutton">
+			<div class="inputbutton">
 				<label for="submitForm"></label> <input type="submit" value="Submit" />
 			</div>
 
