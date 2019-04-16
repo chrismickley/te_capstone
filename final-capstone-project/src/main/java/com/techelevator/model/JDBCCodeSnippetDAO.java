@@ -266,11 +266,13 @@ public class JDBCCodeSnippetDAO implements CodeSnippetDAO {
 	
 	public int updateSnippet(CodeSnippet codeSnippet, Tag tag) {
 		// Get id for existing snippet
+		// TODO	Not getting the actual snippet id. '0' is being passed to this method.
 		int snippetId = codeSnippet.getId();
 //		// Get id for existing tag
 //		int tagId = getTagIdByTag(tag.getTag());
 		
 		// Remove entry from code_tag connector
+		// Old snippet not being removed since snippetId = 0;
 		deleteCodeTagConnectorBySnippetId(snippetId);
 //		// Remove tag
 //		deleteTagByTagId(tagId);
@@ -278,7 +280,7 @@ public class JDBCCodeSnippetDAO implements CodeSnippetDAO {
 		deleteSnippetBySnippetId(snippetId);
 		// Add modified snippet as a new one
 		snippetId = addCodeSnippet(codeSnippet, tag);
-		System.out.println(snippetId);
+//		System.out.println(snippetId);
 		return snippetId;
 	}
 	
@@ -297,11 +299,18 @@ public class JDBCCodeSnippetDAO implements CodeSnippetDAO {
 		String sqlDeleteSnippet = "DELETE FROM code WHERE code_id = ?";
 		jdbcTemplate.update(sqlDeleteSnippet, snippetId);		
 	}
-	
+
 	public void updateCodeTagTableByCodeTagId(int codeId, int tagId, int codeTagId) {
 		String sqlUpdateCodeTagTableByCodeTagId = "UPDATE code_tag SET code_id = ?, code_snippet_tag_id = ? WHERE code_tag_id = ?";
 		jdbcTemplate.update(sqlUpdateCodeTagTableByCodeTagId, codeId, tagId, codeTagId);
 	}
+
+	public void updateCodeByCodeId(CodeSnippet codeSnippet) {
+		String sqlUpdateCodeByCodeId = "UPDATE code SET code_name = ?, code_snippet = ? code_description = ?, code_language = ? code_public_view = ?, code_approved = ?, code_attribution = ? WHERE code_id = ?";
+		jdbcTemplate.update(sqlUpdateCodeByCodeId, codeSnippet.getName(), codeSnippet.getCode(),
+				codeSnippet.getDescription(), codeSnippet.getLanguage(), codeSnippet.isPublicView(),
+				codeSnippet.isApproved(), codeSnippet.getAttribution(), codeSnippet.getId());
+		}
 
 	// Adds the snippet id and the tag id to the connector database.
 	public void addIdsToSnippetTagConnector(int snippetId, int tagId) {

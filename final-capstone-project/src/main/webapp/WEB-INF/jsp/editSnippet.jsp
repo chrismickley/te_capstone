@@ -147,7 +147,10 @@
 
 			<div>
 				<ul>
-					<li id="inputbox"><a id="inputbox">${ snippet.id }</a></li>
+					<li id="inputbox">
+						<a id="inputbox">${ snippet.id }</a>
+						<input type="hidden" name = "id" value = "${ snippet.id }">
+					</li>
 				</ul>
 			</div>
 
