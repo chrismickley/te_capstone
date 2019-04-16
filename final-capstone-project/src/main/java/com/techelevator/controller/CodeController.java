@@ -105,12 +105,23 @@ public class CodeController {
 	// Take user input of code snippet id and return the associated code snippet to
 	// the detail page.
 	@RequestMapping("/searchOneById")
-	public String searchSnippetByIdAndDisplayDetail(HttpServletRequest request, ModelMap model, HttpSession session) {
-		String theCurrentIdString = request.getParameter("searchId");
+	public String searchSnippetByIdAndDisplayDetail(HttpServletRequest request, @ModelAttribute("tag") Tag tag, ModelMap model, HttpSession session) {
+		String searchIdString = request.getParameter("searchId");
+		int theCurrentId = 0;
 
-		int theCurrentIdInt = Integer.parseInt(theCurrentIdString);
-		model.put("snippet", codeSnippetDao.getCodeSnippetById(theCurrentIdInt));
-		model.put("currentId", theCurrentIdInt);
+		if (isNumeric(searchIdString)) {
+			theCurrentId = Integer.parseInt(request.getParameter("searchId"));
+		}
+
+		model.put("currentId", theCurrentId);
+
+		request.setAttribute("snippet", codeSnippetDao.getCodeSnippetById(theCurrentId));
+
+		String codeSnippetTagByCodeSnippetId = codeSnippetDao.getCodeSnippetTagByCodeSnippetId(theCurrentId);
+		request.setAttribute("tag", codeSnippetTagByCodeSnippetId);
+
+		model.addAttribute("tag", tag);
+		tag.setTag(codeSnippetTagByCodeSnippetId);
 		return "detail";
 	}
 
@@ -122,17 +133,17 @@ public class CodeController {
 			ModelMap model) {
 
 		String searchIdString = request.getParameter("searchId");
-		int searchIdInt = 0;
+		int theCurrentId = 0;
 
 		if (isNumeric(searchIdString)) {
-			searchIdInt = Integer.parseInt(request.getParameter("searchId"));
+			theCurrentId = Integer.parseInt(request.getParameter("searchId"));
 		}
 
-		model.put("currentId", searchIdInt);
+		model.put("currentId", theCurrentId);
 
-		request.setAttribute("snippet", codeSnippetDao.getCodeSnippetById(searchIdInt));
+		request.setAttribute("snippet", codeSnippetDao.getCodeSnippetById(theCurrentId));
 
-		String codeSnippetTagByCodeSnippetId = codeSnippetDao.getCodeSnippetTagByCodeSnippetId(searchIdInt);
+		String codeSnippetTagByCodeSnippetId = codeSnippetDao.getCodeSnippetTagByCodeSnippetId(theCurrentId);
 		request.setAttribute("tag", codeSnippetTagByCodeSnippetId);
 
 		model.addAttribute("tag", tag);
@@ -160,6 +171,7 @@ public class CodeController {
 	public String submitEditedSnippetForm(@ModelAttribute("snippet") CodeSnippet codeSnippet,
 			@ModelAttribute("tag") Tag tag, ModelMap model) {
 
+		// If snippet contents are not modified, the id stays the same. If the contents are modified, the id increments and the old snippet is not deleted.
 		codeSnippet.setId(codeSnippetDao.updateSnippet(codeSnippet, tag));
 		
 		model.addAttribute("tag", tag);

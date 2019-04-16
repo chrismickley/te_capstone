@@ -60,7 +60,7 @@
 
 			<div>
 				<ul>
-					<li id="inputlabel"><label for="tag">Enter Key Words:</label></li>
+					<li id="inputlabel"><label for="tag">Enter Key Word:</label></li>
 				</ul>
 			</div>
 			<div>

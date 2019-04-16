@@ -68,7 +68,7 @@ public class JDBCCodeSnippetDAO implements CodeSnippetDAO {
 	@Override
 	public List<CodeSnippet> getAllCodeSnippetsByLanguage(String language) {
 		List<CodeSnippet> snippetsByLanguage = new ArrayList<>();
-		String sqlGetAllCodeSnippetsByLanguage = "SELECT * FROM code WHERE code_language = ?";
+		String sqlGetAllCodeSnippetsByLanguage = "SELECT * FROM code WHERE code_language ILIKE ?";
 		SqlRowSet results = jdbcTemplate.queryForRowSet(sqlGetAllCodeSnippetsByLanguage, language);
 		while (results.next()) {
 			CodeSnippet theSnippet = mapRowToSnippet(results);

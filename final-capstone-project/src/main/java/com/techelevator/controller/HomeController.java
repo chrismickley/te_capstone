@@ -1,5 +1,7 @@
 package com.techelevator.controller;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
@@ -16,6 +18,11 @@ import com.techelevator.model.JDBCCodeSnippetDAO;
 import com.techelevator.model.JDBCTagDAO;
 import com.techelevator.model.TagDAO;
 import com.techelevator.model.User;
+import com.techelevator.model.CodeSnippet;
+
+import java.util.HashMap;
+
+
 
 @Controller 
 public class HomeController {
@@ -31,6 +38,19 @@ public class HomeController {
 	@RequestMapping("/landing")
 	public String goToLandingPage(HttpServletRequest request) {
 		request.setAttribute("snippets", codeSnippetDao.getAllCodeSnippets());
+		// How to get the tag for each individual snippet when given list of all snippets?
+//		List<int> listOfIds = ArrayList<int>();
+		
+		
+		
+		
+//		for (CodeSnippet snippet: codeSnippetDao.getAllCodeSnippets()) {
+//			String tagForEachSnippet = codeSnippetDao.getCodeSnippetTagByCodeSnippetId(snippet.getId());
+//			HashMap<Integer, String> snippetAndTagMap = new HashMap<Integer, String>();
+//			snippetAndTagMap.put( (Integer) snippet.getId(), tagForEachSnippet);
+//			// Add snippet to request object.
+//			// Add tag to request object.
+//		}
 	return "landing";
 	}
 }

@@ -10,15 +10,12 @@ INSERT INTO code (code_id, code_name, code_snippet, code_description, code_langu
 SELECT setval(pg_get_serial_sequence('code', 'code_id'), 3);
 
 INSERT INTO tag (code_snippet_tag_id, code_snippet_tag) VALUES ('1', 'STANDARD');
-INSERT INTO tag (code_snippet_tag_id, code_snippet_tag) VALUES ('2', 'JAVA');
-INSERT INTO tag (code_snippet_tag_id, code_snippet_tag) VALUES ('3', 'FOR');
-INSERT INTO tag (code_snippet_tag_id, code_snippet_tag) VALUES ('4', 'LOOP');
-INSERT INTO tag (code_snippet_tag_id, code_snippet_tag) VALUES ('5', 'WHILE');
+INSERT INTO tag (code_snippet_tag_id, code_snippet_tag) VALUES ('2', 'WHILE');
 
 SELECT setval(pg_get_serial_sequence('tag', 'code_snippet_tag_id'), 6);
 
 INSERT INTO code_tag (code_id, code_snippet_tag_id) VALUES ('1', '1');
-INSERT INTO code_tag (code_id, code_snippet_tag_id) VALUES ('2', '5');
+INSERT INTO code_tag (code_id, code_snippet_tag_id) VALUES ('2', '2');
 
 
 INSERT INTO language (code_language) VALUES ('BASIC');
