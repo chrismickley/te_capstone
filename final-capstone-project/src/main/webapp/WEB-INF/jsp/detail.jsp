@@ -1,9 +1,21 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
-
-<c:import url="/WEB-INF/jsp/common/header.jsp" />
+<%-- <c:import url="https://cdn.jsdelivr.net/npm/showdown@1.9.0/dist/showdown.min.js" />
+ --%>
+ <script src="https://cdn.jsdelivr.net/npm/showdown@1.9.0/dist/showdown.min.js"></script>
+ <c:import url="/WEB-INF/jsp/common/header.jsp" />
 
 <p>Detail Page</p>
+
+
+<script src="<c:url value="/js/markdown.js" />"> </script>
+<textarea>${snippet.code}</textarea>
+<p id = "markdownOutput"></p>
+
+
+
+
+
 
 <c:url var="searchFilter" value="/searchFilter" />
 <form method="GET" action="${searchFilter}">
@@ -33,8 +45,9 @@
 		<td id="tabledata"><c:out value="${ snippet.description }"></c:out></td>
 	</tr>
 	<tr>
+	
 		<th id="tableheaders">Code</th>
-		<td id="tabledata"><c:out value="${ snippet.code }"></c:out></td>
+		<td id="tabledata2"><c:out value="${ snippet.code }"></c:out></td>
 	</tr>
 	
 	<tr>
@@ -74,3 +87,4 @@
 </table>
 
 <c:import url="/WEB-INF/jsp/common/footer.jsp" />
+
