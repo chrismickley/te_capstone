@@ -2,7 +2,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
     console.log('DOM fully loaded and paaaaaaaaarsed');
     const converter = new showdown.Converter();
     converter.setFlavor("github"); // This is a showdown flavor
-    const tabledata = document.querySelectorAll("#tabledata2");
+    const tabledata = document.querySelectorAll(".tabledata2");
     console.table(tabledata);
     tabledata.forEach(codeSnippet => {
     codeSnippet.innerHTML = converter.makeHtml(codeSnippet.innerHTML)
