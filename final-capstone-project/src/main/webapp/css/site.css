@@ -25,7 +25,7 @@ text-decoration: none;
 textarea:nth-child(1) {
   width: 350px;
   height: 250px;
-  background-color: green;
+  background-color: none;
 }
 
 nav span {
@@ -107,48 +107,6 @@ font-family: 'Ubuntu', sans-serif;
 background-image: url('../img/IMG_1936.jpg');
 }
 
-/* header {
-background-color: #17202a;
-color: white;
-padding: 1% 1%;
-padding-left: 35px;
-background-image: url('../img/IMG_1933.jpg');
-font-family: 'Ubuntu', sans-serif;
-} */
-
-/* header li {
-float: right;
-}
-
-nav {
-    float: left;
-background-color: #616a6b;
-margin-bottom: 0%;
-padding: 1%;
-height: 0%;
-
-}
-
-nav ul {
-
-padding-left: 0px;
-}
-
-nav li {
-list-style-type: none;
-color: white;
-margin-left: 25px;
-margin-bottom: 0px;
-font-size: 1.3em;
-float: left;
-
-}
-
-nav li a {
-color: whitesmoke;
-font-weight: bold;
-text-decoration: none;
-} */
 
 section {
 clear: both;
@@ -166,27 +124,6 @@ background: -moz-linear-gradient(to right, #e4f5fc, #2ab0ed);
 background: linear-gradient(to right, #e4f5fc, #2ab0ed);
 }
 
-/* .headerimage {
-display: grid;
-grid-column: 4fr 1fr;
-}
-
-#welcome {
-list-style-type: none;
-text-align: center;
-} */
-
-/* .nav-flex-container {
-display: flex;
-flex-direction: row;
-color: white;
-text-decoration: none;
-margin-left: 25px;
-margin-bottom: 3px;
-font-size: 1.3em;
-
-
-} */
 
 #userfunctions {
     display: flex;
@@ -213,17 +150,17 @@ text-align: left;
 #tableproperties {
 width: 90%;
 }
-#inputlabel {
+.inputlabel {
 list-style-type: none;
 text-align: right;
 }
 
-#inputbox {
+.inputbox {
 list-style-type: none;
 text-align: left;
 
 }
-#inputbutton {
+.inputbutton {
 grid-column: span 2;
 
 }
