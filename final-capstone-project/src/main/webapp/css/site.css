@@ -105,6 +105,12 @@ background-color: #212121;
 sans-serif;*/
 font-family: 'Ubuntu', sans-serif;
 background-image: url('../img/IMG_1936.jpg');
+
+
+}
+
+body img {
+    opacity: 0.2;
 }
 
 
@@ -140,14 +146,18 @@ float: right;
 list-style-type: none;
 text-align: left;
 }
-#tableheaders {
+.tableheaders {
 text-align: left;
 font-weight: bold;
 }
-#tabledata {
+.tabledata {
 text-align: left;
 }
-#tableproperties {
+.tabledata2 {
+text-align: left;
+}
+
+.tableproperties {
 width: 90%;
 }
 .inputlabel {

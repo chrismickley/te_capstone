@@ -22,40 +22,40 @@
 		type="submit" value="Search By ID" />
 </form>
 
-<table id="tableproperties">
+<table class="tableproperties">
 	<tr>
-		<th id="tableheaders">Title of Snippet</th>
-		<td id="tabledata"><c:out value="${ snippet.name }"></c:out></td>
+		<th class="tableheaders">Title of Snippet</th>
+		<td class="tabledata"><c:out value="${ snippet.name }"></c:out></td>
 	</tr>
 	
 	<tr>
-		<th id="tableheaders">Description</th>
-		<td id="tabledata"><c:out value="${ snippet.description }"></c:out></td>
+		<th class="tableheaders">Description</th>
+		<td class="tabledata"><c:out value="${ snippet.description }"></c:out></td>
 	</tr>
 	<tr>
 	
-		<th id="tableheaders">Code</th>
-		<td id="tabledata2"><c:out value="${ snippet.code }"></c:out></td>
+		<th class="tableheaders">Code</th>
+		<td class="tabledata2"><c:out value="${ snippet.code }"></c:out></td>
 	</tr>
 	
 	<tr>
-		<th id="tableheaders">Key word</th>
-		<td id="tabledata"><c:out value="${ tag.tag }"></c:out></td>
+		<th class="tableheaders">Key word</th>
+		<td class="tabledata"><c:out value="${ tag.tag }"></c:out></td>
 	</tr>
 	
 	<tr>
-		<th id="tableheaders">Language</th>
-		<td id="tabledata"><c:out value="${ snippet.language }"></c:out></td>
+		<th class="tableheaders">Language</th>
+		<td class="tabledata"><c:out value="${ snippet.language }"></c:out></td>
 	</tr>
 
 	<tr>
-		<th id="tableheaders">Attribution</th>
-		<td id="tabledata"><c:out value="${ snippet.attribution }"></c:out></td>
+		<th class="tableheaders">Attribution</th>
+		<td class="tabledata"><c:out value="${ snippet.attribution }"></c:out></td>
 	</tr>
 
 	<tr>
-		<th id="tableheaders">Snippet ID</th>
-		<td id="tabledata"><a href="http://localhost:8080/capstone/searchByIdGoToEditPage?searchId=${ snippet.id }">${ snippet.id }</a></td>
+		<th class="tableheaders">Snippet ID</th>
+		<td class="tabledata"><a href="http://localhost:8080/capstone/searchByIdGoToEditPage?searchId=${ snippet.id }">${ snippet.id }</a></td>
 	</tr>
 
 	<c:choose>
@@ -68,8 +68,8 @@
 	</c:choose>
 
 	<tr>
-		<th id="tableheaders">Public View</th>
-		<td id="tabledata"><c:out value="${visibility}"></c:out></td>
+		<th class="tableheaders">Public View</th>
+		<td class="tabledata"><c:out value="${visibility}"></c:out></td>
 
 	</tr>
 </table>
