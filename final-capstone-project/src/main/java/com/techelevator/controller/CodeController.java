@@ -138,6 +138,8 @@ public class CodeController {
 		if (isNumeric(searchIdString)) {
 			theCurrentId = Integer.parseInt(request.getParameter("searchId"));
 		}
+		
+		model.addAttribute("idToEdit", theCurrentId);
 
 		model.put("currentId", theCurrentId);
 
@@ -170,8 +172,11 @@ public class CodeController {
 	@RequestMapping(path = "/submitEditedSnippet", method = RequestMethod.POST)
 	public String submitEditedSnippetForm(@ModelAttribute("snippet") CodeSnippet codeSnippet,
 			@ModelAttribute("tag") Tag tag, ModelMap model) {
+		
+		System.out.println(codeSnippet.getId());
+		
+		codeSnippet.setId(codeSnippet.getId());
 
-		// If snippet contents are not modified, the id stays the same. If the contents are modified, the id increments and the old snippet is not deleted.
 		codeSnippet.setId(codeSnippetDao.updateSnippet(codeSnippet, tag));
 		
 		model.addAttribute("tag", tag);
