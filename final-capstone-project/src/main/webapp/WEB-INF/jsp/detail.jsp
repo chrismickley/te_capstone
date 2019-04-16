@@ -20,7 +20,7 @@
 <c:url var="searchFilter" value="/searchFilter" />
 <form method="GET" action="${searchFilter}">
 	Select a Search Filter: <select name="searchOption">
-		<option value="searchTag">Tag</option>
+		<option value="searchTag">Key Word</option>
 		<option value="searchName">Title</option>
 		<option value="searchLanguage">Language</option>
 	</select> <input type="text" name="searchParameter"
@@ -67,7 +67,7 @@
 
 	<tr>
 		<th id="tableheaders">Snippet ID</th>
-		<td id="tabledata"><c:out value="${ snippet.id }"></c:out></td>
+		<td id="tabledata"><a href="http://localhost:8080/capstone/searchByIdGoToEditPage?searchId=${ snippet.id }">${ snippet.id }</a></td>
 	</tr>
 
 	<c:choose>

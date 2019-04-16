@@ -5,28 +5,29 @@
 
 <c:url var="searchFilter" value="/searchFilter" />
 <form method="GET" action="${searchFilter}">
-Select a Search Filter: <select name="searchOption">
-		<option value="searchTag"> Tag </option>
-		<option value="searchName"> Title </option>
-		<option value="searchLanguage"> Language </option>
-	<input type="text" name="searchParameter" placeholder="Enter search filter" />
-	
-	
-		 <input type="submit"
-		value="Search" />
+	Select a Search Filter: <select name="searchOption">
+		<option value="searchTag">Key Word</option>
+		<option value="searchName">Title</option>
+		<option value="searchLanguage">Language</option>
+		<input type="text" name="searchParameter"
+		placeholder="Enter search filter" />
+
+
+		<input type="submit" value="Search" />
 </form>
 
 
 <table id="tableproperties">
 
 	<tr>
+		<th id="tableheaders">Snippet ID</th>
 		<th id="tableheaders">Title of Snippet</th>
 		<th id="tableheaders">Code</th>
 		<th id="tableheaders">Description</th>
 		<th id="tableheaders">Language</th>
 		<th id="tableheaders">Attribution</th>
-		<th id="tableheaders">Public View</th>
-	</tr>
+<!-- 		<th id="tableheaders">Snippet Tag</th>
+ -->	</tr>
 	<c:forEach var="snippet" items="${ snippets }">
 
 
@@ -41,15 +42,15 @@ Select a Search Filter: <select name="searchOption">
 
 		</c:choose>
 		<tr>
+			<td id="tabledata"><a href="http://localhost:8080/capstone/searchOneById?searchId=${ snippet.id }">${ snippet.id }</a></td>
 			<td id="tabledata"><c:out value="${ snippet.name }"></c:out></td>
 			<td id="tabledata"><c:out value="${ snippet.code }"></c:out></td>
 			<td id="tabledata"><c:out value="${ snippet.description }"></c:out></td>
 			<td id="tabledata"><c:out value="${ snippet.language }"></c:out></td>
 			<td id="tabledata"><c:out value="${ snippet.attribution }"></c:out></td>
-
-
-			<td id="tabledata"><c:out value="${publicViewToggle}"></c:out></td>
-		</tr>
+			<!-- Need to create the method to display the tag here -->
+<%-- 			<td id="tabledata"><c:out value="The Tag"></c:out></td>
+ --%>		</tr>
 	</c:forEach>
 </table>
 

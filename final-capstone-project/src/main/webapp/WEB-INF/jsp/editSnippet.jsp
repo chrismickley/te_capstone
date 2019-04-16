@@ -27,8 +27,8 @@
 
 			<div>
 				<ul>
-					<li id="inputlabel"><label for="codeName">Title of Code
-							Snippet:</label></li>
+					<li id="inputlabel"><label for="codeName">Title of
+							Code Snippet:</label></li>
 				</ul>
 			</div>
 
@@ -140,15 +140,14 @@
 
 			<div>
 				<ul>
-					<li id="inputlabel"><label for="publicView">Snippet ID:
-					</label></li>
+					<li id="inputlabel"><label for="publicView">Snippet
+							ID: </label></li>
 				</ul>
 			</div>
 
 			<div>
 				<ul>
-					<li id="inputbox"><textarea rows="1" cols="25" name="id"
-							id="inputbox">${ snippet.id }</textarea></li>
+					<li id="inputbox"><a id="inputbox">${ snippet.id }</a></li>
 				</ul>
 			</div>
 
