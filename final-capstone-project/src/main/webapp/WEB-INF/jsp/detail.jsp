@@ -35,7 +35,7 @@
 	<tr>
 	
 		<th class="tableheaders">Code</th>
-		<td class="tabledata2"><c:out value="${ snippet.code }"></c:out></td>
+		<td class="tabledata2"><c:out value="```${ snippet.code }```"></c:out></td>
 	</tr>
 	
 	<tr>
