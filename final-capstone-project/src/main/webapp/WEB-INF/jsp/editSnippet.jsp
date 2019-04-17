@@ -34,8 +34,7 @@
 
 			<div>
 				<ul>
-					<li class="inputbox"><input type="text" name="name" />
-						${ snippet.name }</li>
+					<li class="inputbox"><input type="text" name="name" /> ${ snippet.name }</li>
 				</ul>
 			</div>
 
@@ -49,8 +48,7 @@
 			<div>
 				<ul>
 					<li class="inputbox"><textarea rows="10" cols="50"
-							name="description" 
-							placeholder="Please enter a description here">${ snippet.description }</textarea></li>
+							name="description" placeholder="Please enter a description here">${ snippet.description }</textarea></li>
 				</ul>
 			</div>
 
@@ -63,8 +61,7 @@
 
 			<div>
 				<ul>
-					<li class="inputbox"><textarea rows="10" cols="50" name="code"
-							>${ snippet.code }</textarea></li>
+					<li class="inputbox"><textarea rows="10" cols="50" name="code">${ snippet.code }</textarea></li>
 				</ul>
 			</div>
 
@@ -76,8 +73,7 @@
 
 			<div>
 				<ul>
-					<li class="inputbox"><input type="text" name="tag" />
-							${ tag.tag }</li>
+					<li class="inputbox"><input type="text" name="tag" /> ${ tag.tag }</li>
 				</ul>
 			</div>
 
@@ -117,8 +113,8 @@
 
 			<div>
 				<ul>
-					<li class="inputbox"><input type="text"
-							name="attribution" size="50" />${ snippet.attribution }</li>
+					<li class="inputbox"><input type="text" name="attribution"
+						size="50" />${ snippet.attribution }</li>
 					<!-- Maybe make separate attribution (name of source) and reference link -->
 				</ul>
 			</div>
@@ -145,14 +141,12 @@
 				</ul>
 			</div>
  -->
-			<%-- 			<div>
+			<div>
 				<ul>
-					<li class="inputbox">
-						<a class="inputbox">${ snippet.id }</a>
-						<input type="hidden" name = "id" value = "${ snippet.id }">
-					</li>
+					<li class="inputbox"><a class="inputbox">${ snippet.id }</a> <input
+						type="hidden" name="id" value="${ snippet.id }"></li>
 				</ul>
-			</div> --%>
+			</div>
 
 			<div class="inputbutton">
 				<label for="submitForm"></label> <input type="submit"

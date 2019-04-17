@@ -4,19 +4,24 @@
 
 BEGIN;
 
-INSERT INTO code (code_id, code_name, code_snippet, code_description, code_language, public_view, approved, attribution) VALUES ('1', 'Standard For Loop', 'for(int i=0; i<10; i++)', 'This is the standard for loop', 'Java', 'true', 'true','Billy Hill, esq.' ); 
-INSERT INTO code (code_id, code_name, code_snippet, code_description, code_language, public_view, approved, attribution) VALUES ('2', 'While Loop', 'while(<condition true>)', 'This is the standard while loop', 'Java', 'true', 'true', 'https://stackoverflow.com/'); 
+INSERT INTO code (code_id, code_name, code_snippet, code_description, code_language, public_view, approved, attribution) VALUES ('1', 'For Loop', 'for(<initializer>; <condition>; <incrementer>) {<cod to execute>}', 'This is the standard for loop', 'Java', 'true', 'true','Billy Hill, esq.' ); 
+INSERT INTO code (code_id, code_name, code_snippet, code_description, code_language, public_view, approved, attribution) VALUES ('2', 'While Loop', 'while(<condition true>) {<code to execute>}', 'This is the standard while loop', 'Java', 'true', 'true', 'A. Nonimous'); 
+INSERT INTO code (code_id, code_name, code_snippet, code_description, code_language, public_view, approved, attribution) VALUES ('3', 'Controller Class', '@Controller @SessionAttributes("currentId") public class CodeController {}', 'Standard class signature for Spring MVC controller', 'Java', 'true', 'true', 'anonymous'); 
+INSERT INTO code (code_id, code_name, code_snippet, code_description, code_language, public_view, approved, attribution) VALUES ('4', 'For Each', 'for (<item> : <items>) {<code to execute>}', 'This is the standard for each loop', 'Java', 'true', 'true', 'H. Ovalexandria'); 
 
-SELECT setval(pg_get_serial_sequence('code', 'code_id'), 3);
+SELECT setval(pg_get_serial_sequence('code', 'code_id'), 25);
 
 INSERT INTO tag (code_snippet_tag_id, code_snippet_tag) VALUES ('1', 'STANDARD');
 INSERT INTO tag (code_snippet_tag_id, code_snippet_tag) VALUES ('2', 'WHILE');
+INSERT INTO tag (code_snippet_tag_id, code_snippet_tag) VALUES ('3', 'CONTROLLER');
+INSERT INTO tag (code_snippet_tag_id, code_snippet_tag) VALUES ('4', 'EACH');
 
-SELECT setval(pg_get_serial_sequence('tag', 'code_snippet_tag_id'), 6);
+SELECT setval(pg_get_serial_sequence('tag', 'code_snippet_tag_id'), 25);
 
 INSERT INTO code_tag (code_id, code_snippet_tag_id) VALUES ('1', '1');
 INSERT INTO code_tag (code_id, code_snippet_tag_id) VALUES ('2', '2');
-
+INSERT INTO code_tag (code_id, code_snippet_tag_id) VALUES ('3', '3');
+INSERT INTO code_tag (code_id, code_snippet_tag_id) VALUES ('4', '4');
 
 INSERT INTO language (code_language) VALUES ('Java');
 INSERT INTO language (code_language) VALUES ('C#');

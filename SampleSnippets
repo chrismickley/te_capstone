@@ -1,0 +1,5 @@
+@Controller
+@SessionAttributes("currentId")
+public class CodeController {
+    	@Autowired
+	CodeSnippetDAO codeSnippetDao;
