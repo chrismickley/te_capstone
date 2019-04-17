@@ -45,7 +45,6 @@
 		<tr>
 			<td class="tabledata" id="landing_details"><a
 				href="http://localhost:8080/capstone/searchOneById?searchId=${ snippet.id }">${ snippet.name }</a></td>
-			<td class="tabledata"><c:out value="${ snippet.name }"></c:out></td>
 			<td class="tabledata2"><c:out value="```${ snippet.code }```"></c:out></td>
 			<td class="tabledata"><c:out value="${ snippet.description }"></c:out></td>
 			<td class="tabledata"><c:out value="${ snippet.language }"></c:out></td>

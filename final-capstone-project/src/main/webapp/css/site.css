@@ -17,11 +17,11 @@ height: 0%;
 text-decoration: none;
 }
 
-textarea:nth-child(1) {
+/* textarea:nth-child(1) {
   width: 350px;
   height: 250px;
   background-color: none;
-}
+} */
 
 nav span {
 float: right;
