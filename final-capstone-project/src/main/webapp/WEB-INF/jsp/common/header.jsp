@@ -22,72 +22,56 @@
 				<h1 id="headerTitle">Code Catalog</h1>
 
 			</div>
-
-
-
 		</header>
 	</div>
 
-	
-
-		
 	<nav>
-	<div class = "navBar">
+		<div class="navBar">
 
-		
-				<a id= "testing" href="home">Home</a>
-				<a id= "testing" href="about">About Us</a>
-			
-			<!-- 			<div>
-				<li><a href="landing">Code Samples</a></li>
-			</div> -->
-			
-<!-- 				<a id= "testing" href="detail">Detail Page</a>
- -->			
+
+			<a id="testing" href="home">Home</a> <a id="testing" href="about">About
+				Us</a>
 
 
 			<c:if test="${currentUser.userName != null}">
-					<a id= "testing" href="addSnippet">Add Code Snippet</a>
-					</c:if>
-					<c:if test="${currentUser.userName != null}">
-				
-					<a id= "testing" href="editSnippet">Edit Code Snippet</a>
-				
+				<a id="testing" href="landing">Sample Snippets</a>
 			</c:if>
 			
-		
+			<c:if test="${currentUser.userName != null}">
+				<a id="testing" href="addSnippet">Add Code Snippet</a>
+			</c:if>
 			
-		
-			
-				<c:if test="${currentUser.userName == null}">
-					<a id= "testing2" href="register">Register</a>
-			
-			
+<%-- 			<c:if test="${currentUser.userName != null}">
 
-				<a id= "testing2"href="login">Login</a>
+				<a id="testing" href="editSnippet">Edit Code Snippet</a>
+
+			</c:if> --%>
+
+			<c:if test="${currentUser.userName == null}">
+				<a id="testing2" href="register">Register</a>
+
+				<a id="testing2" href="login">Login</a>
 
 			</c:if>
-		
 
-		<c:if test="${currentUser.userName != null}">
-			
+
+			<c:if test="${currentUser.userName != null}">
+
 				<span id="welcome">Welcome, ${currentUser.userName}</span>
+
+			</c:if>
 			
-		</c:if>
-
-
-		
 			<c:if test="${currentUser.userName != null}">
 				<c:url var="formAction" value="/logout" />
 				<span><form method="POST" action="${formAction}">
-					<input type="hidden" name="destination"
-						value="${param.destination}" />
-					<button class ="logoutButton" type="Logout">Logout</button> 
-				</form></span>
+						<input type="hidden" name="destination"
+							value="${param.destination}" />
+						<button class="logoutButton" type="Logout">Logout</button>
+					</form></span>
 			</c:if>
-		
-</div>	
-</nav>	
+
+		</div>
+	</nav>
 
 
 
