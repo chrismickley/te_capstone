@@ -15,19 +15,19 @@
 		<input type="submit" value="Search" />
 </form>
 
-<script src="<c:url value="/js/markdown.js" />"> </script>
-<ul class = "landing"></ul>
+<script src="<c:url value="/js/markdown.js" />">
+	
+</script>
+<ul class="landing"></ul>
 <table class="tableproperties">
 
 	<tr>
-		<th class="tableheaders"></th>
 		<th class="tableheaders">Title of Snippet</th>
 		<th class="tableheaders">Code</th>
 		<th class="tableheaders">Description</th>
 		<th class="tableheaders">Language</th>
 		<th class="tableheaders">Attribution</th>
-<!-- 		<th id="tableheaders">Snippet Tag</th>
- -->	</tr>
+	</tr>
 	<c:forEach var="snippet" items="${ snippets }">
 
 
@@ -41,17 +41,19 @@
 			</c:when>
 
 		</c:choose>
-		
+
 		<tr>
-			<td class="tabledata" id="landing_details"><a href="http://localhost:8080/capstone/searchOneById?searchId=${ snippet.id }">Details</a></td>
+			<td class="tabledata" id="landing_details"><a
+				href="http://localhost:8080/capstone/searchOneById?searchId=${ snippet.id }">${ snippet.name }</a></td>
 			<td class="tabledata"><c:out value="${ snippet.name }"></c:out></td>
 			<td class="tabledata2"><c:out value="```${ snippet.code }```"></c:out></td>
 			<td class="tabledata"><c:out value="${ snippet.description }"></c:out></td>
 			<td class="tabledata"><c:out value="${ snippet.language }"></c:out></td>
 			<td class="tabledata"><c:out value="${ snippet.attribution }"></c:out></td>
 			<!-- Need to create the method to display the tag here -->
-<%-- 			<td id="tabledata"><c:out value="The Tag"></c:out></td>
- --%>		</tr>
+			<%-- 			<td id="tabledata"><c:out value="The Tag"></c:out></td>
+ --%>
+		</tr>
 	</c:forEach>
 </table>
 
