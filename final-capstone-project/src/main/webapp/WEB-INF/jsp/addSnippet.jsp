@@ -52,7 +52,7 @@
 			</div>
 			<div>
 				<ul>
-					<li class="inputbox"><textarea rows="10" cols="30"
+					<li class="inputbox"><textarea rows="10" cols="50"
 							name="codeSnippet">
 </textarea></li>
 				</ul>
@@ -88,7 +88,7 @@
 				</ul>
 			</div>
 
-			<div>
+			<!-- <div>
 				<ul>
 					<li class="inputlabel"><label for="publicView">Make
 							Public? </label></li>
@@ -100,7 +100,7 @@
 						value="true" /></li>
 				</ul>
 			</div>
-
+ -->
 			<div>
 				<ul>
 					<li class="inputlabel"><label for="publicView">Attribution
