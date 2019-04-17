@@ -37,7 +37,7 @@ public class HomeController {
 	
 	@RequestMapping("about")
 	public String goToAboutPage(HttpServletRequest request) {
-		return "about";
+		return "about2";
 	}
 
 	@RequestMapping("/landing")
