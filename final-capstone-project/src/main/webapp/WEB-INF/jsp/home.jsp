@@ -1,74 +1,13 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 
-<%-- %-- <c:import url="/WEB-INF/jsp/common/header.jsp" /> --%> 
-<!-- <link rel="stylesheet" href="css/siteToo.css" /> -->
+<!-- <link rel="stylesheet" href="css/site.css" /> -->
+<c:import url="/WEB-INF/jsp/common/header.jsp" />
 
+<h1>Home/Marketing Page</h1>
 
-</head>
-<body>
+<img src="file:///Users/bstull/Development/FinalCapstone/final-capstone-team-india/final-capstone-project/src/main/webapp/img/programmingLanguageQuestions.jpeg" alt="Pragramming Questions">
 
-	<div class = "titleBar">
-		<header>
-		
-				<h1 id="headerTitle">Code Catalog</h1>
-		</header>
-</div>
-
-<div class = "navBar">
-	<nav>
-
-		
-				<a id= "testing" href="landing">Home</a>
-			
-			<!-- 			<div>
-				<li><a href="landing">Code Samples</a></li>
-			</div> -->
-			
-				<a id= "testing" href="detail">Detail Page</a>
-			
-
-
-			<c:if test="${currentUser.userName != null}">
-					<a id= "testing" href="addSnippet">Add Code Snippet</a>
-					</c:if>
-					<c:if test="${currentUser.userName != null}">
-				
-					<a id= "testing" href="editSnippet">Edit Code Snippet</a>
-				
-			</c:if>
-			
-		
-			
-		
-			
-				<c:if test="${currentUser.userName == null}">
-					<a id= "testing2" href="register">Register</a>
-			
-			
-
-				<a id= "testing2"href="login">Login</a>
-
-			</c:if>
-		
-
-		<c:if test="${currentUser.userName != null}">
-			
-				<span id="welcome">Welcome, ${currentUser.userName}</span>
-			
-		</c:if>
-
-
-		
-			<c:if test="${currentUser.userName != null}">
-				<c:url var="formAction" value="/logout" />
-				<span><form method="POST" action="${formAction}">
-					<input type="hidden" name="destination"
-						value="${param.destination}" />
-					<button class ="logoutButton" type="Logout">Logout</button> 
-				</form></span>
-			</c:if>
-		
-
-</nav>	
-</div>	
-
+<c:import url="/WEB-INF/jsp/common/footer.jsp" />

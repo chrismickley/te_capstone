@@ -20,7 +20,7 @@
 <table class="tableproperties">
 
 	<tr>
-		<th class="tableheaders">Snippet ID</th>
+		<th class="tableheaders"></th>
 		<th class="tableheaders">Title of Snippet</th>
 		<th class="tableheaders">Code</th>
 		<th class="tableheaders">Description</th>
@@ -43,7 +43,7 @@
 		</c:choose>
 		
 		<tr>
-			<td class="tabledata"><a href="http://localhost:8080/capstone/searchOneById?searchId=${ snippet.id }">${ snippet.id }</a></td>
+			<td class="tabledata" id="landing_details"><a href="http://localhost:8080/capstone/searchOneById?searchId=${ snippet.id }">Details</a></td>
 			<td class="tabledata"><c:out value="${ snippet.name }"></c:out></td>
 			<td class="tabledata2"><c:out value="```${ snippet.code }```"></c:out></td>
 			<td class="tabledata"><c:out value="${ snippet.description }"></c:out></td>

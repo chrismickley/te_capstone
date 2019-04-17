@@ -32,25 +32,17 @@ public class HomeController {
 	
 	@RequestMapping({"/","/home"})
 	public String goToHomePage(HttpServletRequest request) {
-		return "landing";
+		return "home";
+	}
+	
+	@RequestMapping("about")
+	public String goToAboutPage(HttpServletRequest request) {
+		return "about";
 	}
 
 	@RequestMapping("/landing")
 	public String goToLandingPage(HttpServletRequest request) {
 		request.setAttribute("snippets", codeSnippetDao.getAllCodeSnippets());
-		// How to get the tag for each individual snippet when given list of all snippets?
-//		List<int> listOfIds = ArrayList<int>();
-		
-		
-		
-		
-//		for (CodeSnippet snippet: codeSnippetDao.getAllCodeSnippets()) {
-//			String tagForEachSnippet = codeSnippetDao.getCodeSnippetTagByCodeSnippetId(snippet.getId());
-//			HashMap<Integer, String> snippetAndTagMap = new HashMap<Integer, String>();
-//			snippetAndTagMap.put( (Integer) snippet.getId(), tagForEachSnippet);
-//			// Add snippet to request object.
-//			// Add tag to request object.
-//		}
 	return "landing";
 	}
 }

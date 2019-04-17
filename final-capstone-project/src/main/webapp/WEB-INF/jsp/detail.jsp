@@ -16,11 +16,11 @@
 		value="Search" />
 </form>
 
-<c:url var="urlSearchById" value="/searchOneById" />
+<%-- <c:url var="urlSearchById" value="/searchOneById" />
 <form action="${ urlSearchById }" method="GET">
 	<input type="text" name="searchId" placeholder="Enter Snippet ID" /> <input
 		type="submit" value="Search By ID" />
-</form>
+</form> --%>
 <script src="<c:url value="/js/markdown.js" />"> </script> 
 <table class="tableproperties">
 	<tr>
@@ -55,7 +55,7 @@
 
 	<tr>
 		<th class="tableheaders">Snippet ID</th>
-		<td class="tabledata"><a href="http://localhost:8080/capstone/searchByIdGoToEditPage?searchId=${ snippet.id }">${ snippet.id }</a></td>
+		<td class="tabledata"><a href="http://localhost:8080/capstone/searchByIdGoToEditPage?searchId=${ snippet.id }">Edit</a></td>
 	</tr>
 
 	<c:choose>

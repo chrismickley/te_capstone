@@ -22,7 +22,7 @@ public class JDBCLanguageDAO implements LanguageDAO{
 	@Override
 	public List<String> getAllLanguages() {
 		List<String> allLanguages = new ArrayList<>();
-		String sqlGetAllLanguages = "SELECT code_language FROM language ORDER BY code_language ASC";
+		String sqlGetAllLanguages = "SELECT code_language FROM language ORDER BY language_id ASC";
 		SqlRowSet results = jdbcTemplate.queryForRowSet(sqlGetAllLanguages);
 		while (results.next()) {
 			allLanguages.add(results.getString("code_language"));

@@ -6,11 +6,11 @@
 <!-- <link rel="stylesheet" href="css/site.css" /> -->
 <c:import url="/WEB-INF/jsp/common/header.jsp" />
 
-<c:url var="urlSearchById" value="/searchByIdGoToEditPage" />
+<%-- <c:url var="urlSearchById" value="/searchByIdGoToEditPage" />
 <form action="${ urlSearchById }" method="GET">
 	<input type="text" name="searchId" placeholder="Enter Snippet ID" /> <input
 		type="submit" value="Search By ID" />
-</form>
+</form> --%>
 
 <c:url value="/submitEditedSnippet" var="urlSubmitChanges" />
 <form:form action="${urlSubmitChanges}" method="POST"
@@ -138,21 +138,21 @@
 				</ul>
 			</div>
 
-			<div>
+			<!-- 			<div>
 				<ul>
 					<li class="inputlabel"><label for="publicView">Snippet
 							ID: </label></li>
 				</ul>
 			</div>
-
-			<div>
+ -->
+			<%-- 			<div>
 				<ul>
 					<li class="inputbox">
 						<a class="inputbox">${ snippet.id }</a>
 						<input type="hidden" name = "id" value = "${ snippet.id }">
 					</li>
 				</ul>
-			</div>
+			</div> --%>
 
 			<div class="inputbutton">
 				<label for="submitForm"></label> <input type="submit"
