@@ -84,7 +84,7 @@ body {
 width: 99%;
 background-color: #212121;
 font-family: 'Ubuntu', sans-serif;
-background-image: url('../img/bgtest.jpg');
+background-image: url('../img/backgroundopacity.jpg');
 }
 
 body img {
@@ -103,7 +103,7 @@ min-height: 450px;
 background-color: #FFF;
 border-radius: 7px;
 background: #cbe2c1;
-/* background-image: url('../img/bgtest.jpg');  */
+background-image: url('../img/proglanglightened.jpg');
 background: -webkit-linear-gradient(to right, #e4f5fc, #2ab0ed);
 background: -moz-linear-gradient(to right, #e4f5fc, #2ab0ed);
 background: linear-gradient(to right, #e4f5fc, #2ab0ed);
@@ -172,3 +172,6 @@ errorClass {
 	color: red;
 }
 
+errorClass {
+	color: red;
+}
