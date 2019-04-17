@@ -34,8 +34,8 @@
 
 			<div>
 				<ul>
-					<li class="inputbox"><textarea rows="1" cols="25" name="name"
-							>${ snippet.name }</textarea></li>
+					<li class="inputbox"><input type="text" name="name" />
+						${ snippet.name }</li>
 				</ul>
 			</div>
 
@@ -48,7 +48,7 @@
 
 			<div>
 				<ul>
-					<li class="inputbox"><textarea rows="3" cols="50"
+					<li class="inputbox"><textarea rows="10" cols="50"
 							name="description" 
 							placeholder="Please enter a description here">${ snippet.description }</textarea></li>
 				</ul>
@@ -63,7 +63,7 @@
 
 			<div>
 				<ul>
-					<li class="inputbox"><textarea rows="8" cols="35" name="code"
+					<li class="inputbox"><textarea rows="10" cols="50" name="code"
 							>${ snippet.code }</textarea></li>
 				</ul>
 			</div>
@@ -76,8 +76,8 @@
 
 			<div>
 				<ul>
-					<li class="inputbox"><textarea rows="1" cols="25" name="tag"
-							>${ tag.tag }</textarea></li>
+					<li class="inputbox"><input type="text" name="tag" />
+							${ tag.tag }</li>
 				</ul>
 			</div>
 
@@ -110,20 +110,20 @@
 
 			<div>
 				<ul>
-					<li class="inputlabel"><label for="publicView">Attribution
+					<li class="inputlabel"><label for="attribution">Attribution
 					</label></li>
 				</ul>
 			</div>
 
 			<div>
 				<ul>
-					<li class="inputbox"><textarea rows="1" cols="50"
-							name="attribution" >${ snippet.attribution }</textarea></li>
+					<li class="inputbox"><input type="text"
+							name="attribution" size="50" />${ snippet.attribution }</li>
 					<!-- Maybe make separate attribution (name of source) and reference link -->
 				</ul>
 			</div>
 
-			<div>
+			<!-- <div>
 				<ul>
 					<li class="inputlabel"><label for="publicView">Make
 							Public? </label></li>
@@ -132,12 +132,12 @@
 
 			<div>
 				<ul>
-					<!-- Need to create method to check box as needed -->
+					Need to create method to check box as needed
 					<li class="inputbox"><input type="checkbox" name="publicView"
 						value="true" /></li>
 				</ul>
 			</div>
-
+ -->
 			<!-- 			<div>
 				<ul>
 					<li class="inputlabel"><label for="publicView">Snippet
