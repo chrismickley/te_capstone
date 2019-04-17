@@ -30,7 +30,7 @@
 				<ul>
 
 
-					<li class="inputbox"><input type="text" size="20" name="name"
+					<li class="inputbox"><input type="text" size="38" name="name"
 						value="${ snippet.name }" /></li>
 
 				</ul>
@@ -71,7 +71,7 @@
 
 			<div>
 				<ul>
-					<li class="inputbox"><input type="text" name="tag" size="58"
+					<li class="inputbox"><input type="text" name="tag" size="38"
 						value="${ tag.tag }" /></li>
 				</ul>
 			</div>
@@ -105,7 +105,7 @@
 			<div>
 				<ul>
 					<li class="inputbox"><input type="text" name="attribution"
-						size="58" value="${ snippet.attribution }"></li>
+						size="52" value="${ snippet.attribution }"></li>
 				</ul>
 			</div>
 
