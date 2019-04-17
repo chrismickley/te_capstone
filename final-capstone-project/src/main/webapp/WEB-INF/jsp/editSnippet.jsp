@@ -34,7 +34,12 @@
 
 			<div>
 				<ul>
+<<<<<<< HEAD
 					<li class="inputbox"><input type="text" name="name" /> ${ snippet.name }</li>
+=======
+					<li class="inputbox"><input type="text" size="20" name="name" value="${ snippet.name }"/>
+						</li>
+>>>>>>> a2e745e46608c1d06597923de75151a8f83f16c7
 				</ul>
 			</div>
 
@@ -73,7 +78,12 @@
 
 			<div>
 				<ul>
+<<<<<<< HEAD
 					<li class="inputbox"><input type="text" name="tag" /> ${ tag.tag }</li>
+=======
+					<li class="inputbox"><input type="text" name="tag" size="58" value="${ tag.tag }"/>
+							</li>
+>>>>>>> a2e745e46608c1d06597923de75151a8f83f16c7
 				</ul>
 			</div>
 
@@ -113,8 +123,13 @@
 
 			<div>
 				<ul>
+<<<<<<< HEAD
 					<li class="inputbox"><input type="text" name="attribution"
 						size="50" />${ snippet.attribution }</li>
+=======
+					<li class="inputbox"><input type="text"
+							name="attribution" size="58" value="${ snippet.attribution }"></li>
+>>>>>>> a2e745e46608c1d06597923de75151a8f83f16c7
 					<!-- Maybe make separate attribution (name of source) and reference link -->
 				</ul>
 			</div>
