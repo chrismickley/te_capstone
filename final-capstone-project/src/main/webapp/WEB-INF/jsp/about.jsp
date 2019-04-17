@@ -6,9 +6,9 @@
 <!-- <link rel="stylesheet" href="css/site.css" /> -->
 <c:import url="/WEB-INF/jsp/common/header.jsp" />
 
-<img src = "file:///Users/bstull/Development/FinalCapstone/final-capstone-team-india/final-capstone-project/src/main/webapp/img/prorammingLanguages.jpg">
+<h1>About Code Catalog</h1>
 
-<h1>About Code Catalogue</h1>
+<img src = "../src/main/webapp/img/prorammingLanguages.jpg">
 
 <p>Provide a repository of useful code snippets. There are many
 	examples on the internet but they often provide too much information. I
