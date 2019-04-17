@@ -35,7 +35,7 @@
 	<div class = "navBar">
 
 		
-				<a id= "testing" href="landing">Home</a>
+				<a id= "testing" href="home">Home</a>
 				<a id= "testing" href="about">About Us</a>
 			
 			<!-- 			<div>

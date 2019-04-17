@@ -1,28 +1,20 @@
+
 window.addEventListener('DOMContentLoaded', (event) => {
-    console.log('DOM fully loaded and paaaaaaaaarsed');
-    const converter = new showdown.Converter();
-    converter.setFlavor("github"); // This is a showdown flavor
+//    console.log('DOM fully loaded and paaaaaaaaarsed');
+    const converter = new showdown.Converter({
+    	backslashEscapesHTMLTags: true
+    });
+    converter.setFlavor("github"); 
     const tabledata = document.querySelectorAll(".tabledata2");
     console.table(tabledata);
     tabledata.forEach(codeSnippet => {
-    codeSnippet.innerHTML = converter.makeHtml(codeSnippet.innerHTML)
+    codeSnippet.innerHTML = converter.makeHtml(codeSnippet.innerText)
       
  }
  )
 });
  
-// window.addEventListener('DOMContentLoaded', (event) => {
-// console.log('DOM fully loaded and paaaaaaaaarsed');
-// function displaySnippets() {
-// const snippets = [];
-// const converter = new showdown.Converter();
-// const tabledata = document.querySelector("#tabledata2");
-// snippets.forEach(codeSnippet => {
-// tabledata.innerHTML = converter.makeHtml(tabledata.innerHTML)
-// }
-// )
-// }
-// });
+
 
 
 
