@@ -23,6 +23,30 @@ text-decoration: none;
   background-color: none;
 } */
 
+.bio {
+    text-align: left;
+    margin-right: 10px;
+    display: block;
+}
+
+.bioimage {
+    float: left;
+    margin-right: 10px;
+    max-width: 90px;
+    height: 100px;
+}
+
+.aboutimage {
+    float: center;
+    margin-right: 10px;
+    max-width: 200px;
+    height: auto;
+}
+
+.name {
+    font-weight: bolder;
+    font-weight: 900;
+}
 nav span {
 float: right;
 margin-right: 2%;  
@@ -106,7 +130,7 @@ background: #cbe2c1;
 /* background-image: url('../img/bgtest.jpg');  */
 background: -webkit-linear-gradient(to right, #e4f5fc, #2ab0ed);
 background: -moz-linear-gradient(to right, #e4f5fc, #2ab0ed);
-background: linear-gradient(to right, #e4f5fc, #2ab0ed);
+background: linear-gradient(to right, #e4f5fc, #2ab0ed); 
 }
 
 
