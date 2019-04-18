@@ -158,7 +158,8 @@ margin: auto;
   padding-top: 1%;
   display:flex;
   align-items: top;
-
+    margin-left: 5%;
+    margin-right: 5%;
   max-width: 100%;
 }
 
@@ -171,8 +172,8 @@ margin: auto;
   padding: 2px;
   display: flex;
   max-width: 33%;
-  max-height: 400px;
-  min-height: 350px;
+  max-height: 600px;
+  min-height: 450px;
 
 }
 
