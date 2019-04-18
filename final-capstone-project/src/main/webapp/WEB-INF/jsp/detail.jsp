@@ -53,7 +53,7 @@
 	<tr>
 		<th class="tableheaders"></th>
 		<td class="tabledata"><a
-			href="http://localhost:8080/capstone/searchByIdGoToEditPage?searchId=${ snippet.id }">Edit</a></td>
+			href="searchByIdGoToEditPage?searchId=${ snippet.id }">Edit</a></td>
 	</tr>
 
 	<%-- 	<c:choose>
