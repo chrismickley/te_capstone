@@ -22,23 +22,37 @@ body{
 /* ------------------------ NAVBAR ----------------*/
 
 
-header{
+/* header{
   display:flex;
   justify-content: space-between;
   color: white;
   background: #616a6b;
-}
+} */
 
 header div{
-  display:flex;
-  justify-content: space-between;
-  align-items: center;
+  /* display:flex;
+  justify-content: space-between; */
+  align-items: left; 
   font-family: 'Ubuntu', sans-serif;
   margin: 1% 1%;
 }
 
+.logoutButton {
+	background-color: #f4511e;
+  border: none;
+  color: white;
+  text-align: center;
+  font-size: 16px;
+  opacity: 0.6;
+  transition: 0.3s;
+  text-decoration: none;
+  cursor: pointer;
+    border-radius: 15px;
+}
+.logoutButton:hover {opacity: 5;}
+
 header div i{
-  font-size: 2rem;
+  font-size: 1rem;
   /* margin: 1rem; */
 }
 
@@ -50,9 +64,47 @@ header div i{
 nav ul li{
   list-style: none;
   display: inline;
-  text-transform: uppercase;
+  /* text-transform: uppercase; */
   font-weight: bold;
-  letter-spacing: 5px;
+  /* letter-spacing: 2px; */
+}
+.navBar {
+background-color:#616a6b;
+margin-bottom: 0%;
+padding: 1%;
+height: 0%;
+text-decoration: none;
+}
+
+nav span {
+float: right;
+margin-right: 2%;  
+margin-top: 0%;
+color: #97a6a7;
+}
+
+#testing { 
+color: whitesmoke;
+font-weight: bold;
+text-decoration: none;
+padding-right: 1%;
+padding-left: 1%;
+
+} 
+
+#testing2 { 
+float: right;
+color: whitesmoke;
+font-weight: bold;
+text-decoration: none;
+padding-right: 1%;
+padding-left: 1%;
+}
+#testing:hover {opacity: 5;
+color: black;
+}
+#testing2:hover {opacity: 5;
+color: black;
 }
 
 nav li a{
@@ -106,7 +158,8 @@ margin: auto;
   padding-top: 1%;
   display:flex;
   align-items: top;
-
+    margin-left: 5%;
+    margin-right: 5%;
   max-width: 100%;
 }
 
@@ -119,8 +172,8 @@ margin: auto;
   padding: 2px;
   display: flex;
   max-width: 33%;
-  max-height: 400px;
-  min-height: 350px;
+  max-height: 600px;
+  min-height: 450px;
 
 }
 

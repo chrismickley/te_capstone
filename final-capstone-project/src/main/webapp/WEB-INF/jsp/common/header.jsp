@@ -41,11 +41,6 @@
 				<a id="testing" href="addSnippet">Add Code Snippet</a>
 			</c:if>
 			
-<%-- 			<c:if test="${currentUser.userName != null}">
-
-				<a id="testing" href="editSnippet">Edit Code Snippet</a>
-
-			</c:if> --%>
 
 			<c:if test="${currentUser.userName == null}">
 				<a id="testing2" href="register">Register</a>

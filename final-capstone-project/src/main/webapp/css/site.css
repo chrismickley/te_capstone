@@ -189,6 +189,10 @@ grid-template-columns: 1fr 2fr;
 column-gap: 0px;
 
 }
+ul li .registerlabel{
+    list-style-type: none;
+    color: red;
+}
 
 #searchlabel{
 list-style-type: none;
