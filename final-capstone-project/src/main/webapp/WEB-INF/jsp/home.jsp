@@ -116,7 +116,7 @@
 					<h3>Methods of Learning</h3>
 					<p>Developers
 					are increasingly learning new languages on their own using self-taught methods.</p>
-					<a href="img/mostpopularlanguages.png"><img src="img/learningmethods.png">	</a>
+					<a href="img/learningmethods.png"><img src="img/learningmethods.png">	</a>
 						<p>SOURCE:<a href="https://insights.stackoverflow.com/survey/2018"> StackOver Flow 2018 Survey</a></p>
 			</div>
 
@@ -132,16 +132,16 @@
 
 				<h3>Links to Popular Code Snippets</h3>
 				<ul>
-				<li class="links"><a href="https://www.analyticbridge.datasciencecentral.com/group/codesnippets/forum/topics/credit-card-number-and-password-encoder-decoder"><font class="fontcolorjs">JavaScript </font>Credit card number and password encoder / decoder</a></li>
-				<li class="links"><a href="https://html-online.com/articles/common-javascript-jquery-code-snippets/"><font class="fontcolorjs">JavaScript </font>Show an element when another is clicked</a></li>
-				<li class="links"><a href="https://www.htmlgoodies.com/beyond/javascript/article.php/3887346/Top-10-JavaScript-Snippets-for-Common-Tasks.htm"><font class="fontcolorjs">JavaScript </font>Date Display</a></li>
-				<li class="links"><a href="https://www.webhostingsecretrevealed.net/blog/featured-articles/15-cool-javascript-sample-snippets/"><font class="fontcolorjs">JavaScript </font>E-mail Validation</a></li>
-				<li class="links"><a href="https://jaxenter.com/15-useful-code-snippets-java-developers-131796.html"><font class="fontcolorj">Java </font>Using Java JDBC to connect to Oracle</a></li>
-				<li class="links"><a href="https://viralpatel.net/blogs/20-useful-java-code-snippets-for-java-developers/"><font class="fontcolorj">Java </font>Append text to file in Java</a></li>
-				<li class="links"><a href="https://jaxenter.com/15-useful-code-snippets-java-developers-131796.html"><font class="fontcolorj">Java </font>Converting Array to Map in Java</a></li>
-				<li class="links"><a href="https://www.pythonforbeginners.com/code-snippets-source-code/python-script-log-checker/"><font class="fontcolorpy">Python </font>Log checker</a></li>
-				<li class="links"><a href="https://www.pythonforbeginners.com/code-snippets-source-code/date-and-time-script/"><font class="fontcolorpy">Python </font>Date and Time Script</a></li>
-				<li class="links"><a href="https://snippets.readthedocs.io/en/latest/list.html#sort-a-list-of-dictionaries-by-values-of-the-dictionary"><font class="fontcolorpy">Python </font>Multiple snippets for list manipulation</a></li>
+				<li class="links"><a href="https://www.analyticbridge.datasciencecentral.com/group/codesnippets/forum/topics/credit-card-number-and-password-encoder-decoder" target="_blank"><font class="fontcolorjs">JavaScript </font>Credit card number and password encoder / decoder</a></li>
+				<li class="links"><a href="https://html-online.com/articles/common-javascript-jquery-code-snippets/ " target="_blank"><font class="fontcolorjs">JavaScript </font>Show an element when another is clicked</a></li>
+				<li class="links"><a href="https://www.htmlgoodies.com/beyond/javascript/article.php/3887346/Top-10-JavaScript-Snippets-for-Common-Tasks.htm" target="_blank"><font class="fontcolorjs">JavaScript </font>Date Display</a></li>
+				<li class="links"><a href="https://www.webhostingsecretrevealed.net/blog/featured-articles/15-cool-javascript-sample-snippets/" target="_blank"><font class="fontcolorjs">JavaScript </font>E-mail Validation</a></li>
+				<li class="links"><a href="https://jaxenter.com/15-useful-code-snippets-java-developers-131796.html" target="_blank"><font class="fontcolorj" target="_blank">Java </font>Using Java JDBC to connect to Oracle</a></li>
+				<li class="links"><a href="https://viralpatel.net/blogs/20-useful-java-code-snippets-for-java-developers/" target="_blank"><font class="fontcolorj">Java </font>Append text to file in Java</a></li>
+				<li class="links"><a href="https://jaxenter.com/15-useful-code-snippets-java-developers-131796.html" target="_blank"><font class="fontcolorj">Java </font>Converting Array to Map in Java</a></li>
+				<li class="links"><a href="https://www.pythonforbeginners.com/code-snippets-source-code/python-script-log-checker/" target="_blank"><font class="fontcolorpy">Python </font>Log checker</a></li>
+				<li class="links"><a href="https://www.pythonforbeginners.com/code-snippets-source-code/date-and-time-script/" target="_blank"><font class="fontcolorpy">Python </font>Date and Time Script</a></li>
+				<li class="links"><a href="https://snippets.readthedocs.io/en/latest/list.html#sort-a-list-of-dictionaries-by-values-of-the-dictionary" target="_blank"><font class="fontcolorpy">Python </font>Multiple snippets for list manipulation</a></li>
 				</ul>
 				
 				
