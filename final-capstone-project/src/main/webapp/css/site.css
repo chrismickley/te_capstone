@@ -49,6 +49,10 @@ Sample snippet page
 	padding-left: 25px;
 }
 
+#sample_snippets_title {
+	max-width: 125px;
+}
+
 /*********************/
 
 #testing { 
