@@ -1,0 +1,175 @@
+
+ .titleBar {
+background-color: #17202a;
+color: white;
+padding: 1% 1%;
+padding-left: 35px;
+background-image: url('../img/IMG_1933.jpg');
+font-family: 'Ubuntu', sans-serif;
+} 
+
+
+.navBar {
+background-color:#616a6b;
+margin-bottom: 0%;
+padding: 1%;
+height: 0%;
+text-decoration: none;
+}
+
+/* textarea:nth-child(1) {
+  width: 350px;
+  height: 250px;
+  background-color: none;
+} */
+
+
+nav span {
+float: right;
+margin-right: 2%;  
+margin-top: 0%;
+color: #97a6a7;
+}
+
+#testing { 
+color: whitesmoke;
+font-weight: bold;
+text-decoration: none;
+padding-right: 1%;
+padding-left: 1%;
+
+} 
+
+#testing:hover {opacity: 5;
+color: blue;
+}
+
+#testing2 { 
+float: right;
+color: whitesmoke;
+font-weight: bold;
+text-decoration: none;
+padding-right: 1%;
+padding-left: 1%;
+}
+
+#testing2:hover {opacity: 5;
+color: blue;
+}
+
+#welcome {
+margin: 0px;
+float: right;
+color: black;
+font-family: sans-serif;
+font-size: .85em;
+text-decoration: none;
+}
+
+.logoutButton {
+	background-color: #f4511e;
+  border: none;
+  color: white;
+  text-align: center;
+  font-size: 16px;
+  opacity: 0.6;
+  transition: 0.3s;
+  text-decoration: none;
+  cursor: pointer;
+    border-radius: 15px;
+}
+
+.logoutButton:hover {opacity: 5;}
+
+body {
+width: 99%;
+background-color: #212121;
+font-family: 'Ubuntu', sans-serif;
+background-image: url('../img/bgtest.jpg');
+}
+
+/* body img {
+    opacity: 0.2;
+}
+ */
+
+section {
+clear: both;
+display: block;
+width: 90%;
+margin: 2% auto;
+vertical-align: top;
+text-align: center;
+min-height: 450px;
+background-color: #FFF;
+border-radius: 7px;
+background: #cbe2c1;
+/* background-image: url('../img/bgtest.jpg');  */
+background: -webkit-linear-gradient(to right, #e4f5fc, #2ab0ed);
+background: -moz-linear-gradient(to right, #e4f5fc, #2ab0ed);
+background: linear-gradient(to right, #e4f5fc, #2ab0ed); 
+}
+
+
+#userfunctions {
+    display: flex;
+flex-direction: row;
+color: white;
+    background-color: #616a6b;
+margin-bottom: 0%;
+padding: 1%;
+height: 0%;
+float: right;
+}
+
+#submitCode {
+list-style-type: none;
+text-align: left;
+}
+.tableheaders {
+text-align: left;
+font-weight: bold;
+}
+.tabledata {
+text-align: left;
+}
+.tabledata2 {
+text-align: left;
+}
+
+.tableproperties {
+width: 90%;
+}
+.inputlabel {
+list-style-type: none;
+text-align: right;
+}
+
+.inputbox {
+list-style-type: none;
+text-align: left;
+
+}
+.inputbutton {
+grid-column: span 2;
+
+}
+.addSnippet-form-items {
+display: grid;
+grid-template-columns: 1fr 2fr;
+column-gap: 0px;
+
+}
+
+#searchlabel{
+list-style-type: none;
+}
+
+#searchbox {
+list-style-type: none;
+}
+
+errorClass {
+	color: red;
+}
+
