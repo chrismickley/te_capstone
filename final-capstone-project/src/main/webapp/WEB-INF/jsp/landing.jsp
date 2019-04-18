@@ -22,11 +22,11 @@
 <table class="tableproperties">
 
 	<tr>
-		<th class="tableheaders">Title of Snippet</th>
-		<th class="tableheaders">Code</th>
-		<th class="tableheaders">Description</th>
-		<th class="tableheaders">Language</th>
-		<th class="tableheaders">Attribution</th>
+		<th class="tableheaders" id="sample_snippets_title">Title of Snippet</th>
+		<th class="tableheaders" id="sample_snippets_code">Code</th>
+		<th class="tableheaders" id="sample_snippets_description">Description</th>
+		<th class="tableheaders" id="sample_snippets_language">Language</th>
+		<th class="tableheaders" id="sample_snippets_attribution">Attribution</th>
 	</tr>
 	<c:forEach var="snippet" items="${ snippets }">
 
@@ -45,7 +45,7 @@
 		<tr>
 			<td class="tabledata" id="landing_details"><a
 				href="http://localhost:8080/capstone/searchOneById?searchId=${ snippet.id }">${ snippet.name }</a></td>
-			<td class="tabledata2"><c:out value="```${ snippet.code }```"></c:out></td>
+			<td class="tabledata2" class="tabledata"><c:out value="```${ snippet.code }```"></c:out></td>
 			<td class="tabledata"><c:out value="${ snippet.description }"></c:out></td>
 			<td class="tabledata"><c:out value="${ snippet.language }"></c:out></td>
 			<td class="tabledata"><c:out value="${ snippet.attribution }"></c:out></td>
