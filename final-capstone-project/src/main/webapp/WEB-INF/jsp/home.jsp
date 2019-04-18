@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <link rel="stylesheet" href="css/home.css" />
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 
 <head>
 <meta charset="UTF-8">
@@ -18,11 +20,53 @@
 			<i class="fas fa-atom"></i>
 		</div>
 		<nav>
-			<ul>
-				<li><a href="register">Register</a></li>
-				<li><a href="login">Login</a></li>
+		<div class="navBar">
+<!-- 			<ul>
 
-			</ul>
+				<li><a href="about">About</a>
+				<li><a href="landing">Sample Sippets</a></li>
+				<li><a href="addSnippet">Add Code Snippet</a></li>
+				<li><a href="login">Login</a></li>
+				<li><a href="register">Register</a></li>
+
+			</ul> -->
+
+			
+				<a id="testing" href="home">Home</a> <a id="testing" href="about">About
+				Us</a>
+
+
+			<c:if test="${currentUser.userName != null}">
+				<a id="testing" href="landing">Sample Snippets</a>
+			</c:if>
+			
+			<c:if test="${currentUser.userName != null}">
+				<a id="testing" href="addSnippet">Add Code Snippet</a>
+			</c:if>
+			
+
+			<c:if test="${currentUser.userName == null}">
+				<a id="testing2" href="login">Login</a>
+				<a id="testing2" href="register">Register</a>
+			</c:if>
+
+
+			<c:if test="${currentUser.userName != null}">
+
+				<span id="welcome">Welcome, ${currentUser.userName}</span>
+
+			</c:if>
+			
+			<c:if test="${currentUser.userName != null}">
+				<c:url var="formAction" value="/logout" />
+				<span><form method="POST" action="${formAction}">
+						<input type="hidden" name="destination"
+							value="${param.destination}" />
+						<button class="logoutButton" type="Logout">Logout</button>
+					</form></span>
+				</c:if>
+		
+			</div>
 		</nav>
 	</header>
 

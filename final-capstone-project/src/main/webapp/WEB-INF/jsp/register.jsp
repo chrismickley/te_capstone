@@ -7,33 +7,37 @@ pageEncoding="UTF-8"%>
 <c:url value="/register" var= "registerUrl" />
 
 <form:form action="${registerUrl}" method="POST" modelAttribute="register">
-<div>
 
+<div class="registerlist">
 <p>Welcome to the Registration Page</p>
-<div>
-            <label for="userName">User Name</label>
-			<form:input path="userName" />            
-            
-        </div>
+
+
+<ul>
+           <li class="registerlabel"> <label for="userName">User Name</label></li>
+			<li class="registerinput"><form:input path="userName" /> </li>           
+  </ul>          
+     
         
-        <div>
-            <label for="password">Password</label>
-			<form:input path="password" />            
-        		<form:errors path="password" cssClass="error"/>
-        	
+       <ul>
+            <li class="registerlabel"><label for="password">Password</label></li>
+			<li class="registerinput"><form:input path="password" />            
+        		<form:errors path="password" cssClass="error"/></li>
+        </ul>
 
             
             
-        </div>
-        <div>
-            <label for="confirmPassword">Confirm Password</label>
-            <form:input path="confirmPassword" />
+      
+        <ul>
+           <li class="registerlabel"> <label for="confirmPassword">Confirm Password</label></li>
+           <li class="registerinput"> <form:input path="confirmPassword" />
             <form:errors path="confirmPassword" cssClass="error"/>
-            <form:errors path="passwordMatching" cssClass="error"/>
-        </div>
-        <div>
+            <form:errors path="passwordMatching" cssClass="error"/></li>
+       </ul>
+        <ul>
+        <li>
             <button type="submit">Submit</button>
-        </div>
+            </li>
+        </ul>
 </div>
 
 </form:form>
