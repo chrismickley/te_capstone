@@ -75,7 +75,7 @@
 		<h1>Code Catalog</h1>
 		<p>Reusability of code is a foundational principle which helps
 			create efficiency and consistency in the coding process. The Code
-			Catalog is a website intended to help beginner coders store working
+			Catalog is a website intended to help beginning coders store
 			code snippets, and create a working repository for learning and
 			reusing coding artifacts.</p>
 
@@ -92,7 +92,7 @@
 	
 					<h3>Language Trends</h3>
 					<p> Click the
-						graph below to see the currently most utilized development
+						graph below to see the most utilized development
 						languages compared to what is anticipated for 2019.</p>
 							<a href="img/mostpopularlanguages.png"><img src="img/mostpopularlanguages.png">	</a>
 					<p>

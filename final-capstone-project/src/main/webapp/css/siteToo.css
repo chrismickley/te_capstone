@@ -33,7 +33,7 @@ padding-left: 1%;
 } 
 
 #testing:hover {opacity: 5;
-color: blue;
+color: black;
 }
 
 #testing2 { 
@@ -46,7 +46,7 @@ padding-left: 1%;
 }
 
 #testing2:hover {opacity: 5;
-color: blue;
+color: black;
 }
 
 #welcome {
@@ -65,7 +65,6 @@ text-decoration: none;
   text-align: center;
   font-size: 16px;
   opacity: 0.6;
-  transition: 0.3s;
   text-decoration: none;
   cursor: pointer;
     border-radius: 15px;
